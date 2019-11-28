@@ -1,0 +1,169 @@
+{
+    "version" : "0.1",
+    "start" : "S[s_begin];",
+
+    "S[s_begin];    I[input]; L[line]; I->L [next_line]" :
+    "S[s_readline]; I[input]; L[line]; I->L [next_line]; C[cursor]; C->L [input]; O[output]; O->O2; C->O2 [output]",
+
+    "S[s_end]; C[cursor]; C->BLANK [output]; X[1]; X -> BLANK" :
+    "S[s_end2]; X[1]",
+
+    "S[s_readline]; L[line]; C[cursor]; C->L [input]; L->X [next_char]; X[+];" :
+    "S[s_readchar]; L[line]; C[cursor]; C->X [input]; L->X [next_char]; X[+]",
+
+    "S[s_readline]; L[line]; C[cursor]; C->L [input]; L->X [next_char]; X[-]" :
+    "S[s_readchar]; L[line]; C[cursor]; C->X [input]; L->X [next_char]; X[-]",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [end_of_line]; X[0]; Y[line]; Z[line]; Y->Z[next_line]" :
+    "S[s_readline]; C[cursor]; C->Z [input]; X->Y [end_of_line]; X[0]; Y[line]; Z[line]; Y->Z[next_line]",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [end_of_line]; X[1]; Y[line]; Z[line]; Y->Z[next_line]" :
+    "S[s_readline]; C[cursor]; C->Z [input]; X->Y [end_of_line]; X[1]; Y[line]; Z[line]; Y->Z[next_line]",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [end_of_line]; X[1]; Y[line]; Z[end_of_input]; Y->Z[end_of_input]" :
+    "S[s_end];      C[cursor];               X->Y [end_of_line]; X[1]; Y[line]; Z[end_of_input]; Y->Z[end_of_input]",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [end_of_line]; X[2]; Y[line]; Z[line]; Y->Z[next_line]" :
+    "S[s_readline]; C[cursor]; C->Z [input]; X->Y [end_of_line]; X[2]; Y[line]; Z[line]; Y->Z[next_line]",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [end_of_line]; X[3]; Y[line]; Z[line]; Y->Z[next_line]" :
+    "S[s_readline]; C[cursor]; C->Z [input]; X->Y [end_of_line]; X[3]; Y[line]; Z[line]; Y->Z[next_line]",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [end_of_line]; X[4]; Y[line]; Z[line]; Y->Z[next_line]" :
+    "S[s_readline]; C[cursor]; C->Z [input]; X->Y [end_of_line]; X[4]; Y[line]; Z[line]; Y->Z[next_line]",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [end_of_line]; X[5]; Y[line]; Z[line]; Y->Z[next_line]" :
+    "S[s_readline]; C[cursor]; C->Z [input]; X->Y [end_of_line]; X[5]; Y[line]; Z[line]; Y->Z[next_line]",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [end_of_line]; X[6]; Y[line]; Z[line]; Y->Z[next_line]" :
+    "S[s_readline]; C[cursor]; C->Z [input]; X->Y [end_of_line]; X[6]; Y[line]; Z[line]; Y->Z[next_line]",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [end_of_line]; X[7]; Y[line]; Z[line]; Y->Z[next_line]" :
+    "S[s_readline]; C[cursor]; C->Z [input]; X->Y [end_of_line]; X[7]; Y[line]; Z[line]; Y->Z[next_line]",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [end_of_line]; X[8]; Y[line]; Z[line]; Y->Z[next_line]" :
+    "S[s_readline]; C[cursor]; C->Z [input]; X->Y [end_of_line]; X[8]; Y[line]; Z[line]; Y->Z[next_line]",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [end_of_line]; X[9]; Y[line]; Z[line]; Y->Z[next_line]" :
+    "S[s_readline]; C[cursor]; C->Z [input]; X->Y [end_of_line]; X[9]; Y[line]; Z[line]; Y->Z[next_line]",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[+]; Y[0]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[+]; Y[0]; C->ON [output]; O[0]; O->ON",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[+]; Y[1]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[+]; Y[1]; C->ON [output]; O[1]; O->ON",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[+]; Y[2]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[+]; Y[2]; C->ON [output]; O[2]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[+]; Y[3]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[+]; Y[3]; C->ON [output]; O[3]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[+]; Y[4]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[+]; Y[4]; C->ON [output]; O[4]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[+]; Y[5]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[+]; Y[5]; C->ON [output]; O[5]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[+]; Y[6]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[+]; Y[6]; C->ON [output]; O[6]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[+]; Y[7]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[+]; Y[7]; C->ON [output]; O[7]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[+]; Y[8]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[+]; Y[8]; C->ON [output]; O[8]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[+]; Y[9]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[+]; Y[9]; C->ON [output]; O[9]; O->ON",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[-]; Y[0]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[-]; Y[0]; C->ON [output]; O[0]; O->ON",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[-]; Y[1]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[-]; Y[1]; C->ON [output]; O[1]; O->ON",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[-]; Y[2]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[-]; Y[2]; C->ON [output]; O[2]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[-]; Y[3]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[-]; Y[3]; C->ON [output]; O[3]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[-]; Y[4]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[-]; Y[4]; C->ON [output]; O[4]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[-]; Y[5]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[-]; Y[5]; C->ON [output]; O[5]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[-]; Y[6]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[-]; Y[6]; C->ON [output]; O[6]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[-]; Y[7]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[-]; Y[7]; C->ON [output]; O[7]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[-]; Y[8]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[-]; Y[8]; C->ON [output]; O[8]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[-]; Y[9]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[-]; Y[9]; C->ON [output]; O[9]; O->ON",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[0]; Y[0]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[0]; Y[0]; C->ON [output]; O[0]; O->ON",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[0]; Y[1]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[0]; Y[1]; C->ON [output]; O[1]; O->ON",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[0]; Y[2]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[0]; Y[2]; C->ON [output]; O[2]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[0]; Y[3]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[0]; Y[3]; C->ON [output]; O[3]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[0]; Y[4]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[0]; Y[4]; C->ON [output]; O[4]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[0]; Y[5]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[0]; Y[5]; C->ON [output]; O[5]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[0]; Y[6]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[0]; Y[6]; C->ON [output]; O[6]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[0]; Y[7]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[0]; Y[7]; C->ON [output]; O[7]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[0]; Y[8]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[0]; Y[8]; C->ON [output]; O[8]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[0]; Y[9]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[0]; Y[9]; C->ON [output]; O[9]; O->ON",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[1]; Y[0]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[1]; Y[0]; C->ON [output]; O[0]; O->ON",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[1]; Y[1]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[1]; Y[1]; C->ON [output]; O[1]; O->ON",
+
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[1]; Y[2]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[1]; Y[2]; C->ON [output]; O[2]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[1]; Y[3]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[1]; Y[3]; C->ON [output]; O[3]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[1]; Y[4]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[1]; Y[4]; C->ON [output]; O[4]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[1]; Y[5]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[1]; Y[5]; C->ON [output]; O[5]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[1]; Y[6]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[1]; Y[6]; C->ON [output]; O[6]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[1]; Y[7]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[1]; Y[7]; C->ON [output]; O[7]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[1]; Y[8]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[1]; Y[8]; C->ON [output]; O[8]; O->ON",
+    
+    "S[s_readchar]; C[cursor]; C->X [input]; X->Y [next_char]; X[1]; Y[9]; C->O [output]" :
+    "S[s_readchar]; C[cursor]; C->Y [input]; X->Y [next_char]; X[1]; Y[9]; C->ON [output]; O[9]; O->ON"
+}
