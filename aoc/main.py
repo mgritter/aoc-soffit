@@ -75,6 +75,9 @@ def execute_run_graph( g, path, verbose=True ):
                 if g.nodes[i_n]['tag'] == 'multiline':
                     with open( sys.argv[2], "r" ) as f:
                         input.add_multiline_input_to_graph( f, working_graph )
+                elif g.nodes[i_n]['tag'] == 'text':
+                    with open( sys.argv[2], "r" ) as f:
+                        input.add_input_to_graph( f, working_graph )
 
             curr_step = StepReport( step_count, grammar_name )
             step_count += 1

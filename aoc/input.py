@@ -1,5 +1,35 @@
 import networkx as nx
- 
+
+def input_node_generator():
+    input_node = 1
+    while True:
+        yield "INPUT" + str( input_node )
+        input_node += 1
+
+
+def add_input_to_graph( f, g ):
+    if not nx.is_directed( g ):
+        raise Exception( "single line input graph must be directed." )
+
+    ng = input_node_generator()
+    g.add_node( "INPUT", tag="input" )
+    last_char = "INPUT"
+
+    # Should be just one line in the file
+    line = next( f )
+    line = line.strip()
+
+    for c in line:
+        n = next( ng )
+        g.add_node( n, tag=c )
+        g.add_edge( last_char, n, tag="next_char" )
+        last_char = n
+    
+
+    end = next( ng )
+    g.add_node( end, tag="end_of_input" )
+    g.add_edge( last_char, end, tag="next_char" )
+        
 def add_multiline_input_to_graph( f, g ):
     if not nx.is_directed( g ):
         raise Exception( "Multiline input graph must be directed." )
