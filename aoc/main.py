@@ -6,6 +6,7 @@ import os.path
 
 from soffit.display import drawSvg
 import soffit.application as soffit
+import time
 
 def has_edge( g, n, edge_tag ):
     for i,j,t in g.out_edges( n, 'tag' ):
@@ -14,31 +15,56 @@ def has_edge( g, n, edge_tag ):
     return None
 
 def make_video( iteration, g ):
+    return
+
     g = g.copy()
     for n,t in g.nodes.data( 'tag' ):
         if t == 'cursor':
             g.nodes[n]['color'] = 'red'
     drawSvg( g, "aoc{:03d}.svg".format( iteration ),
              program="dot" )
-    
+
+class StepReport(object):
+    def __init__( self, id, grammar ):
+        self.id = id
+        self.grammar = grammar
+
+    def start( self ):
+        self.start_time = time.monotonic()
+
+    def stop( self, num_iter ):
+        self.end_time = time.monotonic()
+        self.num_iterations = num_iter
+
+    def show( self ):
+        print( "{:3d} {:20} {:6d} {:6.1f}s".format(
+            self.id, self.grammar,
+            self.num_iterations,
+            self.end_time - self.start_time ) )
+        
 def execute_run_graph( g, path, verbose=True ):
     start = [ n for n,t in g.nodes.data( 'tag' ) if t == "start" ]
     if len( start ) == 0:
         raise Exception( "No start node found." )
     if len( start ) > 1:
         raise Exception( "More than one start node." )
-    
+
+    drawSvg( g, "execution-plan.svg", program="dot" )
+
     curr = start[0]
     working_graph = None
+    step_count = 1
+    step_reports = []
     
     while True:
         g_n = has_edge( g, curr, 'grammar' )
         grammar = None
         if g_n is not None:
+            grammar_name = g.nodes[g_n]['tag']
             if verbose:
-                print( "Loading grammar", g.nodes[g_n]['tag'] )
-            # FIXME: interpret relative to main
-            grammar = soffit.loadGrammar( os.path.join( path, g.nodes[g_n]['tag'] ) )
+                print( "Executing grammar", grammar_name )
+
+            grammar = soffit.loadGrammar( os.path.join( path, grammar_name ) )
             if working_graph is None:
                 working_graph = grammar.start.to_directed()
             
@@ -50,6 +76,11 @@ def execute_run_graph( g, path, verbose=True ):
                     with open( sys.argv[2], "r" ) as f:
                         input.add_multiline_input_to_graph( f, working_graph )
 
+            curr_step = StepReport( step_count, grammar_name )
+            step_count += 1
+            step_reports.append( curr_step )
+            curr_step.start()
+            
             a = soffit.ApplicationState(
                 initialGraph = working_graph,
                 grammar = grammar,
@@ -57,8 +88,18 @@ def execute_run_graph( g, path, verbose=True ):
             )
             a.verbose = verbose
             if verbose:
-                print( "Running grammar" )                
-            a.run( 1000 )
+                print( "Running grammar" )
+            try:
+                a.run( 1000000 )
+                curr_step.stop( a.iteration )
+                drawSvg( a.graph,
+                         "after-step-{}.svg".format( curr_step.id ),
+                         program="neato",
+                         dotFile="after-step-{}.dot".format( curr_step.id ) )
+            except KeyboardInterrupt:
+                print( "Interupted!" )
+                return a.graph
+            
             working_graph = a.graph
         else:
             raise Exception( "No grammar found." )
@@ -68,9 +109,32 @@ def execute_run_graph( g, path, verbose=True ):
             break
 
         curr = n_n
+
+    print( "-" * 80 )
+
+    print( "{:3} {:20} {:6} {:6}".format( "", "Grammar", "Steps", "Time" ) ) 
+    for s in step_reports:
+        s.show()
         
     return working_graph    
 
+def show_output_as_string( g ):
+    outputs = [ n for n,t in g.nodes.data( 'tag' ) if t == 'output' ]
+    header = False
+    for o in outputs:
+        line = has_edge( g, o, 'output' )        
+        while line is not None:
+            text = []
+            curr = has_edge( g, line, 'next_char' )
+            while curr is not None:
+                text.append( g.nodes[curr]['tag'] )
+                curr = has_edge( g, curr, 'next_char' )
+            if not header:
+                print( "-" * 80 )
+                header = True                
+            print( "".join( text ) )
+            line = has_edge( g, line, 'next_line' )
+    
 def main():
     if len( sys.argv ) < 3:
         print( "Usage: python -m aoc.main <rungraph> <input>" )
@@ -83,6 +147,8 @@ def main():
         drawSvg( g, "aoc.svg",
                  program="dot",
                  dotFile="aoc.dot" )
+
+        show_output_as_string( g )        
     except Exception as e:
         traceback.print_exc()
         

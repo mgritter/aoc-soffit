@@ -1,0 +1,749 @@
+{
+    "version" : "0.1",
+    "start" : "",
+
+    "COMMENT[start adding two adjacent lines]" : "",
+
+    "L[subtracted_line]" :
+    "L[line]",
+
+    "L1[line]; L2[line]; L1->L2 [next_line]" :
+    "L1[adding_line]; L2[adding_line]; L1->L2 [next_line]; C[adder]; C->L1 [a]; C->L2 [b]; Z[0]; C->Z [carry]",
+
+    "COMMENT[move to least significant digits]" : "",
+    
+    "A[0]; L1[adding_line]; C[adder]; C->L1 [a]; A->L1 [end_of_line];" :    
+    "A[0]; L1[adding_line]; C[adder]; C->A [a];  A->L1 [end_of_line];",
+    "A[1]; L1[adding_line]; C[adder]; C->L1 [a]; A->L1 [end_of_line];" :    
+    "A[1]; L1[adding_line]; C[adder]; C->A [a];  A->L1 [end_of_line];",
+    "A[2]; L1[adding_line]; C[adder]; C->L1 [a]; A->L1 [end_of_line];" :    
+    "A[2]; L1[adding_line]; C[adder]; C->A [a];  A->L1 [end_of_line];",
+    "A[3]; L1[adding_line]; C[adder]; C->L1 [a]; A->L1 [end_of_line];" :    
+    "A[3]; L1[adding_line]; C[adder]; C->A [a];  A->L1 [end_of_line];",
+    "A[4]; L1[adding_line]; C[adder]; C->L1 [a]; A->L1 [end_of_line];" :    
+    "A[4]; L1[adding_line]; C[adder]; C->A [a];  A->L1 [end_of_line];",
+    "A[5]; L1[adding_line]; C[adder]; C->L1 [a]; A->L1 [end_of_line];" :    
+    "A[5]; L1[adding_line]; C[adder]; C->A [a];  A->L1 [end_of_line];",
+    "A[6]; L1[adding_line]; C[adder]; C->L1 [a]; A->L1 [end_of_line];" :    
+    "A[6]; L1[adding_line]; C[adder]; C->A [a];  A->L1 [end_of_line];",
+    "A[7]; L1[adding_line]; C[adder]; C->L1 [a]; A->L1 [end_of_line];" :    
+    "A[7]; L1[adding_line]; C[adder]; C->A [a];  A->L1 [end_of_line];",
+    "A[8]; L1[adding_line]; C[adder]; C->L1 [a]; A->L1 [end_of_line];" :    
+    "A[8]; L1[adding_line]; C[adder]; C->A [a];  A->L1 [end_of_line];",
+    "A[9]; L1[adding_line]; C[adder]; C->L1 [a]; A->L1 [end_of_line];" :    
+    "A[9]; L1[adding_line]; C[adder]; C->A [a];  A->L1 [end_of_line];",
+
+    "B[0]; L1[adding_line]; C[adder]; C->L1 [b]; B->L1 [end_of_line];" :    
+    "B[0]; L1[adding_line]; C[adder]; C->B [b];  B->L1 [end_of_line];",
+    "B[1]; L1[adding_line]; C[adder]; C->L1 [b]; B->L1 [end_of_line];" :    
+    "B[1]; L1[adding_line]; C[adder]; C->B [b];  B->L1 [end_of_line];",
+    "B[2]; L1[adding_line]; C[adder]; C->L1 [b]; B->L1 [end_of_line];" :    
+    "B[2]; L1[adding_line]; C[adder]; C->B [b];  B->L1 [end_of_line];",
+    "B[3]; L1[adding_line]; C[adder]; C->L1 [b]; B->L1 [end_of_line];" :    
+    "B[3]; L1[adding_line]; C[adder]; C->B [b];  B->L1 [end_of_line];",
+    "B[4]; L1[adding_line]; C[adder]; C->L1 [b]; B->L1 [end_of_line];" :    
+    "B[4]; L1[adding_line]; C[adder]; C->B [b];  B->L1 [end_of_line];",
+    "B[5]; L1[adding_line]; C[adder]; C->L1 [b]; B->L1 [end_of_line];" :    
+    "B[5]; L1[adding_line]; C[adder]; C->B [b];  B->L1 [end_of_line];",
+    "B[6]; L1[adding_line]; C[adder]; C->L1 [b]; B->L1 [end_of_line];" :    
+    "B[6]; L1[adding_line]; C[adder]; C->B [b];  B->L1 [end_of_line];",
+    "B[7]; L1[adding_line]; C[adder]; C->L1 [b]; B->L1 [end_of_line];" :    
+    "B[7]; L1[adding_line]; C[adder]; C->B [b];  B->L1 [end_of_line];",
+    "B[8]; L1[adding_line]; C[adder]; C->L1 [b]; B->L1 [end_of_line];" :    
+    "B[8]; L1[adding_line]; C[adder]; C->B [b];  B->L1 [end_of_line];",
+    "B[9]; L1[adding_line]; C[adder]; C->L1 [b]; B->L1 [end_of_line];" :    
+    "B[9]; L1[adding_line]; C[adder]; C->B [b];  B->L1 [end_of_line];",
+
+    "COMMENT[add a to b, clearing a]" : "",
+
+    "A[0]; B[0]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[1]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[2]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[3]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[6]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[7]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[8]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[0]; B[9]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[0]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[1]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[2]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[3]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[6]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[7]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[8]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[1]; B[9]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[0]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[1]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[2]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[3]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[6]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[7]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[8]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[2]; B[9]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[0]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[1]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[2]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[3]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[6]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[7]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[8]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[3]; B[9]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[0]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[1]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[2]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[3]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[6]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[7]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[8]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[4]; B[9]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[0]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[1]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[2]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[3]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[6]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[7]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[8]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[5]; B[9]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[0]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[1]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[2]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[3]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[6]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[7]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[8]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[6]; B[9]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[0]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[1]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[2]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[3]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[6]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[7]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[8]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[7]; B[9]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[0]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[1]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[2]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[3]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[6]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[7]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[8]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[8]; B[9]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[0]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[1]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[0]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[2]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[1]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[3]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[2]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[4]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[3]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[5]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[4]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[6]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[5]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[6]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[7]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[6]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[7]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[8]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[7]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[8]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[9]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[8]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+    "A[9]; B[9]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder]" :
+    "A[x]; B[9]; C[1]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]",
+
+    "COMMENT[advance adder on a]" : "",
+    
+    "A[x]; ANEXT[0]; ANEXT->A [next_char]; R->A[a]; R[adder_advance]" :
+    "A[x]; ANEXT[0]; ANEXT->A [next_char]; R->ANEXT[a]; R[adder_advance_b]",
+    "A[x]; ANEXT[1]; ANEXT->A [next_char]; R->A[a]; R[adder_advance]" :
+    "A[x]; ANEXT[1]; ANEXT->A [next_char]; R->ANEXT[a]; R[adder_advance_b]",
+    "A[x]; ANEXT[2]; ANEXT->A [next_char]; R->A[a]; R[adder_advance]" :
+    "A[x]; ANEXT[2]; ANEXT->A [next_char]; R->ANEXT[a]; R[adder_advance_b]",
+    "A[x]; ANEXT[3]; ANEXT->A [next_char]; R->A[a]; R[adder_advance]" :
+    "A[x]; ANEXT[3]; ANEXT->A [next_char]; R->ANEXT[a]; R[adder_advance_b]",
+    "A[x]; ANEXT[4]; ANEXT->A [next_char]; R->A[a]; R[adder_advance]" :
+    "A[x]; ANEXT[4]; ANEXT->A [next_char]; R->ANEXT[a]; R[adder_advance_b]",
+    "A[x]; ANEXT[5]; ANEXT->A [next_char]; R->A[a]; R[adder_advance]" :
+    "A[x]; ANEXT[5]; ANEXT->A [next_char]; R->ANEXT[a]; R[adder_advance_b]",
+    "A[x]; ANEXT[6]; ANEXT->A [next_char]; R->A[a]; R[adder_advance]" :
+    "A[x]; ANEXT[6]; ANEXT->A [next_char]; R->ANEXT[a]; R[adder_advance_b]",
+    "A[x]; ANEXT[7]; ANEXT->A [next_char]; R->A[a]; R[adder_advance]" :
+    "A[x]; ANEXT[7]; ANEXT->A [next_char]; R->ANEXT[a]; R[adder_advance_b]",
+    "A[x]; ANEXT[8]; ANEXT->A [next_char]; R->A[a]; R[adder_advance]" :
+    "A[x]; ANEXT[8]; ANEXT->A [next_char]; R->ANEXT[a]; R[adder_advance_b]",
+    "A[x]; ANEXT[9]; ANEXT->A [next_char]; R->A[a]; R[adder_advance]" :
+    "A[x]; ANEXT[9]; ANEXT->A [next_char]; R->ANEXT[a]; R[adder_advance_b]",
+
+    "COMMENT[advance adder on b]" : "",
+
+    "B[0]; BNEXT[0]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[0]; BNEXT[0]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[0]; BNEXT[1]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[0]; BNEXT[1]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[0]; BNEXT[2]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[0]; BNEXT[2]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[0]; BNEXT[3]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[0]; BNEXT[3]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[0]; BNEXT[4]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[0]; BNEXT[4]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[0]; BNEXT[5]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[0]; BNEXT[5]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[0]; BNEXT[6]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[0]; BNEXT[6]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[0]; BNEXT[7]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[0]; BNEXT[7]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[0]; BNEXT[8]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[0]; BNEXT[8]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[0]; BNEXT[9]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[0]; BNEXT[9]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[1]; BNEXT[0]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[1]; BNEXT[0]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[1]; BNEXT[1]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[1]; BNEXT[1]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[1]; BNEXT[2]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[1]; BNEXT[2]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[1]; BNEXT[3]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[1]; BNEXT[3]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[1]; BNEXT[4]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[1]; BNEXT[4]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[1]; BNEXT[5]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[1]; BNEXT[5]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[1]; BNEXT[6]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[1]; BNEXT[6]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[1]; BNEXT[7]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[1]; BNEXT[7]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[1]; BNEXT[8]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[1]; BNEXT[8]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[1]; BNEXT[9]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[1]; BNEXT[9]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    
+    "B[2]; BNEXT[0]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[2]; BNEXT[0]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[2]; BNEXT[1]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[2]; BNEXT[1]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[2]; BNEXT[2]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[2]; BNEXT[2]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[2]; BNEXT[3]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[2]; BNEXT[3]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[2]; BNEXT[4]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[2]; BNEXT[4]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[2]; BNEXT[5]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[2]; BNEXT[5]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[2]; BNEXT[6]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[2]; BNEXT[6]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[2]; BNEXT[7]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[2]; BNEXT[7]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[2]; BNEXT[8]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[2]; BNEXT[8]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[2]; BNEXT[9]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[2]; BNEXT[9]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+
+    "B[3]; BNEXT[0]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[3]; BNEXT[0]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[3]; BNEXT[1]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[3]; BNEXT[1]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[3]; BNEXT[2]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[3]; BNEXT[2]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[3]; BNEXT[3]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[3]; BNEXT[3]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[3]; BNEXT[4]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[3]; BNEXT[4]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[3]; BNEXT[5]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[3]; BNEXT[5]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[3]; BNEXT[6]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[3]; BNEXT[6]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[3]; BNEXT[7]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[3]; BNEXT[7]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[3]; BNEXT[8]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[3]; BNEXT[8]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[3]; BNEXT[9]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[3]; BNEXT[9]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+
+    "B[4]; BNEXT[0]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[4]; BNEXT[0]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[4]; BNEXT[1]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[4]; BNEXT[1]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[4]; BNEXT[2]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[4]; BNEXT[2]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[4]; BNEXT[3]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[4]; BNEXT[3]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[4]; BNEXT[4]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[4]; BNEXT[4]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[4]; BNEXT[5]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[4]; BNEXT[5]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[4]; BNEXT[6]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[4]; BNEXT[6]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[4]; BNEXT[7]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[4]; BNEXT[7]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[4]; BNEXT[8]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[4]; BNEXT[8]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[4]; BNEXT[9]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[4]; BNEXT[9]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+
+    "B[5]; BNEXT[0]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[5]; BNEXT[0]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[5]; BNEXT[1]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[5]; BNEXT[1]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[5]; BNEXT[2]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[5]; BNEXT[2]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[5]; BNEXT[3]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[5]; BNEXT[3]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[5]; BNEXT[4]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[5]; BNEXT[4]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[5]; BNEXT[5]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[5]; BNEXT[5]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[5]; BNEXT[6]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[5]; BNEXT[6]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[5]; BNEXT[7]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[5]; BNEXT[7]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[5]; BNEXT[8]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[5]; BNEXT[8]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[5]; BNEXT[9]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[5]; BNEXT[9]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+
+    "B[6]; BNEXT[0]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[6]; BNEXT[0]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[6]; BNEXT[1]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[6]; BNEXT[1]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[6]; BNEXT[2]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[6]; BNEXT[2]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[6]; BNEXT[3]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[6]; BNEXT[3]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[6]; BNEXT[4]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[6]; BNEXT[4]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[6]; BNEXT[5]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[6]; BNEXT[5]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[6]; BNEXT[6]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[6]; BNEXT[6]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[6]; BNEXT[7]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[6]; BNEXT[7]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[6]; BNEXT[8]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[6]; BNEXT[8]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[6]; BNEXT[9]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[6]; BNEXT[9]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+
+    "B[7]; BNEXT[0]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[7]; BNEXT[0]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[7]; BNEXT[1]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[7]; BNEXT[1]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[7]; BNEXT[2]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[7]; BNEXT[2]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[7]; BNEXT[3]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[7]; BNEXT[3]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[7]; BNEXT[4]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[7]; BNEXT[4]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[7]; BNEXT[5]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[7]; BNEXT[5]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[7]; BNEXT[6]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[7]; BNEXT[6]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[7]; BNEXT[7]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[7]; BNEXT[7]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[7]; BNEXT[8]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[7]; BNEXT[8]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[7]; BNEXT[9]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[7]; BNEXT[9]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+
+
+    "B[8]; BNEXT[0]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[8]; BNEXT[0]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[8]; BNEXT[1]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[8]; BNEXT[1]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[8]; BNEXT[2]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[8]; BNEXT[2]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[8]; BNEXT[3]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[8]; BNEXT[3]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[8]; BNEXT[4]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[8]; BNEXT[4]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[8]; BNEXT[5]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[8]; BNEXT[5]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[8]; BNEXT[6]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[8]; BNEXT[6]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[8]; BNEXT[7]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[8]; BNEXT[7]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[8]; BNEXT[8]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[8]; BNEXT[8]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[8]; BNEXT[9]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[8]; BNEXT[9]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+
+    "B[9]; BNEXT[0]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[9]; BNEXT[0]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[9]; BNEXT[1]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[9]; BNEXT[1]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[9]; BNEXT[2]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[9]; BNEXT[2]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[9]; BNEXT[3]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[9]; BNEXT[3]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[9]; BNEXT[4]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[9]; BNEXT[4]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[9]; BNEXT[5]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[9]; BNEXT[5]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[9]; BNEXT[6]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[9]; BNEXT[6]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[9]; BNEXT[7]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[9]; BNEXT[7]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[9]; BNEXT[8]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[9]; BNEXT[8]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+    "B[9]; BNEXT[9]; BNEXT->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[9]; BNEXT[9]; BNEXT->B [next_char]; R->BNEXT[b]; R[adder]",
+
+    "COMMENT[advance and zero-extend A]" : "",
+    
+    "A[x]; LINE[adding_line]; LINE->A [next_char]; R->A[a]; R[adder_advance]" :
+    "A[x]; NEW[0]; LINE[adding_line]; LINE->NEW [next_char]; NEW->A [next_char]; R->NEW[a]; R[adder_advance_b]",
+
+    "COMMENT[advance and zero-extend B]" : "",
+    
+    "B[0]; LINE[adding_line]; LINE->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[0]; NEW[0]; LINE[adding_line]; LINE->NEW [next_char]; NEW->B [next_char]; R->NEW[b]; R[adder]",
+    "B[1]; LINE[adding_line]; LINE->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[1]; NEW[0]; LINE[adding_line]; LINE->NEW [next_char]; NEW->B [next_char]; R->NEW[b]; R[adder]",
+    "B[2]; LINE[adding_line]; LINE->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[2]; NEW[0]; LINE[adding_line]; LINE->NEW [next_char]; NEW->B [next_char]; R->NEW[b]; R[adder]",
+    "B[3]; LINE[adding_line]; LINE->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[3]; NEW[0]; LINE[adding_line]; LINE->NEW [next_char]; NEW->B [next_char]; R->NEW[b]; R[adder]",
+    "B[4]; LINE[adding_line]; LINE->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[4]; NEW[0]; LINE[adding_line]; LINE->NEW [next_char]; NEW->B [next_char]; R->NEW[b]; R[adder]",
+    "B[5]; LINE[adding_line]; LINE->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[5]; NEW[0]; LINE[adding_line]; LINE->NEW [next_char]; NEW->B [next_char]; R->NEW[b]; R[adder]",
+    "B[6]; LINE[adding_line]; LINE->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[6]; NEW[0]; LINE[adding_line]; LINE->NEW [next_char]; NEW->B [next_char]; R->NEW[b]; R[adder]",
+    "B[7]; LINE[adding_line]; LINE->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[7]; NEW[0]; LINE[adding_line]; LINE->NEW [next_char]; NEW->B [next_char]; R->NEW[b]; R[adder]",
+    "B[8]; LINE[adding_line]; LINE->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[8]; NEW[0]; LINE[adding_line]; LINE->NEW [next_char]; NEW->B [next_char]; R->NEW[b]; R[adder]",
+    "B[9]; LINE[adding_line]; LINE->B [next_char]; R->B[b]; R[adder_advance_b]" :
+    "B[9]; NEW[0]; LINE[adding_line]; LINE->NEW [next_char]; NEW->B [next_char]; R->NEW[b]; R[adder]",
+
+    "COMMENT[if at end of both numbers, and carry is zero, then end]" : "",
+    "COMMENT[DPO semantics mean we can't delete a node that has an edge dangling, so we can't delete A or X]" : "",
+    
+    "A[x]; B[0]; C[0]; R->A [a]; R->B [b]; R->C [carry]; R[adder_advance]; LA[adding_line]; LA->A[next_char]; LB[adding_line]; LB->B[next_char]; LA->LB [next_line]; X[x]; X->LA[end_of_line]" :
+    "A[x]; B[0]; LA^LB[line]; LB->B[next_char]; X[x];",
+
+    "COMMENT[always OK to delete a leading zero, easiest by merging]" : "",
+
+    "LINE[line]; D[0]; LINE->D [next_char]" :
+    "LINE^D[line]",
+
+    "COMMENT[always OK to delete an isolated x or merge a pair of them]" : "",
+
+    "D[x]" :
+    "",
+    
+    "D[x]; E[x]; D->E [next_char]" :
+    "D^E[x]",
+    
+    "COMMENT[when only one line remains, we're done]" : "",
+
+    "I[input]; L[line]; E[end_of_input]; I->L [next_line]; L->E [end_of_input]" :
+    "I[output]; L[line]; I->L [output]",
+   
+    "COMMENT[end of file]" : ""
+}
+   

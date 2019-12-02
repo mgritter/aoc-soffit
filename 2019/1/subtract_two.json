@@ -1,0 +1,108 @@
+{
+    "version" : "0.1",
+    "start" : "",
+
+    "COMMENT[subtract two from the least-significant digit]" : "",
+    
+    "L[divided_line]; X[9]; X->L[end_of_line]" : 
+    "L[subtracted_line]; X[7]; X->L[end_of_line]",
+
+    "L[divided_line]; X[8]; X->L[end_of_line]" : 
+    "L[subtracted_line]; X[6]; X->L[end_of_line]",
+    
+    "L[divided_line]; X[7]; X->L[end_of_line]" : 
+    "L[subtracted_line]; X[5]; X->L[end_of_line]",
+
+    "L[divided_line]; X[6]; X->L[end_of_line]" : 
+    "L[subtracted_line]; X[4]; X->L[end_of_line]",
+
+    "L[divided_line]; X[5]; X->L[end_of_line]" : 
+    "L[subtracted_line]; X[3]; X->L[end_of_line]",
+
+    "L[divided_line]; X[4]; X->L[end_of_line]" : 
+    "L[subtracted_line]; X[2]; X->L[end_of_line]",
+
+    "L[divided_line]; X[3]; X->L[end_of_line]" : 
+    "L[subtracted_line]; X[1]; X->L[end_of_line]",
+
+    "L[divided_line]; X[2]; X->L[end_of_line]" : 
+    "L[subtracted_line]; X[0]; X->L[end_of_line]",
+
+    "L[divided_line]; X[1]; X->L[end_of_line]" : 
+    "L[subtracted_line]; X[-1]; X->L[end_of_line]",
+
+    "L[divided_line]; X[0]; X->L[end_of_line]" : 
+    "L[subtracted_line]; X[-2]; X->L[end_of_line]",
+    
+    "COMMENT[propogate carries]" : "",
+    
+    "D[0]; E[-2]; D->E[next_char]" : 
+    "D[-1]; E[8]; D->E[next_char]", 
+
+    "D[1]; E[-2]; D->E[next_char]" : 
+    "D[0]; E[8]; D->E[next_char]", 
+
+    "D[2]; E[-2]; D->E[next_char]" : 
+    "D[1]; E[8]; D->E[next_char]", 
+
+    "D[2]; E[-2]; D->E[next_char]" : 
+    "D[1]; E[8]; D->E[next_char]",
+    
+    "D[3]; E[-2]; D->E[next_char]" : 
+    "D[2]; E[8]; D->E[next_char]",
+    
+    "D[4]; E[-2]; D->E[next_char]" : 
+    "D[3]; E[8]; D->E[next_char]",
+    
+    "D[5]; E[-2]; D->E[next_char]" : 
+    "D[4]; E[8]; D->E[next_char]",
+    
+    "D[6]; E[-2]; D->E[next_char]" : 
+    "D[5]; E[8]; D->E[next_char]",
+    
+    "D[7]; E[-2]; D->E[next_char]" : 
+    "D[6]; E[8]; D->E[next_char]",
+    
+    "D[8]; E[-2]; D->E[next_char]" : 
+    "D[7]; E[8]; D->E[next_char]",
+    
+    "D[9]; E[-2]; D->E[next_char]" : 
+    "D[8]; E[8]; D->E[next_char]",
+    
+
+    "D[0]; E[-1]; D->E[next_char]" : 
+    "D[-1]; E[9]; D->E[next_char]", 
+
+    "D[1]; E[-1]; D->E[next_char]" : 
+    "D[0]; E[9]; D->E[next_char]", 
+
+    "D[2]; E[-1]; D->E[next_char]" : 
+    "D[1]; E[9]; D->E[next_char]", 
+
+    "D[2]; E[-1]; D->E[next_char]" : 
+    "D[1]; E[9]; D->E[next_char]",
+    
+    "D[3]; E[-1]; D->E[next_char]" : 
+    "D[2]; E[9]; D->E[next_char]",
+    
+    "D[4]; E[-1]; D->E[next_char]" : 
+    "D[3]; E[9]; D->E[next_char]",
+    
+    "D[5]; E[-1]; D->E[next_char]" : 
+    "D[4]; E[9]; D->E[next_char]",
+    
+    "D[6]; E[-1]; D->E[next_char]" : 
+    "D[5]; E[9]; D->E[next_char]",
+    
+    "D[7]; E[-1]; D->E[next_char]" : 
+    "D[6]; E[9]; D->E[next_char]",
+    
+    "D[8]; E[-1]; D->E[next_char]" : 
+    "D[7]; E[9]; D->E[next_char]",
+    
+    "D[9]; E[-1]; D->E[next_char]" : 
+    "D[8]; E[9]; D->E[next_char]",
+
+    "COMMENT[end of file]" : ""
+
+}

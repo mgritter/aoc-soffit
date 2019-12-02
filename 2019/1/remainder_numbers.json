@@ -1,0 +1,53 @@
+{
+    "version" : "0.1",
+    "start" : "S[s_begin];",
+
+    "COMMENT[reduce any digit mod 3]" : "",
+    
+    "D[9]" : "D[0]",
+    "D[8]" : "D[2]",
+    "D[7]" : "D[1]",
+    "D[6]" : "D[0]",
+    "D[5]" : "D[2]",
+    "D[4]" : "D[1]",
+
+    "COMMENT[start a line]" : "",
+
+    "L[line]; X[1]; L->X[next_char]" : 
+    "L[started_line]; X[0]; L->X[next_char]; C[div_position]; C->X",
+
+    "L[line]; X[1]; L->X[next_char]" : 
+    "L[started_line]; X[1]; L->X[next_char]; C[div_position]; C->X",
+
+    "L[line]; X[2]; L->X[next_char]" : 
+    "L[started_line]; X[2]; L->X[next_char]; C[div_position]; C->X",
+
+    "COMMENT[advance by one position]" : "",
+
+    "L[started_line]; L->D [next_char]; C[div_position]; C->D; D[2]; E[2]; D->E[next_char]" : 
+    "L[started_line]; L->E [next_char]; C[div_position]; C->E; E[1]",
+
+    "L[started_line]; L->D [next_char]; C[div_position]; C->D; D[2]; E[1]; D->E[next_char]" : 
+    "L[started_line]; L->E [next_char]; C[div_position]; C->E; E[0]",
+
+    "L[started_line]; L->D [next_char]; C[div_position]; C->D; D[2]; E[0]; D->E[next_char]" : 
+    "L[started_line]; L->E [next_char]; C[div_position]; C->E; E[2]",
+    
+    "L[started_line]; L->D [next_char]; C[div_position]; C->D; D[1]; E[2]; D->E[next_char]" : 
+    "L[started_line]; L->E [next_char]; C[div_position]; C->E; E[0]",
+
+    "L[started_line]; L->D [next_char]; C[div_position]; C->D; D[1]; E[1]; D->E[next_char]" : 
+    "L[started_line]; L->E [next_char]; C[div_position]; C->E; E[2]",
+    
+    "L[started_line]; L->D [next_char]; C[div_position]; C->D; D[1]; E[0]; D->E[next_char]" : 
+    "L[started_line]; L->E [next_char]; C[div_position]; C->E; E[1]",
+
+    "L[started_line]; L->D [next_char]; C[div_position]; C->D; D[0]; E[2]; D->E[next_char]" : 
+    "L[started_line]; L->E [next_char]; C[div_position]; C->E; E[2]",
+
+    "L[started_line]; L->D [next_char]; C[div_position]; C->D; D[0]; E[1]; D->E[next_char]" : 
+    "L[started_line]; L->E [next_char]; C[div_position]; C->E; E[1]",
+    
+    "L[started_line]; L->D [next_char]; C[div_position]; C->D; D[0]; E[0]; D->E[next_char]" : 
+    "L[started_line]; L->E [next_char]; C[div_position]; C->E; E[0]"
+}
