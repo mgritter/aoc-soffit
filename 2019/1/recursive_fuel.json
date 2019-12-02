@@ -1,0 +1,1101 @@
+{
+    "version" : "0.1",
+    "start" : "",
+
+    "COMMENT[start a line]" : "",
+
+    "L[line]; X[1]; L->X[next_char]" : 
+    "L[started_line]; X[1]; L->X[next_char]; C[div_position]; C->X",
+    "L[line]; X[2]; L->X[next_char]" : 
+    "L[started_line]; X[2]; L->X[next_char]; C[div_position]; C->X",
+    "L[line]; X[3]; L->X[next_char]" : 
+    "L[started_line]; X[3]; L->X[next_char]; C[div_position]; C->X",
+    "L[line]; X[4]; L->X[next_char]" : 
+    "L[started_line]; X[4]; L->X[next_char]; C[div_position]; C->X",
+    "L[line]; X[5]; L->X[next_char]" : 
+    "L[started_line]; X[5]; L->X[next_char]; C[div_position]; C->X",
+    "L[line]; X[6]; L->X[next_char]" : 
+    "L[started_line]; X[6]; L->X[next_char]; C[div_position]; C->X",
+    "L[line]; X[7]; L->X[next_char]" : 
+    "L[started_line]; X[7]; L->X[next_char]; C[div_position]; C->X",
+    "L[line]; X[8]; L->X[next_char]" : 
+    "L[started_line]; X[8]; L->X[next_char]; C[div_position]; C->X",
+    "L[line]; X[9]; L->X[next_char]" : 
+    "L[started_line]; X[9]; L->X[next_char]; C[div_position]; C->X",
+
+    "COMMENT[divide the most significant digit, and add a remainder to the next digit]" : "",
+    
+    "C[div_position]; C->D; D[0]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[0]; D->E[next_char]",
+    "C[div_position]; C->D; D[0]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[1]; D->E[next_char]",
+    "C[div_position]; C->D; D[0]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[2]; D->E[next_char]",
+    "C[div_position]; C->D; D[0]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[3]; D->E[next_char]",
+    "C[div_position]; C->D; D[0]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[4]; D->E[next_char]",
+    "C[div_position]; C->D; D[0]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[5]; D->E[next_char]",
+    "C[div_position]; C->D; D[0]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[6]; D->E[next_char]",
+    "C[div_position]; C->D; D[0]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[7]; D->E[next_char]",
+    "C[div_position]; C->D; D[0]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[8]; D->E[next_char]",
+    "C[div_position]; C->D; D[0]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[9]; D->E[next_char]",
+    "C[div_position]; C->D; D[1]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[10]; D->E[next_char]",
+    "C[div_position]; C->D; D[1]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[11]; D->E[next_char]",
+    "C[div_position]; C->D; D[1]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[12]; D->E[next_char]",
+    "C[div_position]; C->D; D[1]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[13]; D->E[next_char]",
+    "C[div_position]; C->D; D[1]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[14]; D->E[next_char]",
+    "C[div_position]; C->D; D[1]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[15]; D->E[next_char]",
+    "C[div_position]; C->D; D[1]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[16]; D->E[next_char]",
+    "C[div_position]; C->D; D[1]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[17]; D->E[next_char]",
+    "C[div_position]; C->D; D[1]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[18]; D->E[next_char]",
+    "C[div_position]; C->D; D[1]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[19]; D->E[next_char]",
+    "C[div_position]; C->D; D[2]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[20]; D->E[next_char]",
+    "C[div_position]; C->D; D[2]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[21]; D->E[next_char]",
+    "C[div_position]; C->D; D[2]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[22]; D->E[next_char]",
+    "C[div_position]; C->D; D[2]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[23]; D->E[next_char]",
+    "C[div_position]; C->D; D[2]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[24]; D->E[next_char]",
+    "C[div_position]; C->D; D[2]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[25]; D->E[next_char]",
+    "C[div_position]; C->D; D[2]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[26]; D->E[next_char]",
+    "C[div_position]; C->D; D[2]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[27]; D->E[next_char]",
+    "C[div_position]; C->D; D[2]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[28]; D->E[next_char]",
+    "C[div_position]; C->D; D[2]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[0]; E[29]; D->E[next_char]",
+    "C[div_position]; C->D; D[3]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[0]; D->E[next_char]",
+    "C[div_position]; C->D; D[3]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[1]; D->E[next_char]",
+    "C[div_position]; C->D; D[3]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[2]; D->E[next_char]",
+    "C[div_position]; C->D; D[3]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[3]; D->E[next_char]",
+    "C[div_position]; C->D; D[3]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[4]; D->E[next_char]",
+    "C[div_position]; C->D; D[3]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[5]; D->E[next_char]",
+    "C[div_position]; C->D; D[3]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[6]; D->E[next_char]",
+    "C[div_position]; C->D; D[3]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[7]; D->E[next_char]",
+    "C[div_position]; C->D; D[3]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[8]; D->E[next_char]",
+    "C[div_position]; C->D; D[3]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[9]; D->E[next_char]",
+    "C[div_position]; C->D; D[4]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[10]; D->E[next_char]",
+    "C[div_position]; C->D; D[4]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[11]; D->E[next_char]",
+    "C[div_position]; C->D; D[4]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[12]; D->E[next_char]",
+    "C[div_position]; C->D; D[4]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[13]; D->E[next_char]",
+    "C[div_position]; C->D; D[4]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[14]; D->E[next_char]",
+    "C[div_position]; C->D; D[4]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[15]; D->E[next_char]",
+    "C[div_position]; C->D; D[4]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[16]; D->E[next_char]",
+    "C[div_position]; C->D; D[4]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[17]; D->E[next_char]",
+    "C[div_position]; C->D; D[4]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[18]; D->E[next_char]",
+    "C[div_position]; C->D; D[4]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[19]; D->E[next_char]",
+    "C[div_position]; C->D; D[5]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[20]; D->E[next_char]",
+    "C[div_position]; C->D; D[5]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[21]; D->E[next_char]",
+    "C[div_position]; C->D; D[5]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[22]; D->E[next_char]",
+    "C[div_position]; C->D; D[5]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[23]; D->E[next_char]",
+    "C[div_position]; C->D; D[5]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[24]; D->E[next_char]",
+    "C[div_position]; C->D; D[5]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[25]; D->E[next_char]",
+    "C[div_position]; C->D; D[5]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[26]; D->E[next_char]",
+    "C[div_position]; C->D; D[5]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[27]; D->E[next_char]",
+    "C[div_position]; C->D; D[5]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[28]; D->E[next_char]",
+    "C[div_position]; C->D; D[5]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[1]; E[29]; D->E[next_char]",
+    "C[div_position]; C->D; D[6]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[0]; D->E[next_char]",
+    "C[div_position]; C->D; D[6]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[1]; D->E[next_char]",
+    "C[div_position]; C->D; D[6]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[2]; D->E[next_char]",
+    "C[div_position]; C->D; D[6]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[3]; D->E[next_char]",
+    "C[div_position]; C->D; D[6]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[4]; D->E[next_char]",
+    "C[div_position]; C->D; D[6]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[5]; D->E[next_char]",
+    "C[div_position]; C->D; D[6]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[6]; D->E[next_char]",
+    "C[div_position]; C->D; D[6]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[7]; D->E[next_char]",
+    "C[div_position]; C->D; D[6]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[8]; D->E[next_char]",
+    "C[div_position]; C->D; D[6]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[9]; D->E[next_char]",
+    "C[div_position]; C->D; D[7]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[10]; D->E[next_char]",
+    "C[div_position]; C->D; D[7]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[11]; D->E[next_char]",
+    "C[div_position]; C->D; D[7]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[12]; D->E[next_char]",
+    "C[div_position]; C->D; D[7]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[13]; D->E[next_char]",
+    "C[div_position]; C->D; D[7]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[14]; D->E[next_char]",
+    "C[div_position]; C->D; D[7]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[15]; D->E[next_char]",
+    "C[div_position]; C->D; D[7]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[16]; D->E[next_char]",
+    "C[div_position]; C->D; D[7]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[17]; D->E[next_char]",
+    "C[div_position]; C->D; D[7]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[18]; D->E[next_char]",
+    "C[div_position]; C->D; D[7]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[19]; D->E[next_char]",
+    "C[div_position]; C->D; D[8]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[20]; D->E[next_char]",
+    "C[div_position]; C->D; D[8]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[21]; D->E[next_char]",
+    "C[div_position]; C->D; D[8]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[22]; D->E[next_char]",
+    "C[div_position]; C->D; D[8]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[23]; D->E[next_char]",
+    "C[div_position]; C->D; D[8]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[24]; D->E[next_char]",
+    "C[div_position]; C->D; D[8]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[25]; D->E[next_char]",
+    "C[div_position]; C->D; D[8]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[26]; D->E[next_char]",
+    "C[div_position]; C->D; D[8]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[27]; D->E[next_char]",
+    "C[div_position]; C->D; D[8]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[28]; D->E[next_char]",
+    "C[div_position]; C->D; D[8]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[2]; E[29]; D->E[next_char]",
+    "C[div_position]; C->D; D[9]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[0]; D->E[next_char]",
+    "C[div_position]; C->D; D[9]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[1]; D->E[next_char]",
+    "C[div_position]; C->D; D[9]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[2]; D->E[next_char]",
+    "C[div_position]; C->D; D[9]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[3]; D->E[next_char]",
+    "C[div_position]; C->D; D[9]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[4]; D->E[next_char]",
+    "C[div_position]; C->D; D[9]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[5]; D->E[next_char]",
+    "C[div_position]; C->D; D[9]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[6]; D->E[next_char]",
+    "C[div_position]; C->D; D[9]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[7]; D->E[next_char]",
+    "C[div_position]; C->D; D[9]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[8]; D->E[next_char]",
+    "C[div_position]; C->D; D[9]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[9]; D->E[next_char]",
+    "C[div_position]; C->D; D[10]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[10]; D->E[next_char]",
+    "C[div_position]; C->D; D[10]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[11]; D->E[next_char]",
+    "C[div_position]; C->D; D[10]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[12]; D->E[next_char]",
+    "C[div_position]; C->D; D[10]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[13]; D->E[next_char]",
+    "C[div_position]; C->D; D[10]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[14]; D->E[next_char]",
+    "C[div_position]; C->D; D[10]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[15]; D->E[next_char]",
+    "C[div_position]; C->D; D[10]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[16]; D->E[next_char]",
+    "C[div_position]; C->D; D[10]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[17]; D->E[next_char]",
+    "C[div_position]; C->D; D[10]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[18]; D->E[next_char]",
+    "C[div_position]; C->D; D[10]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[19]; D->E[next_char]",
+    "C[div_position]; C->D; D[11]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[20]; D->E[next_char]",
+    "C[div_position]; C->D; D[11]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[21]; D->E[next_char]",
+    "C[div_position]; C->D; D[11]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[22]; D->E[next_char]",
+    "C[div_position]; C->D; D[11]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[23]; D->E[next_char]",
+    "C[div_position]; C->D; D[11]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[24]; D->E[next_char]",
+    "C[div_position]; C->D; D[11]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[25]; D->E[next_char]",
+    "C[div_position]; C->D; D[11]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[26]; D->E[next_char]",
+    "C[div_position]; C->D; D[11]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[27]; D->E[next_char]",
+    "C[div_position]; C->D; D[11]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[28]; D->E[next_char]",
+    "C[div_position]; C->D; D[11]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[3]; E[29]; D->E[next_char]",
+    "C[div_position]; C->D; D[12]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[0]; D->E[next_char]",
+    "C[div_position]; C->D; D[12]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[1]; D->E[next_char]",
+    "C[div_position]; C->D; D[12]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[2]; D->E[next_char]",
+    "C[div_position]; C->D; D[12]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[3]; D->E[next_char]",
+    "C[div_position]; C->D; D[12]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[4]; D->E[next_char]",
+    "C[div_position]; C->D; D[12]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[5]; D->E[next_char]",
+    "C[div_position]; C->D; D[12]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[6]; D->E[next_char]",
+    "C[div_position]; C->D; D[12]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[7]; D->E[next_char]",
+    "C[div_position]; C->D; D[12]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[8]; D->E[next_char]",
+    "C[div_position]; C->D; D[12]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[9]; D->E[next_char]",
+    "C[div_position]; C->D; D[13]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[10]; D->E[next_char]",
+    "C[div_position]; C->D; D[13]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[11]; D->E[next_char]",
+    "C[div_position]; C->D; D[13]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[12]; D->E[next_char]",
+    "C[div_position]; C->D; D[13]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[13]; D->E[next_char]",
+    "C[div_position]; C->D; D[13]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[14]; D->E[next_char]",
+    "C[div_position]; C->D; D[13]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[15]; D->E[next_char]",
+    "C[div_position]; C->D; D[13]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[16]; D->E[next_char]",
+    "C[div_position]; C->D; D[13]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[17]; D->E[next_char]",
+    "C[div_position]; C->D; D[13]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[18]; D->E[next_char]",
+    "C[div_position]; C->D; D[13]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[19]; D->E[next_char]",
+    "C[div_position]; C->D; D[14]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[20]; D->E[next_char]",
+    "C[div_position]; C->D; D[14]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[21]; D->E[next_char]",
+    "C[div_position]; C->D; D[14]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[22]; D->E[next_char]",
+    "C[div_position]; C->D; D[14]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[23]; D->E[next_char]",
+    "C[div_position]; C->D; D[14]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[24]; D->E[next_char]",
+    "C[div_position]; C->D; D[14]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[25]; D->E[next_char]",
+    "C[div_position]; C->D; D[14]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[26]; D->E[next_char]",
+    "C[div_position]; C->D; D[14]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[27]; D->E[next_char]",
+    "C[div_position]; C->D; D[14]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[28]; D->E[next_char]",
+    "C[div_position]; C->D; D[14]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[4]; E[29]; D->E[next_char]",
+    "C[div_position]; C->D; D[15]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[0]; D->E[next_char]",
+    "C[div_position]; C->D; D[15]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[1]; D->E[next_char]",
+    "C[div_position]; C->D; D[15]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[2]; D->E[next_char]",
+    "C[div_position]; C->D; D[15]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[3]; D->E[next_char]",
+    "C[div_position]; C->D; D[15]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[4]; D->E[next_char]",
+    "C[div_position]; C->D; D[15]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[5]; D->E[next_char]",
+    "C[div_position]; C->D; D[15]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[6]; D->E[next_char]",
+    "C[div_position]; C->D; D[15]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[7]; D->E[next_char]",
+    "C[div_position]; C->D; D[15]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[8]; D->E[next_char]",
+    "C[div_position]; C->D; D[15]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[9]; D->E[next_char]",
+    "C[div_position]; C->D; D[16]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[10]; D->E[next_char]",
+    "C[div_position]; C->D; D[16]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[11]; D->E[next_char]",
+    "C[div_position]; C->D; D[16]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[12]; D->E[next_char]",
+    "C[div_position]; C->D; D[16]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[13]; D->E[next_char]",
+    "C[div_position]; C->D; D[16]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[14]; D->E[next_char]",
+    "C[div_position]; C->D; D[16]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[15]; D->E[next_char]",
+    "C[div_position]; C->D; D[16]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[16]; D->E[next_char]",
+    "C[div_position]; C->D; D[16]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[17]; D->E[next_char]",
+    "C[div_position]; C->D; D[16]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[18]; D->E[next_char]",
+    "C[div_position]; C->D; D[16]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[19]; D->E[next_char]",
+    "C[div_position]; C->D; D[17]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[20]; D->E[next_char]",
+    "C[div_position]; C->D; D[17]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[21]; D->E[next_char]",
+    "C[div_position]; C->D; D[17]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[22]; D->E[next_char]",
+    "C[div_position]; C->D; D[17]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[23]; D->E[next_char]",
+    "C[div_position]; C->D; D[17]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[24]; D->E[next_char]",
+    "C[div_position]; C->D; D[17]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[25]; D->E[next_char]",
+    "C[div_position]; C->D; D[17]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[26]; D->E[next_char]",
+    "C[div_position]; C->D; D[17]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[27]; D->E[next_char]",
+    "C[div_position]; C->D; D[17]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[28]; D->E[next_char]",
+    "C[div_position]; C->D; D[17]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[5]; E[29]; D->E[next_char]",
+    "C[div_position]; C->D; D[18]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[0]; D->E[next_char]",
+    "C[div_position]; C->D; D[18]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[1]; D->E[next_char]",
+    "C[div_position]; C->D; D[18]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[2]; D->E[next_char]",
+    "C[div_position]; C->D; D[18]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[3]; D->E[next_char]",
+    "C[div_position]; C->D; D[18]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[4]; D->E[next_char]",
+    "C[div_position]; C->D; D[18]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[5]; D->E[next_char]",
+    "C[div_position]; C->D; D[18]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[6]; D->E[next_char]",
+    "C[div_position]; C->D; D[18]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[7]; D->E[next_char]",
+    "C[div_position]; C->D; D[18]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[8]; D->E[next_char]",
+    "C[div_position]; C->D; D[18]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[9]; D->E[next_char]",
+    "C[div_position]; C->D; D[19]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[10]; D->E[next_char]",
+    "C[div_position]; C->D; D[19]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[11]; D->E[next_char]",
+    "C[div_position]; C->D; D[19]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[12]; D->E[next_char]",
+    "C[div_position]; C->D; D[19]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[13]; D->E[next_char]",
+    "C[div_position]; C->D; D[19]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[14]; D->E[next_char]",
+    "C[div_position]; C->D; D[19]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[15]; D->E[next_char]",
+    "C[div_position]; C->D; D[19]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[16]; D->E[next_char]",
+    "C[div_position]; C->D; D[19]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[17]; D->E[next_char]",
+    "C[div_position]; C->D; D[19]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[18]; D->E[next_char]",
+    "C[div_position]; C->D; D[19]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[19]; D->E[next_char]",
+    "C[div_position]; C->D; D[20]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[20]; D->E[next_char]",
+    "C[div_position]; C->D; D[20]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[21]; D->E[next_char]",
+    "C[div_position]; C->D; D[20]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[22]; D->E[next_char]",
+    "C[div_position]; C->D; D[20]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[23]; D->E[next_char]",
+    "C[div_position]; C->D; D[20]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[24]; D->E[next_char]",
+    "C[div_position]; C->D; D[20]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[25]; D->E[next_char]",
+    "C[div_position]; C->D; D[20]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[26]; D->E[next_char]",
+    "C[div_position]; C->D; D[20]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[27]; D->E[next_char]",
+    "C[div_position]; C->D; D[20]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[28]; D->E[next_char]",
+    "C[div_position]; C->D; D[20]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[6]; E[29]; D->E[next_char]",
+    "C[div_position]; C->D; D[21]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[0]; D->E[next_char]",
+    "C[div_position]; C->D; D[21]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[1]; D->E[next_char]",
+    "C[div_position]; C->D; D[21]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[2]; D->E[next_char]",
+    "C[div_position]; C->D; D[21]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[3]; D->E[next_char]",
+    "C[div_position]; C->D; D[21]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[4]; D->E[next_char]",
+    "C[div_position]; C->D; D[21]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[5]; D->E[next_char]",
+    "C[div_position]; C->D; D[21]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[6]; D->E[next_char]",
+    "C[div_position]; C->D; D[21]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[7]; D->E[next_char]",
+    "C[div_position]; C->D; D[21]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[8]; D->E[next_char]",
+    "C[div_position]; C->D; D[21]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[9]; D->E[next_char]",
+    "C[div_position]; C->D; D[22]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[10]; D->E[next_char]",
+    "C[div_position]; C->D; D[22]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[11]; D->E[next_char]",
+    "C[div_position]; C->D; D[22]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[12]; D->E[next_char]",
+    "C[div_position]; C->D; D[22]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[13]; D->E[next_char]",
+    "C[div_position]; C->D; D[22]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[14]; D->E[next_char]",
+    "C[div_position]; C->D; D[22]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[15]; D->E[next_char]",
+    "C[div_position]; C->D; D[22]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[16]; D->E[next_char]",
+    "C[div_position]; C->D; D[22]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[17]; D->E[next_char]",
+    "C[div_position]; C->D; D[22]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[18]; D->E[next_char]",
+    "C[div_position]; C->D; D[22]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[19]; D->E[next_char]",
+    "C[div_position]; C->D; D[23]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[20]; D->E[next_char]",
+    "C[div_position]; C->D; D[23]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[21]; D->E[next_char]",
+    "C[div_position]; C->D; D[23]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[22]; D->E[next_char]",
+    "C[div_position]; C->D; D[23]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[23]; D->E[next_char]",
+    "C[div_position]; C->D; D[23]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[24]; D->E[next_char]",
+    "C[div_position]; C->D; D[23]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[25]; D->E[next_char]",
+    "C[div_position]; C->D; D[23]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[26]; D->E[next_char]",
+    "C[div_position]; C->D; D[23]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[27]; D->E[next_char]",
+    "C[div_position]; C->D; D[23]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[28]; D->E[next_char]",
+    "C[div_position]; C->D; D[23]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[7]; E[29]; D->E[next_char]",
+    "C[div_position]; C->D; D[24]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[0]; D->E[next_char]",
+    "C[div_position]; C->D; D[24]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[1]; D->E[next_char]",
+    "C[div_position]; C->D; D[24]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[2]; D->E[next_char]",
+    "C[div_position]; C->D; D[24]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[3]; D->E[next_char]",
+    "C[div_position]; C->D; D[24]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[4]; D->E[next_char]",
+    "C[div_position]; C->D; D[24]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[5]; D->E[next_char]",
+    "C[div_position]; C->D; D[24]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[6]; D->E[next_char]",
+    "C[div_position]; C->D; D[24]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[7]; D->E[next_char]",
+    "C[div_position]; C->D; D[24]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[8]; D->E[next_char]",
+    "C[div_position]; C->D; D[24]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[9]; D->E[next_char]",
+    "C[div_position]; C->D; D[25]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[10]; D->E[next_char]",
+    "C[div_position]; C->D; D[25]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[11]; D->E[next_char]",
+    "C[div_position]; C->D; D[25]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[12]; D->E[next_char]",
+    "C[div_position]; C->D; D[25]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[13]; D->E[next_char]",
+    "C[div_position]; C->D; D[25]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[14]; D->E[next_char]",
+    "C[div_position]; C->D; D[25]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[15]; D->E[next_char]",
+    "C[div_position]; C->D; D[25]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[16]; D->E[next_char]",
+    "C[div_position]; C->D; D[25]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[17]; D->E[next_char]",
+    "C[div_position]; C->D; D[25]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[18]; D->E[next_char]",
+    "C[div_position]; C->D; D[25]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[19]; D->E[next_char]",
+    "C[div_position]; C->D; D[26]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[20]; D->E[next_char]",
+    "C[div_position]; C->D; D[26]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[21]; D->E[next_char]",
+    "C[div_position]; C->D; D[26]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[22]; D->E[next_char]",
+    "C[div_position]; C->D; D[26]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[23]; D->E[next_char]",
+    "C[div_position]; C->D; D[26]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[24]; D->E[next_char]",
+    "C[div_position]; C->D; D[26]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[25]; D->E[next_char]",
+    "C[div_position]; C->D; D[26]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[26]; D->E[next_char]",
+    "C[div_position]; C->D; D[26]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[27]; D->E[next_char]",
+    "C[div_position]; C->D; D[26]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[28]; D->E[next_char]",
+    "C[div_position]; C->D; D[26]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[8]; E[29]; D->E[next_char]",
+    "C[div_position]; C->D; D[27]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[0]; D->E[next_char]",
+    "C[div_position]; C->D; D[27]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[1]; D->E[next_char]",
+    "C[div_position]; C->D; D[27]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[2]; D->E[next_char]",
+    "C[div_position]; C->D; D[27]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[3]; D->E[next_char]",
+    "C[div_position]; C->D; D[27]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[4]; D->E[next_char]",
+    "C[div_position]; C->D; D[27]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[5]; D->E[next_char]",
+    "C[div_position]; C->D; D[27]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[6]; D->E[next_char]",
+    "C[div_position]; C->D; D[27]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[7]; D->E[next_char]",
+    "C[div_position]; C->D; D[27]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[8]; D->E[next_char]",
+    "C[div_position]; C->D; D[27]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[9]; D->E[next_char]",
+    "C[div_position]; C->D; D[28]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[10]; D->E[next_char]",
+    "C[div_position]; C->D; D[28]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[11]; D->E[next_char]",
+    "C[div_position]; C->D; D[28]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[12]; D->E[next_char]",
+    "C[div_position]; C->D; D[28]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[13]; D->E[next_char]",
+    "C[div_position]; C->D; D[28]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[14]; D->E[next_char]",
+    "C[div_position]; C->D; D[28]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[15]; D->E[next_char]",
+    "C[div_position]; C->D; D[28]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[16]; D->E[next_char]",
+    "C[div_position]; C->D; D[28]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[17]; D->E[next_char]",
+    "C[div_position]; C->D; D[28]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[18]; D->E[next_char]",
+    "C[div_position]; C->D; D[28]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[19]; D->E[next_char]",
+    "C[div_position]; C->D; D[29]; E[0]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[20]; D->E[next_char]",
+    "C[div_position]; C->D; D[29]; E[1]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[21]; D->E[next_char]",
+    "C[div_position]; C->D; D[29]; E[2]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[22]; D->E[next_char]",
+    "C[div_position]; C->D; D[29]; E[3]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[23]; D->E[next_char]",
+    "C[div_position]; C->D; D[29]; E[4]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[24]; D->E[next_char]",
+    "C[div_position]; C->D; D[29]; E[5]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[25]; D->E[next_char]",
+    "C[div_position]; C->D; D[29]; E[6]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[26]; D->E[next_char]",
+    "C[div_position]; C->D; D[29]; E[7]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[27]; D->E[next_char]",
+    "C[div_position]; C->D; D[29]; E[8]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[28]; D->E[next_char]",
+    "C[div_position]; C->D; D[29]; E[9]; D->E[next_char]" : 
+    "C[div_position]; C->E; D[9]; E[29]; D->E[next_char]",
+
+    "COMMENT[finish the units digit and the line]" : "",
+    
+    "C[div_position]; C->D; D[29]; L[started_line]; D->L[end_of_line]" :
+    "D[9]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[28]; L[started_line]; D->L[end_of_line]" :
+    "D[9]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[27]; L[started_line]; D->L[end_of_line]" :
+    "D[9]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[26]; L[started_line]; D->L[end_of_line]" :
+    "D[8]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[25]; L[started_line]; D->L[end_of_line]" :
+    "D[8]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[24]; L[started_line]; D->L[end_of_line]" :
+    "D[8]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[23]; L[started_line]; D->L[end_of_line]" :
+    "D[7]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[22]; L[started_line]; D->L[end_of_line]" :
+    "D[7]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[21]; L[started_line]; D->L[end_of_line]" :
+    "D[7]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[20]; L[started_line]; D->L[end_of_line]" :
+    "D[6]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[19]; L[started_line]; D->L[end_of_line]" :
+    "D[6]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[18]; L[started_line]; D->L[end_of_line]" :
+    "D[6]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[17]; L[started_line]; D->L[end_of_line]" :
+    "D[5]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[16]; L[started_line]; D->L[end_of_line]" :
+    "D[5]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[15]; L[started_line]; D->L[end_of_line]" :
+    "D[5]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[14]; L[started_line]; D->L[end_of_line]" :
+    "D[4]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[13]; L[started_line]; D->L[end_of_line]" :
+    "D[4]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[12]; L[started_line]; D->L[end_of_line]" :
+    "D[4]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[11]; L[started_line]; D->L[end_of_line]" :
+    "D[3]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[10]; L[started_line]; D->L[end_of_line]" :
+    "D[3]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[9]; L[started_line]; D->L[end_of_line]" :
+    "D[3]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[8]; L[started_line]; D->L[end_of_line]" :
+    "D[2]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[7]; L[started_line]; D->L[end_of_line]" :
+    "D[2]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[6]; L[started_line]; D->L[end_of_line]" :
+    "D[2]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[5]; L[started_line]; D->L[end_of_line]" :
+    "D[1]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[4]; L[started_line]; D->L[end_of_line]" :
+    "D[1]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[3]; L[started_line]; D->L[end_of_line]" :
+    "D[1]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[2]; L[started_line]; D->L[end_of_line]" :
+    "D[0]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[1]; L[started_line]; D->L[end_of_line]" :
+    "D[0]; L[divided_line]; D->L[end_of_line]",
+    "C[div_position]; C->D; D[0]; L[started_line]; D->L[end_of_line]" :
+    "D[0]; L[divided_line]; D->L[end_of_line]",
+
+    "COMMENT[subtract two from the least-significant digit]" : "",
+    
+    "L[divided_line]; X[9]; X->L[end_of_line]" : 
+    "L[subtracted_line]; X[7]; X->L[end_of_line]",
+
+    "L[divided_line]; X[8]; X->L[end_of_line]" : 
+    "L[subtracted_line]; X[6]; X->L[end_of_line]",
+    
+    "L[divided_line]; X[7]; X->L[end_of_line]" : 
+    "L[subtracted_line]; X[5]; X->L[end_of_line]",
+
+    "L[divided_line]; X[6]; X->L[end_of_line]" : 
+    "L[subtracted_line]; X[4]; X->L[end_of_line]",
+
+    "L[divided_line]; X[5]; X->L[end_of_line]" : 
+    "L[subtracted_line]; X[3]; X->L[end_of_line]",
+
+    "L[divided_line]; X[4]; X->L[end_of_line]" : 
+    "L[subtracted_line]; X[2]; X->L[end_of_line]",
+
+    "L[divided_line]; X[3]; X->L[end_of_line]" : 
+    "L[subtracted_line]; X[1]; X->L[end_of_line]",
+
+    "L[divided_line]; X[2]; X->L[end_of_line]" : 
+    "L[subtracted_line]; X[0]; X->L[end_of_line]",
+
+    "L[divided_line]; X[1]; X->L[end_of_line]" : 
+    "L[borrowing_line]; X[-1]; X->L[end_of_line]; L->CURSOR [borrow]; CURSOR->X [borrow]",
+
+    "L[divided_line]; X[0]; X->L[end_of_line]" : 
+    "L[borrowing_line]; X[-2]; X->L[end_of_line]; L->CURSOR [borrow]; CURSOR->X [borrow]",
+    
+    "COMMENT[propogate borrows, track when finished]" : "",
+    
+    "D[0]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[-1]; E[8]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->D [borrow]",
+
+    "D[1]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[0]; E[8]; D->E[next_char]; L[subtracted_line]", 
+
+    "D[2]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[1]; E[8]; D->E[next_char]; L[subtracted_line]", 
+
+    "D[2]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[1]; E[8]; D->E[next_char]; L[subtracted_line]", 
+
+    "D[3]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[2]; E[8]; D->E[next_char]; L[subtracted_line]", 
+
+    "D[4]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[3]; E[8]; D->E[next_char]; L[subtracted_line]", 
+
+    "D[5]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[4]; E[8]; D->E[next_char]; L[subtracted_line]", 
+
+    "D[6]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[5]; E[8]; D->E[next_char]; L[subtracted_line]", 
+
+    "D[7]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[6]; E[8]; D->E[next_char]; L[subtracted_line]", 
+
+    "D[8]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[7]; E[8]; D->E[next_char]; L[subtracted_line]", 
+
+    "D[9]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[8]; E[8]; D->E[next_char]; L[subtracted_line]", 
+
+    "D[0]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[0]; E[9]; D->E[next_char]; L[subtracted_line]", 
+
+    "D[0]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[-1]; E[9]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->D [borrow]",
+
+    "D[2]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[1]; E[9]; D->E[next_char]; L[subtracted_line]", 
+
+    "D[2]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[1]; E[9]; D->E[next_char]; L[subtracted_line]", 
+    
+    "D[3]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[2]; E[9]; D->E[next_char]; L[subtracted_line]", 
+    
+    "D[4]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[3]; E[9]; D->E[next_char]; L[subtracted_line]", 
+    
+    "D[5]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[4]; E[9]; D->E[next_char]; L[subtracted_line]", 
+    
+    "D[6]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[5]; E[9]; D->E[next_char]; L[subtracted_line]", 
+    
+    "D[7]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[6]; E[9]; D->E[next_char]; L[subtracted_line]", 
+    
+    "D[8]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[7]; E[9]; D->E[next_char]; L[subtracted_line]", 
+    
+    "D[9]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
+    "D[8]; E[9]; D->E[next_char]; L[subtracted_line]", 
+
+    "COMMENT[OK to delete a leading zero, easiest by merging]" : "",
+
+    "LINE[subtracted_line]; D[0]; LINE->D [next_char]" :
+    "LINE^D[subtracted_line]",
+
+    "COMMENT[if cost is 0, -1, or -2 then we can stop, otherwise copy the fuel cost as a new weight]" : "",
+
+    "LINE[subtracted_line]; D[0];  LINE->D [next_char]; D->LINE [end_of_line]" :
+    "LINE[fuel_amount];     D[0];  LINE->D [next_char]; D->LINE [end_of_line]",
+
+    "LINE[subtracted_line]; D[-1]; LINE->D [next_char]; D->LINE [end_of_line]" :
+    "LINE[fuel_amount];     D[0];  LINE->D [next_char]; D->LINE [end_of_line]",
+
+    "LINE[subtracted_line]; D[-2]; LINE->D [next_char]; D->LINE [end_of_line]" :
+    "LINE[fuel_amount];     D[0];  LINE->D [next_char]; D->LINE [end_of_line]",
+
+    "COMMENT[borrowing might look like -1 9 9 9 or -1 9 9 8, fold it back down to clean up]" : "",
+    
+    "LINE[borrowing_line]; D[-1]; E[9]; LINE->D [next_char]; D->E [next_char]; LINE->CURSOR [borrow]; CURSOR->D [borrow]" :
+    "LINE[borrowing_line]; D^E[-1]; LINE->D [next_char];",
+
+    "LINE[borrowing_line]; D[-1]; E[8]; LINE->D [next_char]; D->E [next_char]; LINE->CURSOR [borrow]; CURSOR->D [borrow]" :
+    "LINE[borrowing_line]; D^E[-2]; LINE->D [next_char];",
+
+    "LINE[borrowing_line]; D[-1]; LINE->D [next_char]; D->LINE [end_of_line]; LINE->CURSOR [borrow]; CURSOR->D [borrow]" :
+    "LINE[fuel_amount];     D[0];  LINE->D [next_char]; D->LINE [end_of_line]",
+
+    "LINE[borrowing_line]; D[-2]; LINE->D [next_char]; D->LINE [end_of_line]; LINE->CURSOR [borrow]; CURSOR->D [borrow]" :
+    "LINE[fuel_amount];     D[0];  LINE->D [next_char]; D->LINE [end_of_line]",
+
+    "COMMENT[start copy; never copying a leading zero or negative number]" : "",
+
+    "COPYLINE[subtracted_line]; D[1]; COPYLINE->D [next_char];" :
+    "COPYLINE[making_copy];     D[1]; COPYLINE->D [next_char]; COPYLINE->COPY [copy]; COPY->COPIER [next_char]; COPIER[copier]; COPIER->D[pos];",
+    "COPYLINE[subtracted_line]; D[2]; COPYLINE->D [next_char];" :
+    "COPYLINE[making_copy];     D[2]; COPYLINE->D [next_char]; COPYLINE->COPY [copy]; COPY->COPIER [next_char]; COPIER[copier]; COPIER->D[pos];",
+    "COPYLINE[subtracted_line]; D[3]; COPYLINE->D [next_char];" :
+    "COPYLINE[making_copy];     D[3]; COPYLINE->D [next_char]; COPYLINE->COPY [copy]; COPY->COPIER [next_char]; COPIER[copier]; COPIER->D[pos];",
+    "COPYLINE[subtracted_line]; D[4]; COPYLINE->D [next_char];" :
+    "COPYLINE[making_copy];     D[4]; COPYLINE->D [next_char]; COPYLINE->COPY [copy]; COPY->COPIER [next_char]; COPIER[copier]; COPIER->D[pos];",
+    "COPYLINE[subtracted_line]; D[5]; COPYLINE->D [next_char];" :
+    "COPYLINE[making_copy];     D[5]; COPYLINE->D [next_char]; COPYLINE->COPY [copy]; COPY->COPIER [next_char]; COPIER[copier]; COPIER->D[pos];",
+    "COPYLINE[subtracted_line]; D[6]; COPYLINE->D [next_char];" :
+    "COPYLINE[making_copy];     D[6]; COPYLINE->D [next_char]; COPYLINE->COPY [copy]; COPY->COPIER [next_char]; COPIER[copier]; COPIER->D[pos];",
+    "COPYLINE[subtracted_line]; D[7]; COPYLINE->D [next_char];" :
+    "COPYLINE[making_copy];     D[7]; COPYLINE->D [next_char]; COPYLINE->COPY [copy]; COPY->COPIER [next_char]; COPIER[copier]; COPIER->D[pos];",
+    "COPYLINE[subtracted_line]; D[8]; COPYLINE->D [next_char];" :
+    "COPYLINE[making_copy];     D[8]; COPYLINE->D [next_char]; COPYLINE->COPY [copy]; COPY->COPIER [next_char]; COPIER[copier]; COPIER->D[pos];",
+    "COPYLINE[subtracted_line]; D[9]; COPYLINE->D [next_char];" :
+    "COPYLINE[making_copy];     D[9]; COPYLINE->D [next_char]; COPYLINE->COPY [copy]; COPY->COPIER [next_char]; COPIER[copier]; COPIER->D[pos];",
+
+    "COMMENT[continue copy; the copier node becomes the copy and we make a new one each time]" : "",
+
+    "COPIER[copier]; D[0]; NEXT[0]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[0];      D[0]; NEXT[0]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[1]; NEXT[0]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[1];      D[1]; NEXT[0]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[2]; NEXT[0]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[2];      D[2]; NEXT[0]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[3]; NEXT[0]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[3];      D[3]; NEXT[0]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[4]; NEXT[0]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[4];      D[4]; NEXT[0]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[5]; NEXT[0]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[5];      D[5]; NEXT[0]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[6]; NEXT[0]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[6];      D[6]; NEXT[0]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[7]; NEXT[0]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[7];      D[7]; NEXT[0]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[8]; NEXT[0]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[8];      D[8]; NEXT[0]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[9]; NEXT[0]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[9];      D[9]; NEXT[0]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[0]; NEXT[0]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[0];      D[0]; NEXT[0]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    
+    "COPIER[copier]; D[1]; NEXT[1]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[1];      D[1]; NEXT[1]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[2]; NEXT[1]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[2];      D[2]; NEXT[1]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[3]; NEXT[1]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[3];      D[3]; NEXT[1]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[4]; NEXT[1]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[4];      D[4]; NEXT[1]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[5]; NEXT[1]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[5];      D[5]; NEXT[1]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[6]; NEXT[1]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[6];      D[6]; NEXT[1]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[7]; NEXT[1]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[7];      D[7]; NEXT[1]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[8]; NEXT[1]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[8];      D[8]; NEXT[1]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[9]; NEXT[1]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[9];      D[9]; NEXT[1]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+
+    "COPIER[copier]; D[0]; NEXT[2]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[0];      D[0]; NEXT[2]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[1]; NEXT[2]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[1];      D[1]; NEXT[2]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[2]; NEXT[2]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[2];      D[2]; NEXT[2]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[3]; NEXT[2]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[3];      D[3]; NEXT[2]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[4]; NEXT[2]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[4];      D[4]; NEXT[2]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[5]; NEXT[2]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[5];      D[5]; NEXT[2]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[6]; NEXT[2]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[6];      D[6]; NEXT[2]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[7]; NEXT[2]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[7];      D[7]; NEXT[2]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[8]; NEXT[2]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[8];      D[8]; NEXT[2]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[9]; NEXT[2]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[9];      D[9]; NEXT[2]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+
+    "COPIER[copier]; D[0]; NEXT[3]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[0];      D[0]; NEXT[3]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[1]; NEXT[3]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[1];      D[1]; NEXT[3]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[2]; NEXT[3]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[2];      D[2]; NEXT[3]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[3]; NEXT[3]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[3];      D[3]; NEXT[3]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[4]; NEXT[3]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[4];      D[4]; NEXT[3]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[5]; NEXT[3]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[5];      D[5]; NEXT[3]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[6]; NEXT[3]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[6];      D[6]; NEXT[3]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[7]; NEXT[3]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[7];      D[7]; NEXT[3]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[8]; NEXT[3]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[8];      D[8]; NEXT[3]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[9]; NEXT[3]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[9];      D[9]; NEXT[3]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    
+    "COPIER[copier]; D[0]; NEXT[4]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[0];      D[0]; NEXT[4]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[1]; NEXT[4]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[1];      D[1]; NEXT[4]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[2]; NEXT[4]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[2];      D[2]; NEXT[4]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[3]; NEXT[4]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[3];      D[3]; NEXT[4]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[4]; NEXT[4]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[4];      D[4]; NEXT[4]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[5]; NEXT[4]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[5];      D[5]; NEXT[4]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[6]; NEXT[4]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[6];      D[6]; NEXT[4]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[7]; NEXT[4]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[7];      D[7]; NEXT[4]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[8]; NEXT[4]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[8];      D[8]; NEXT[4]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[9]; NEXT[4]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[9];      D[9]; NEXT[4]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    
+    "COPIER[copier]; D[0]; NEXT[5]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[0];      D[0]; NEXT[5]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[1]; NEXT[5]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[1];      D[1]; NEXT[5]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[2]; NEXT[5]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[2];      D[2]; NEXT[5]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[3]; NEXT[5]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[3];      D[3]; NEXT[5]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[4]; NEXT[5]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[4];      D[4]; NEXT[5]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[5]; NEXT[5]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[5];      D[5]; NEXT[5]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[6]; NEXT[5]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[6];      D[6]; NEXT[5]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[7]; NEXT[5]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[7];      D[7]; NEXT[5]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[8]; NEXT[5]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[8];      D[8]; NEXT[5]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[9]; NEXT[5]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[9];      D[9]; NEXT[5]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    
+    "COPIER[copier]; D[0]; NEXT[6]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[0];      D[0]; NEXT[6]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[1]; NEXT[6]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[1];      D[1]; NEXT[6]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[2]; NEXT[6]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[2];      D[2]; NEXT[6]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[3]; NEXT[6]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[3];      D[3]; NEXT[6]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[4]; NEXT[6]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[4];      D[4]; NEXT[6]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[5]; NEXT[6]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[5];      D[5]; NEXT[6]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[6]; NEXT[6]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[6];      D[6]; NEXT[6]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[7]; NEXT[6]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[7];      D[7]; NEXT[6]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[8]; NEXT[6]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[8];      D[8]; NEXT[6]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[9]; NEXT[6]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[9];      D[9]; NEXT[6]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    
+    "COPIER[copier]; D[0]; NEXT[7]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[0];      D[0]; NEXT[7]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[1]; NEXT[7]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[1];      D[1]; NEXT[7]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[2]; NEXT[7]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[2];      D[2]; NEXT[7]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[3]; NEXT[7]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[3];      D[3]; NEXT[7]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[4]; NEXT[7]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[4];      D[4]; NEXT[7]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[5]; NEXT[7]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[5];      D[5]; NEXT[7]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[6]; NEXT[7]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[6];      D[6]; NEXT[7]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[7]; NEXT[7]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[7];      D[7]; NEXT[7]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[8]; NEXT[7]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[8];      D[8]; NEXT[7]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[9]; NEXT[7]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[9];      D[9]; NEXT[7]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    
+    "COPIER[copier]; D[0]; NEXT[8]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[0];      D[0]; NEXT[8]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[1]; NEXT[8]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[1];      D[1]; NEXT[8]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[2]; NEXT[8]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[2];      D[2]; NEXT[8]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[3]; NEXT[8]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[3];      D[3]; NEXT[8]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[4]; NEXT[8]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[4];      D[4]; NEXT[8]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[5]; NEXT[8]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[5];      D[5]; NEXT[8]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[6]; NEXT[8]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[6];      D[6]; NEXT[8]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[7]; NEXT[8]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[7];      D[7]; NEXT[8]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[8]; NEXT[8]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[8];      D[8]; NEXT[8]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[9]; NEXT[8]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[9];      D[9]; NEXT[8]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    
+    "COPIER[copier]; D[0]; NEXT[9]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[0];      D[0]; NEXT[9]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[1]; NEXT[9]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[1];      D[1]; NEXT[9]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[2]; NEXT[9]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[2];      D[2]; NEXT[9]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[3]; NEXT[9]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[3];      D[3]; NEXT[9]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[4]; NEXT[9]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[4];      D[4]; NEXT[9]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[5]; NEXT[9]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[5];      D[5]; NEXT[9]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[6]; NEXT[9]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[6];      D[6]; NEXT[9]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[7]; NEXT[9]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[7];      D[7]; NEXT[9]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[8]; NEXT[9]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[8];      D[8]; NEXT[9]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+    "COPIER[copier]; D[9]; NEXT[9]; D->NEXT [next_char];                                    COPIER->D[pos]" :
+    "COPIER[9];      D[9]; NEXT[9]; D->NEXT [next_char]; COPIER->NC [next_char]; NC[copier]; NC->NEXT[pos]",
+
+    "COMMENT[end of copy]" : "",
+    
+    "COPIER[copier]; D[0]; D->LINE [end_of_line]; COPIER->D[pos];            LINE[making_copy]; LINE->COPY [copy]" :
+    "COPIER[0];      D[0]; D->LINE [end_of_line]; COPIER->COPY[end_of_line]; LINE[copy_ready];  LINE->COPY [copy]",
+    "COPIER[copier]; D[1]; D->LINE [end_of_line]; COPIER->D[pos];            LINE[making_copy]; LINE->COPY [copy]" :
+    "COPIER[1];      D[1]; D->LINE [end_of_line]; COPIER->COPY[end_of_line]; LINE[copy_ready];  LINE->COPY [copy]",
+    "COPIER[copier]; D[2]; D->LINE [end_of_line]; COPIER->D[pos];            LINE[making_copy]; LINE->COPY [copy]" :
+    "COPIER[2];      D[2]; D->LINE [end_of_line]; COPIER->COPY[end_of_line]; LINE[copy_ready];  LINE->COPY [copy]",
+    "COPIER[copier]; D[3]; D->LINE [end_of_line]; COPIER->D[pos];            LINE[making_copy]; LINE->COPY [copy]" :
+    "COPIER[3];      D[3]; D->LINE [end_of_line]; COPIER->COPY[end_of_line]; LINE[copy_ready];  LINE->COPY [copy]",
+    "COPIER[copier]; D[4]; D->LINE [end_of_line]; COPIER->D[pos];            LINE[making_copy]; LINE->COPY [copy]" :
+    "COPIER[4];      D[4]; D->LINE [end_of_line]; COPIER->COPY[end_of_line]; LINE[copy_ready];  LINE->COPY [copy]",
+    "COPIER[copier]; D[5]; D->LINE [end_of_line]; COPIER->D[pos];            LINE[making_copy]; LINE->COPY [copy]" :
+    "COPIER[5];      D[5]; D->LINE [end_of_line]; COPIER->COPY[end_of_line]; LINE[copy_ready];  LINE->COPY [copy]",
+    "COPIER[copier]; D[6]; D->LINE [end_of_line]; COPIER->D[pos];            LINE[making_copy]; LINE->COPY [copy]" :
+    "COPIER[6];      D[6]; D->LINE [end_of_line]; COPIER->COPY[end_of_line]; LINE[copy_ready];  LINE->COPY [copy]",
+    "COPIER[copier]; D[7]; D->LINE [end_of_line]; COPIER->D[pos];            LINE[making_copy]; LINE->COPY [copy]" :
+    "COPIER[7];      D[7]; D->LINE [end_of_line]; COPIER->COPY[end_of_line]; LINE[copy_ready];  LINE->COPY [copy]",
+    "COPIER[copier]; D[8]; D->LINE [end_of_line]; COPIER->D[pos];            LINE[making_copy]; LINE->COPY [copy]" :
+    "COPIER[8];      D[8]; D->LINE [end_of_line]; COPIER->COPY[end_of_line]; LINE[copy_ready];  LINE->COPY [copy]",
+    "COPIER[copier]; D[9]; D->LINE [end_of_line]; COPIER->D[pos];            LINE[making_copy]; LINE->COPY [copy]" :
+    "COPIER[9];      D[9]; D->LINE [end_of_line]; COPIER->COPY[end_of_line]; LINE[copy_ready];  LINE->COPY [copy]",    
+
+    "COMMENT[insert copy into the input list, as a new target]" : "",
+    "COMMENT[Ie goofed, having all the different states directly tagged on the line makes this difficult]" : "",
+    "COMMENT[but we should be OK with just a subset.]" : "",
+
+    "LINE[copy_ready];  END[end_of_input]; LINE->END [end_of_input]; LINE->COPY [copy]" :
+    "LINE[fuel_amount]; END[end_of_input]; LINE->COPY [next_line]; COPY->END [end_of_input]; COPY[line]",
+
+    "LINE[copy_ready];  NEXT[fuel_amount]; LINE->NEXT [next_line]; LINE->COPY [copy]" :
+    "LINE[fuel_amount]; NEXT[fuel_amount]; COPY->NEXT [next_line]; LINE->COPY [next_line]; COPY[line]", 
+
+    "LINE[copy_ready];  NEXT[line]; LINE->NEXT [next_line]; LINE->COPY [copy]" :
+    "LINE[fuel_amount]; NEXT[line]; COPY->NEXT [next_line]; LINE->COPY [next_line]; COPY[line]", 
+
+    "LINE[copy_ready];  NEXT[copy_ready]; LINE->NEXT [next_line]; LINE->COPY [copy]" :
+    "LINE[fuel_amount]; NEXT[copy_ready]; COPY->NEXT [next_line]; LINE->COPY [next_line]; COPY[line]", 
+
+    "COMMENT[a cleanup rule]" : "",
+
+    "L1[fuel_amount]; L1->L2 [next_line]; L2[fuel_amount]; L2->Z [next_char]; Z->L2 [end_of_line]; Z[0]" :
+    "L1^L2[fuel_amount]",
+
+    "COMMENT[end of file]" : ""
+}
+   

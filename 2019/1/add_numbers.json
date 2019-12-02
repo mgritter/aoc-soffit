@@ -7,6 +7,9 @@
     "L[subtracted_line]" :
     "L[line]",
 
+    "L[fuel_amount]" :
+    "L[line]",
+
     "L1[line]; L2[line]; L1->L2 [next_line]" :
     "L1[adding_line]; L2[adding_line]; L1->L2 [next_line]; C[adder]; C->L1 [a]; C->L2 [b]; Z[0]; C->Z [carry]",
 
