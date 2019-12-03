@@ -692,152 +692,157 @@
     "COMMENT[subtract two from the least-significant digit]" : "",
     
     "L[divided_line]; X[9]; X->L[end_of_line]" : 
-    "L[subtracted_line]; X[7]; X->L[end_of_line]",
+    "L[sub_line]; X[7]; X->L[end_of_line]",
 
     "L[divided_line]; X[8]; X->L[end_of_line]" : 
-    "L[subtracted_line]; X[6]; X->L[end_of_line]",
+    "L[sub_line]; X[6]; X->L[end_of_line]",
     
     "L[divided_line]; X[7]; X->L[end_of_line]" : 
-    "L[subtracted_line]; X[5]; X->L[end_of_line]",
+    "L[sub_line]; X[5]; X->L[end_of_line]",
 
     "L[divided_line]; X[6]; X->L[end_of_line]" : 
-    "L[subtracted_line]; X[4]; X->L[end_of_line]",
+    "L[sub_line]; X[4]; X->L[end_of_line]",
 
     "L[divided_line]; X[5]; X->L[end_of_line]" : 
-    "L[subtracted_line]; X[3]; X->L[end_of_line]",
+    "L[sub_line]; X[3]; X->L[end_of_line]",
 
     "L[divided_line]; X[4]; X->L[end_of_line]" : 
-    "L[subtracted_line]; X[2]; X->L[end_of_line]",
+    "L[sub_line]; X[2]; X->L[end_of_line]",
 
     "L[divided_line]; X[3]; X->L[end_of_line]" : 
-    "L[subtracted_line]; X[1]; X->L[end_of_line]",
+    "L[sub_line]; X[1]; X->L[end_of_line]",
 
     "L[divided_line]; X[2]; X->L[end_of_line]" : 
-    "L[subtracted_line]; X[0]; X->L[end_of_line]",
+    "L[sub_line]; X[0]; X->L[end_of_line]",
 
     "L[divided_line]; X[1]; X->L[end_of_line]" : 
-    "L[borrowing_line]; X[-1]; X->L[end_of_line]; L->CURSOR [borrow]; CURSOR->X [borrow]",
+    "L[borrowing_line]; X[-1]; X->L[end_of_line];",
 
     "L[divided_line]; X[0]; X->L[end_of_line]" : 
-    "L[borrowing_line]; X[-2]; X->L[end_of_line]; L->CURSOR [borrow]; CURSOR->X [borrow]",
+    "L[borrowing_line]; X[-2]; X->L[end_of_line];",
     
-    "COMMENT[propogate borrows, track when finished]" : "",
+    "COMMENT[borrow, but simplify by handling the whole number at once if it's below zero]" : "",
+
+    "D[1]; E[-2]; D->E[next_char];  E->L[end_of_line]; L[borrowing_line]" : 
+    "D[0]; E[8];  D->E[next_char];  E->L[end_of_line]; L[sub_line]", 
+
+    "D[2]; E[-2]; D->E[next_char];  E->L[end_of_line]; L[borrowing_line]" : 
+    "D[1]; E[8];  D->E[next_char];  E->L[end_of_line]; L[sub_line]", 
+
+    "D[3]; E[-2]; D->E[next_char];  E->L[end_of_line]; L[borrowing_line]" : 
+    "D[2]; E[8];  D->E[next_char];  E->L[end_of_line]; L[sub_line]", 
+
+    "D[4]; E[-2]; D->E[next_char];  E->L[end_of_line]; L[borrowing_line]" : 
+    "D[3]; E[8];  D->E[next_char];  E->L[end_of_line]; L[sub_line]", 
+
+    "D[5]; E[-2]; D->E[next_char];  E->L[end_of_line]; L[borrowing_line]" : 
+    "D[4]; E[8];  D->E[next_char];  E->L[end_of_line]; L[sub_line]", 
+
+    "D[6]; E[-2]; D->E[next_char];  E->L[end_of_line]; L[borrowing_line]" : 
+    "D[5]; E[8];  D->E[next_char];  E->L[end_of_line]; L[sub_line]", 
+
+    "D[7]; E[-2]; D->E[next_char];  E->L[end_of_line]; L[borrowing_line]" : 
+    "D[6]; E[8];  D->E[next_char];  E->L[end_of_line]; L[sub_line]", 
+
+    "D[8]; E[-2]; D->E[next_char];  E->L[end_of_line]; L[borrowing_line]" : 
+    "D[7]; E[8];  D->E[next_char];  E->L[end_of_line]; L[sub_line]", 
+
+    "D[9]; E[-2]; D->E[next_char];  E->L[end_of_line]; L[borrowing_line]" : 
+    "D[8]; E[8];  D->E[next_char];  E->L[end_of_line]; L[sub_line]", 
+
+    "D[1]; E[-1]; D->E[next_char];  E->L[end_of_line]; L[borrowing_line]" : 
+    "D[0]; E[9];  D->E[next_char];  E->L[end_of_line]; L[sub_line]", 
+
+    "D[2]; E[-1]; D->E[next_char];  E->L[end_of_line]; L[borrowing_line]" : 
+    "D[1]; E[9];  D->E[next_char];  E->L[end_of_line]; L[sub_line]", 
+
+    "D[3]; E[-1]; D->E[next_char];  E->L[end_of_line]; L[borrowing_line]" : 
+    "D[2]; E[9];  D->E[next_char];  E->L[end_of_line]; L[sub_line]", 
+
+    "D[4]; E[-1]; D->E[next_char];  E->L[end_of_line]; L[borrowing_line]" : 
+    "D[3]; E[9];  D->E[next_char];  E->L[end_of_line]; L[sub_line]", 
+
+    "D[5]; E[-1]; D->E[next_char];  E->L[end_of_line]; L[borrowing_line]" : 
+    "D[4]; E[9];  D->E[next_char];  E->L[end_of_line]; L[sub_line]", 
+
+    "D[6]; E[-1]; D->E[next_char];  E->L[end_of_line]; L[borrowing_line]" : 
+    "D[5]; E[9];  D->E[next_char];  E->L[end_of_line]; L[sub_line]", 
+
+    "D[7]; E[-1]; D->E[next_char];  E->L[end_of_line]; L[borrowing_line]" : 
+    "D[6]; E[9];  D->E[next_char];  E->L[end_of_line]; L[sub_line]", 
+
+    "D[8]; E[-1]; D->E[next_char];  E->L[end_of_line]; L[borrowing_line]" : 
+    "D[7]; E[9];  D->E[next_char];  E->L[end_of_line]; L[sub_line]", 
+
+    "D[9]; E[-1]; D->E[next_char];  E->L[end_of_line]; L[borrowing_line]" : 
+    "D[8]; E[9];  D->E[next_char];  E->L[end_of_line]; L[sub_line]", 
+
+    "COMMENT[OK to delete a leading zero, but not all the way to an empty list]" : "",
+    "COMMENT[A borrowing_line has a -1 or -2 on the end, so that's OK]" : "",
+
+    "LINE[borrowing_line]; D[0]; LINE->D [next_char];" :
+    "LINE^D[borrowing_line]",
+
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1[0]; Z1->Z2 [next_char]; Z2[0]" :
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1^Z2[0]",
+
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1[0]; Z1->NZ [next_char]; NZ[1]" :
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1^NZ[1]",
+
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1[0]; Z1->NZ [next_char]; NZ[2]" :
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1^NZ[2]",
+
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1[0]; Z1->NZ [next_char]; NZ[3]" :
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1^NZ[3]",
+
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1[0]; Z1->NZ [next_char]; NZ[4]" :
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1^NZ[4]",
+
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1[0]; Z1->NZ [next_char]; NZ[5]" :
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1^NZ[5]",
+
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1[0]; Z1->NZ [next_char]; NZ[6]" :
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1^NZ[6]",
+
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1[0]; Z1->NZ [next_char]; NZ[7]" :
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1^NZ[7]",
+
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1[0]; Z1->NZ [next_char]; NZ[8]" :
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1^NZ[8]",
     
-    "D[0]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[-1]; E[8]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->D [borrow]",
-
-    "D[1]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[0]; E[8]; D->E[next_char]; L[subtracted_line]", 
-
-    "D[2]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[1]; E[8]; D->E[next_char]; L[subtracted_line]", 
-
-    "D[2]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[1]; E[8]; D->E[next_char]; L[subtracted_line]", 
-
-    "D[3]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[2]; E[8]; D->E[next_char]; L[subtracted_line]", 
-
-    "D[4]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[3]; E[8]; D->E[next_char]; L[subtracted_line]", 
-
-    "D[5]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[4]; E[8]; D->E[next_char]; L[subtracted_line]", 
-
-    "D[6]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[5]; E[8]; D->E[next_char]; L[subtracted_line]", 
-
-    "D[7]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[6]; E[8]; D->E[next_char]; L[subtracted_line]", 
-
-    "D[8]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[7]; E[8]; D->E[next_char]; L[subtracted_line]", 
-
-    "D[9]; E[-2]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[8]; E[8]; D->E[next_char]; L[subtracted_line]", 
-
-    "D[0]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[0]; E[9]; D->E[next_char]; L[subtracted_line]", 
-
-    "D[0]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[-1]; E[9]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->D [borrow]",
-
-    "D[2]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[1]; E[9]; D->E[next_char]; L[subtracted_line]", 
-
-    "D[2]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[1]; E[9]; D->E[next_char]; L[subtracted_line]", 
-    
-    "D[3]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[2]; E[9]; D->E[next_char]; L[subtracted_line]", 
-    
-    "D[4]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[3]; E[9]; D->E[next_char]; L[subtracted_line]", 
-    
-    "D[5]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[4]; E[9]; D->E[next_char]; L[subtracted_line]", 
-    
-    "D[6]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[5]; E[9]; D->E[next_char]; L[subtracted_line]", 
-    
-    "D[7]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[6]; E[9]; D->E[next_char]; L[subtracted_line]", 
-    
-    "D[8]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[7]; E[9]; D->E[next_char]; L[subtracted_line]", 
-    
-    "D[9]; E[-1]; D->E[next_char]; L[borrowing_line]; L->CURSOR[borrow]; CURSOR->E [borrow]" : 
-    "D[8]; E[9]; D->E[next_char]; L[subtracted_line]", 
-
-    "COMMENT[OK to delete a leading zero, easiest by merging]" : "",
-
-    "LINE[subtracted_line]; D[0]; LINE->D [next_char]" :
-    "LINE^D[subtracted_line]",
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1[0]; Z1->NZ [next_char]; NZ[9]" :
+    "LINE[sub_line]; LINE->Z1 [next_char]; Z1^NZ[9]",
 
     "COMMENT[if cost is 0, -1, or -2 then we can stop, otherwise copy the fuel cost as a new weight]" : "",
 
-    "LINE[subtracted_line]; D[0];  LINE->D [next_char]; D->LINE [end_of_line]" :
+    "LINE[sub_line];        D[0];  LINE->D [next_char]; D->LINE [end_of_line]" :
     "LINE[fuel_amount];     D[0];  LINE->D [next_char]; D->LINE [end_of_line]",
-
-    "LINE[subtracted_line]; D[-1]; LINE->D [next_char]; D->LINE [end_of_line]" :
-    "LINE[fuel_amount];     D[0];  LINE->D [next_char]; D->LINE [end_of_line]",
-
-    "LINE[subtracted_line]; D[-2]; LINE->D [next_char]; D->LINE [end_of_line]" :
-    "LINE[fuel_amount];     D[0];  LINE->D [next_char]; D->LINE [end_of_line]",
-
-    "COMMENT[borrowing might look like -1 9 9 9 or -1 9 9 8, fold it back down to clean up]" : "",
     
-    "LINE[borrowing_line]; D[-1]; E[9]; LINE->D [next_char]; D->E [next_char]; LINE->CURSOR [borrow]; CURSOR->D [borrow]" :
-    "LINE[borrowing_line]; D^E[-1]; LINE->D [next_char];",
-
-    "LINE[borrowing_line]; D[-1]; E[8]; LINE->D [next_char]; D->E [next_char]; LINE->CURSOR [borrow]; CURSOR->D [borrow]" :
-    "LINE[borrowing_line]; D^E[-2]; LINE->D [next_char];",
-
-    "LINE[borrowing_line]; D[-1]; LINE->D [next_char]; D->LINE [end_of_line]; LINE->CURSOR [borrow]; CURSOR->D [borrow]" :
+    "LINE[borrowing_line]; D[-1];  LINE->D [next_char]; D->LINE [end_of_line]" :
     "LINE[fuel_amount];     D[0];  LINE->D [next_char]; D->LINE [end_of_line]",
 
-    "LINE[borrowing_line]; D[-2]; LINE->D [next_char]; D->LINE [end_of_line]; LINE->CURSOR [borrow]; CURSOR->D [borrow]" :
+    "LINE[borrowing_line]; D[-2];  LINE->D [next_char]; D->LINE [end_of_line]" :
     "LINE[fuel_amount];     D[0];  LINE->D [next_char]; D->LINE [end_of_line]",
 
     "COMMENT[start copy; never copying a leading zero or negative number]" : "",
 
-    "COPYLINE[subtracted_line]; D[1]; COPYLINE->D [next_char];" :
+    "COPYLINE[sub_line];        D[1]; COPYLINE->D [next_char];" :
     "COPYLINE[making_copy];     D[1]; COPYLINE->D [next_char]; COPYLINE->COPY [copy]; COPY->COPIER [next_char]; COPIER[copier]; COPIER->D[pos];",
-    "COPYLINE[subtracted_line]; D[2]; COPYLINE->D [next_char];" :
+    "COPYLINE[sub_line];        D[2]; COPYLINE->D [next_char];" :
     "COPYLINE[making_copy];     D[2]; COPYLINE->D [next_char]; COPYLINE->COPY [copy]; COPY->COPIER [next_char]; COPIER[copier]; COPIER->D[pos];",
-    "COPYLINE[subtracted_line]; D[3]; COPYLINE->D [next_char];" :
+    "COPYLINE[sub_line];        D[3]; COPYLINE->D [next_char];" :
     "COPYLINE[making_copy];     D[3]; COPYLINE->D [next_char]; COPYLINE->COPY [copy]; COPY->COPIER [next_char]; COPIER[copier]; COPIER->D[pos];",
-    "COPYLINE[subtracted_line]; D[4]; COPYLINE->D [next_char];" :
+    "COPYLINE[sub_line];        D[4]; COPYLINE->D [next_char];" :
     "COPYLINE[making_copy];     D[4]; COPYLINE->D [next_char]; COPYLINE->COPY [copy]; COPY->COPIER [next_char]; COPIER[copier]; COPIER->D[pos];",
-    "COPYLINE[subtracted_line]; D[5]; COPYLINE->D [next_char];" :
+    "COPYLINE[sub_line];        D[5]; COPYLINE->D [next_char];" :
     "COPYLINE[making_copy];     D[5]; COPYLINE->D [next_char]; COPYLINE->COPY [copy]; COPY->COPIER [next_char]; COPIER[copier]; COPIER->D[pos];",
-    "COPYLINE[subtracted_line]; D[6]; COPYLINE->D [next_char];" :
+    "COPYLINE[sub_line];        D[6]; COPYLINE->D [next_char];" :
     "COPYLINE[making_copy];     D[6]; COPYLINE->D [next_char]; COPYLINE->COPY [copy]; COPY->COPIER [next_char]; COPIER[copier]; COPIER->D[pos];",
-    "COPYLINE[subtracted_line]; D[7]; COPYLINE->D [next_char];" :
+    "COPYLINE[sub_line];        D[7]; COPYLINE->D [next_char];" :
     "COPYLINE[making_copy];     D[7]; COPYLINE->D [next_char]; COPYLINE->COPY [copy]; COPY->COPIER [next_char]; COPIER[copier]; COPIER->D[pos];",
-    "COPYLINE[subtracted_line]; D[8]; COPYLINE->D [next_char];" :
+    "COPYLINE[sub_line];        D[8]; COPYLINE->D [next_char];" :
     "COPYLINE[making_copy];     D[8]; COPYLINE->D [next_char]; COPYLINE->COPY [copy]; COPY->COPIER [next_char]; COPIER[copier]; COPIER->D[pos];",
-    "COPYLINE[subtracted_line]; D[9]; COPYLINE->D [next_char];" :
+    "COPYLINE[sub_line];        D[9]; COPYLINE->D [next_char];" :
     "COPYLINE[making_copy];     D[9]; COPYLINE->D [next_char]; COPYLINE->COPY [copy]; COPY->COPIER [next_char]; COPIER[copier]; COPIER->D[pos];",
 
     "COMMENT[continue copy; the copier node becomes the copy and we make a new one each time]" : "",
