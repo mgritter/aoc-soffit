@@ -42,15 +42,17 @@ class StepReport(object):
             self.num_iterations,
             self.end_time - self.start_time ) )
         
-def execute_run_graph( g, path, verbose=True ):
+def execute_run_graph( g, path, verbose=True, outputdir="." ):
     start = [ n for n,t in g.nodes.data( 'tag' ) if t == "start" ]
     if len( start ) == 0:
         raise Exception( "No start node found." )
     if len( start ) > 1:
         raise Exception( "More than one start node." )
 
-    drawSvg( g, "execution-plan.svg", program="dot" )
-
+    drawSvg( g,
+             os.path.join( outputdir, "execution-plan.svg"),
+             program="dot" )
+    
     curr = start[0]
     working_graph = None
     step_count = 1
@@ -65,6 +67,8 @@ def execute_run_graph( g, path, verbose=True ):
                 print( "Executing grammar", grammar_name )
 
             grammar = soffit.loadGrammar( os.path.join( path, grammar_name ) )
+            if verbose:
+                print( "Grammar has", len( grammar.rules), "rules." )
             if working_graph is None:
                 working_graph = grammar.start.to_directed()
             
@@ -96,9 +100,9 @@ def execute_run_graph( g, path, verbose=True ):
                 a.run( 1000000 )
                 curr_step.stop( a.iteration )
                 drawSvg( a.graph,
-                         "after-step-{}.svg".format( curr_step.id ),
+                         os.path.join( outputdir, "after-step-{}.svg".format( curr_step.id ) ),
                          program="neato",
-                         dotFile="after-step-{}.dot".format( curr_step.id ) )
+                         dotFile=os.path.join( outputdir, "after-step-{}.dot".format( curr_step.id ) ) )
             except KeyboardInterrupt:
                 print( "Interupted!" )
                 return a.graph
@@ -140,16 +144,23 @@ def show_output_as_string( g ):
     
 def main():
     if len( sys.argv ) < 3:
-        print( "Usage: python -m aoc.main <rungraph> <input>" )
+        print( "Usage: python -m aoc.main <rungraph> <input> [<outputdir>]" )
         return
 
+    outputdir = "."
+    if len( sys.argv ) >= 4:
+        outputdir = sys.argv[3]
+        
     grammar = soffit.loadGrammar( sys.argv[1] )
     try:
-        g = execute_run_graph( grammar.start, os.path.dirname( sys.argv[1] ) )
+        g = execute_run_graph( grammar.start,
+                               os.path.dirname( sys.argv[1] ),
+                               outputdir = outputdir)
 
-        drawSvg( g, "aoc.svg",
+        drawSvg( g,
+                 os.path.join( outputdir, "aoc.svg" ),
                  program="dot",
-                 dotFile="aoc.dot" )
+                 dotFile=os.path.join( outputdir, "aoc.dot" ) )
 
         show_output_as_string( g )        
     except Exception as e:
