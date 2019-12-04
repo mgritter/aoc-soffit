@@ -15,13 +15,8 @@ def has_edge( g, n, edge_tag ):
     return None
 
 def make_video( iteration, g ):
-    return
-
     g = g.copy()
-    for n,t in g.nodes.data( 'tag' ):
-        if t == 'cursor':
-            g.nodes[n]['color'] = 'red'
-    drawSvg( g, "aoc{:03d}.svg".format( iteration ),
+    drawSvg( g, "aoc{:04d}.svg".format( iteration ),
              program="dot" )
 
 class StepReport(object):
@@ -90,8 +85,8 @@ def execute_run_graph( g, path, verbose=True, outputdir="." ):
             
             a = soffit.ApplicationState(
                 initialGraph = working_graph,
-                grammar = grammar,
-                callback = make_video
+                grammar = grammar
+                #callback = make_video
             )
             a.verbose = verbose
             if verbose:
