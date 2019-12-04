@@ -1,0 +1,28 @@
+{
+    "version" : "0.1",
+    "start" : "STATE[s_init];",
+
+    "COMMENT[Pad the end of input with commas]" : "",
+
+    "D[0];       LINE[line];                   D->LINE [end_of_line]" :
+    "D[0]; C[,]; LINE[line]; D->C [next_char]; C->LINE [end_of_line]",
+    "D[1];       LINE[line];                   D->LINE [end_of_line]" :
+    "D[1]; C[,]; LINE[line]; D->C [next_char]; C->LINE [end_of_line]",
+    "D[2];       LINE[line];                   D->LINE [end_of_line]" :
+    "D[2]; C[,]; LINE[line]; D->C [next_char]; C->LINE [end_of_line]",
+    "D[3];       LINE[line];                   D->LINE [end_of_line]" :
+    "D[3]; C[,]; LINE[line]; D->C [next_char]; C->LINE [end_of_line]",
+    "D[4];       LINE[line];                   D->LINE [end_of_line]" :
+    "D[4]; C[,]; LINE[line]; D->C [next_char]; C->LINE [end_of_line]",
+    "D[5];       LINE[line];                   D->LINE [end_of_line]" :
+    "D[5]; C[,]; LINE[line]; D->C [next_char]; C->LINE [end_of_line]",
+    "D[6];       LINE[line];                   D->LINE [end_of_line]" :
+    "D[6]; C[,]; LINE[line]; D->C [next_char]; C->LINE [end_of_line]",
+    "D[7];       LINE[line];                   D->LINE [end_of_line]" :
+    "D[7]; C[,]; LINE[line]; D->C [next_char]; C->LINE [end_of_line]",
+    "D[8];       LINE[line];                   D->LINE [end_of_line]" :
+    "D[8]; C[,]; LINE[line]; D->C [next_char]; C->LINE [end_of_line]",
+    "D[9];       LINE[line];                   D->LINE [end_of_line]" :
+    "D[9]; C[,]; LINE[line]; D->C [next_char]; C->LINE [end_of_line]"
+    
+}

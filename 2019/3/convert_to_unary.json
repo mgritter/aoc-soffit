@@ -1,0 +1,617 @@
+{
+    "version" : "0.1",
+
+    "COMMENT[start reading the first line]" : "",
+    
+    "STATE[s_init]; INPUT[input]; INPUT->LINE [next_line]; LINE[line]; LINE->DIR[next_char]; DIR[L];" :
+    "STATE[s_ab];   INPUT[input]; INPUT->LINE [next_line]; LINE[line]; LINE->DIR[next_char]; DIR[L]; CURSOR[cursor]; CURSOR->BLANK[write]; CURSOR->DIR[read]; STATE->BLANK[path]",
+    
+    "STATE[s_init]; INPUT[input]; INPUT->LINE [next_line]; LINE[line]; LINE->DIR[next_char]; DIR[R];" :
+    "STATE[s_ab];   INPUT[input]; INPUT->LINE [next_line]; LINE[line]; LINE->DIR[next_char]; DIR[R]; CURSOR[cursor]; CURSOR->BLANK[write]; CURSOR->DIR[read]; STATE->BLANK[path]",
+    
+    "STATE[s_init]; INPUT[input]; INPUT->LINE [next_line]; LINE[line]; LINE->DIR[next_char]; DIR[U];" :
+    "STATE[s_ab];   INPUT[input]; INPUT->LINE [next_line]; LINE[line]; LINE->DIR[next_char]; DIR[U]; CURSOR[cursor]; CURSOR->BLANK[write]; CURSOR->DIR[read]; STATE->BLANK[path]",
+    
+    "STATE[s_init]; INPUT[input]; INPUT->LINE [next_line]; LINE[line]; LINE->DIR[next_char]; DIR[D];" :
+    "STATE[s_ab];   INPUT[input]; INPUT->LINE [next_line]; LINE[line]; LINE->DIR[next_char]; DIR[D]; CURSOR[cursor]; CURSOR->BLANK[write]; CURSOR->DIR[read]; STATE->BLANK[path]",
+
+    "COMMENT[simultaneously start the second line]" : "",
+
+    "SA[s_ab]; INPUT[input]; INPUT->LINE1 [next_line]; LINE1[line]; LINE1->LINE2[next_line]; LINE2[line]; LINE2->DIR[next_char]; DIR[D];" :
+    "SA[s_a];  INPUT[input]; INPUT->LINE1 [next_line]; LINE1[line]; LINE1->LINE2[next_line]; LINE2[line]; LINE2->DIR[next_char]; DIR[D]; CURSOR[cursor]; CURSOR->BLANK[write]; CURSOR->DIR[read]; SB->BLANK [path]; SB[s_b]",
+
+    "SA[s_ab]; INPUT[input]; INPUT->LINE1 [next_line]; LINE1[line]; LINE1->LINE2[next_line]; LINE2[line]; LINE2->DIR[next_char]; DIR[U];" : 
+    "SA[s_a];  INPUT[input]; INPUT->LINE1 [next_line]; LINE1[line]; LINE1->LINE2[next_line]; LINE2[line]; LINE2->DIR[next_char]; DIR[U]; CURSOR[cursor]; CURSOR->BLANK[write]; CURSOR->DIR[read]; SB->BLANK [path]; SB[s_b]",
+    
+    "SA[s_ab]; INPUT[input]; INPUT->LINE1 [next_line]; LINE1[line]; LINE1->LINE2[next_line]; LINE2[line]; LINE2->DIR[next_char]; DIR[L];" : 
+    "SA[s_a];  INPUT[input]; INPUT->LINE1 [next_line]; LINE1[line]; LINE1->LINE2[next_line]; LINE2[line]; LINE2->DIR[next_char]; DIR[L]; CURSOR[cursor]; CURSOR->BLANK[write]; CURSOR->DIR[read]; SB->BLANK [path]; SB[s_b]",
+    
+    "SA[s_ab]; INPUT[input]; INPUT->LINE1 [next_line]; LINE1[line]; LINE1->LINE2[next_line]; LINE2[line]; LINE2->DIR[next_char]; DIR[R];" :
+    "SA[s_a];  INPUT[input]; INPUT->LINE1 [next_line]; LINE1[line]; LINE1->LINE2[next_line]; LINE2[line]; LINE2->DIR[next_char]; DIR[R]; CURSOR[cursor]; CURSOR->BLANK[write]; CURSOR->DIR[read]; SB->BLANK [path]; SB[s_b]",
+
+    "COMMENT[find the end comma first]" : "",
+
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[0]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[0]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[1]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[1]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[2]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[2]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[3]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[3]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[4]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[4]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[5]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[5]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[6]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[6]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[7]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[7]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[8]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[8]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[9]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[9]; CURSOR->DIGIT [comma]",
+
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[0]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[0]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[1]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[1]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[2]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[2]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[3]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[3]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[4]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[4]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[5]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[5]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[6]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[6]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[7]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[7]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[8]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[8]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[9]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[9]; CURSOR->DIGIT [comma]",
+
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[0]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[0]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[1]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[1]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[2]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[2]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[3]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[3]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[4]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[4]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[5]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[5]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[6]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[6]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[7]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[7]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[8]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[8]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[9]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[9]; CURSOR->DIGIT [comma]",
+    
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[0]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[0]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[1]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[1]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[2]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[2]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[3]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[3]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[4]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[4]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[5]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[5]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[6]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[6]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[7]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[7]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[8]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[8]; CURSOR->DIGIT [comma]",
+    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[9]" :
+    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[9]; CURSOR->DIGIT [comma]",
+
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[0]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[0]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[1]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[1]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[2]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[2]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[3]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[3]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[4]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[4]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[5]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[5]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[6]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[6]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[7]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[7]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[8]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[8]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[9]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[9]",
+
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[0]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[0]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[1]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[1]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[2]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[2]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[3]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[3]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[4]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[4]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[5]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[5]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[6]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[6]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[7]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[7]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[8]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[8]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[9]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[9]",
+
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[0]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[0]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[1]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[1]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[2]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[2]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[3]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[3]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[4]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[4]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[5]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[5]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[6]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[6]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[7]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[7]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[8]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[8]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[9]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[9]",
+
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[0]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[0]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[1]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[1]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[2]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[2]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[3]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[3]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[4]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[4]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[5]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[5]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[6]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[6]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[7]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[7]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[8]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[8]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[9]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[9]",
+
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[0]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[0]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[1]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[1]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[2]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[2]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[3]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[3]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[4]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[4]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[5]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[5]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[6]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[6]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[7]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[7]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[8]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[8]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[9]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[9]",
+
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[0]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[0]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[1]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[1]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[2]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[2]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[3]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[3]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[4]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[4]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[5]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[5]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[6]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[6]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[7]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[7]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[8]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[8]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[9]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[9]",
+
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[0]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[0]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[1]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[1]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[2]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[2]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[3]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[3]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[4]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[4]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[5]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[5]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[6]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[6]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[7]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[7]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[8]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[8]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[9]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[9]",
+
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[0]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[0]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[1]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[1]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[2]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[2]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[3]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[3]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[4]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[4]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[5]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[5]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[6]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[6]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[7]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[7]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[8]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[8]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[9]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[9]",
+
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[0]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[0]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[1]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[1]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[2]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[2]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[3]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[3]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[4]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[4]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[5]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[5]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[6]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[6]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[7]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[7]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[8]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[8]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[9]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[9]",
+
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[0]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[0]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[1]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[1]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[2]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[2]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[3]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[3]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[4]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[4]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[5]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[5]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[6]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[6]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[7]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[7]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[8]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[8]",
+    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[9]" :
+    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[9]",
+
+    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[,]" :
+    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[,]",
+    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[,]" :
+    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[,]",
+    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[,]" :
+    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[,]",
+    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[,]" :
+    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[,]",
+    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[,]" :
+    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[,]",
+    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[,]" :
+    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[,]",
+    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[,]" :
+    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[,]",
+    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[,]" :
+    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[,]",
+    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[,]" :
+    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[,]",
+    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[,]" :
+    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[,]",    
+
+    "COMMENT[interleave copying the head character with decreasing the number after it]" : "",
+
+    "CURSOR[ready];     CURSOR->BLANK[write];    CURSOR->DIR[read]; DIR[L]" :
+    "CURSOR[decrement]; CURSOR->NEWBLANK[write]; CURSOR->DIR[read]; DIR[L]; BLANK[L]; BLANK->NEWBLANK[next];",
+    
+    "CURSOR[ready];     CURSOR->BLANK[write];    CURSOR->DIR[read]; DIR[R]" :
+    "CURSOR[decrement]; CURSOR->NEWBLANK[write]; CURSOR->DIR[read]; DIR[R]; BLANK[R]; BLANK->NEWBLANK[next];",
+
+    "CURSOR[ready];     CURSOR->BLANK[write];    CURSOR->DIR[read]; DIR[U]" :
+    "CURSOR[decrement]; CURSOR->NEWBLANK[write]; CURSOR->DIR[read]; DIR[U]; BLANK[U]; BLANK->NEWBLANK[next];",
+    
+    "CURSOR[ready];     CURSOR->BLANK[write];    CURSOR->DIR[read]; DIR[D]" :
+    "CURSOR[decrement]; CURSOR->NEWBLANK[write]; CURSOR->DIR[read]; DIR[D]; BLANK[D]; BLANK->NEWBLANK[next];",
+
+    "COMMENT[decrement the current number]" : "",
+    
+    "CURSOR[decrement]; CURSOR->COMMA[comma]; COMMA[,]" :
+    "CURSOR[wait];      CURSOR->COMMA[comma]; COMMA[,]; WORKER[minus1]; WORKER->COMMA [pos]; WORKER->CURSOR [when_done]",
+
+    "COMMENT[check for zero after decrement done]" : "",
+    "COMMENT[FIXME: probably should check for zero first!]" : "",
+    
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[1]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[1]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[1]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[1]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[1]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[1]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[1]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[1]",
+    
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[2]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[2]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[2]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[2]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[2]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[2]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[2]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[2]",
+
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[3]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[3]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[3]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[3]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[3]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[3]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[3]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[3]",
+
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[4]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[4]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[4]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[4]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[4]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[4]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[4]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[4]",
+
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[5]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[5]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[5]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[5]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[5]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[5]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[5]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[5]",
+
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[6]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[6]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[6]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[6]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[6]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[6]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[6]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[6]",
+
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[7]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[7]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[7]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[7]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[7]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[7]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[7]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[7]",
+
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[8]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[8]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[8]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[8]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[8]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[8]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[8]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[8]",
+
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[9]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[9]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[9]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[9]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[9]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[9]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[9]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[9]",
+
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[0]" :
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST^SECOND[0]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[0]" :
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST^SECOND[0]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[0]" :
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST^SECOND[0]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[0]" :
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST^SECOND[0]",
+
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[1]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST^SECOND[1]",    
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[1]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST^SECOND[1]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[1]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST^SECOND[1]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[1]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST^SECOND[1]",
+
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[2]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char];                                FIRST^SECOND[2]",    
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[2]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char];                                FIRST^SECOND[2]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[2]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char];                                FIRST^SECOND[2]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[2]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char];                                FIRST^SECOND[2]",
+    
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[3]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char];                                FIRST^SECOND[3]",    
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[3]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char];                                FIRST^SECOND[3]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[3]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char];                                FIRST^SECOND[3]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[3]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char];                                FIRST^SECOND[3]",
+    
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[4]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char];                                FIRST^SECOND[4]",    
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[4]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char];                                FIRST^SECOND[4]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[4]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char];                                FIRST^SECOND[4]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[4]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char];                                FIRST^SECOND[4]",
+    
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[5]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char];                                FIRST^SECOND[5]",    
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[5]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char];                                FIRST^SECOND[5]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[5]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char];                                FIRST^SECOND[5]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[5]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char];                                FIRST^SECOND[5]",
+    
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[6]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char];                                FIRST^SECOND[6]",    
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[6]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char];                                FIRST^SECOND[6]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[6]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char];                                FIRST^SECOND[6]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[6]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char];                                FIRST^SECOND[6]",
+    
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[7]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char];                                FIRST^SECOND[7]",    
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[7]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char];                                FIRST^SECOND[7]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[7]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char];                                FIRST^SECOND[7]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[7]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char];                                FIRST^SECOND[7]",
+    
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[8]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char];                                FIRST^SECOND[8]",    
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[8]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char];                                FIRST^SECOND[8]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[8]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char];                                FIRST^SECOND[8]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[8]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char];                                FIRST^SECOND[8]",
+    
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[9]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char];                                FIRST^SECOND[9]",    
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[9]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char];                                FIRST^SECOND[9]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[9]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char];                                FIRST^SECOND[9]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[9]" :
+    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char];                                FIRST^SECOND[9]",
+
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[,]" :
+    "CURSOR[advance]; SECOND^DIR[,]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[,]" :
+    "CURSOR[advance]; SECOND^DIR[,]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[,]" :
+    "CURSOR[advance]; SECOND^DIR[,]",
+    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[,]" :
+    "CURSOR[advance]; SECOND^DIR[,]",
+
+    "COMMENT[move to next instruction, or end of line]" : "",
+
+    "CURSOR[advance]; CURSOR->COMMA[comma]; COMMA[,]; COMMA->NEXT[next_char]; NEXT[D]":
+    "CURSOR[cursor];  CURSOR->NEXT[read];                               COMMA^NEXT[D]",
+    "CURSOR[advance]; CURSOR->COMMA[comma]; COMMA[,]; COMMA->NEXT[next_char]; NEXT[U]":
+    "CURSOR[cursor];  CURSOR->NEXT[read];                               COMMA^NEXT[U]",
+    "CURSOR[advance]; CURSOR->COMMA[comma]; COMMA[,]; COMMA->NEXT[next_char]; NEXT[R]":
+    "CURSOR[cursor];  CURSOR->NEXT[read];                               COMMA^NEXT[R]",
+    "CURSOR[advance]; CURSOR->COMMA[comma]; COMMA[,]; COMMA->NEXT[next_char]; NEXT[L]":
+    "CURSOR[cursor];  CURSOR->NEXT[read];                               COMMA^NEXT[L]",
+
+    "CURSOR[advance]; CURSOR->COMMA[comma]; COMMA[,]; COMMA->LINE[end_of_line]; LINE[line]; LINE->COMMA[next_char]; CURSOR->BLANK [write]" :
+    "BLANK[end]; COMMA^LINE[line]",
+
+    "COMMENT[decrement worker]" : "",
+    "COMMENT[easy cases, only the unit digit changes]" : "",
+    "COMMENT[FIXME: we should be able to short-circuit check_zero]" : "",
+    
+    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[1]; D->COMMA [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
+    "                                     COMMA[,]; D[0]; D->COMMA [next_char];                             CURSOR[check_zero]",
+    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[2]; D->COMMA [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
+    "                                     COMMA[,]; D[1]; D->COMMA [next_char];                             CURSOR[check_zero]",
+    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[3]; D->COMMA [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
+    "                                     COMMA[,]; D[2]; D->COMMA [next_char];                             CURSOR[check_zero]",
+    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[4]; D->COMMA [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
+    "                                     COMMA[,]; D[3]; D->COMMA [next_char];                             CURSOR[check_zero]",
+    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[5]; D->COMMA [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
+    "                                     COMMA[,]; D[4]; D->COMMA [next_char];                             CURSOR[check_zero]",
+    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[6]; D->COMMA [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
+    "                                     COMMA[,]; D[5]; D->COMMA [next_char];                             CURSOR[check_zero]",
+    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[7]; D->COMMA [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
+    "                                     COMMA[,]; D[6]; D->COMMA [next_char];                             CURSOR[check_zero]",
+    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[8]; D->COMMA [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
+    "                                     COMMA[,]; D[7]; D->COMMA [next_char];                             CURSOR[check_zero]",
+    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[9]; D->COMMA [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
+    "                                     COMMA[,]; D[8]; D->COMMA [next_char];                             CURSOR[check_zero]",
+
+    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[0]; D->COMMA [next_char];" :
+    "WORKER[minus1]; WORKER->D [pos];     COMMA[,]; D[-1]; D->COMMA [next_char];",
+
+    "WORKER[minus1]; WORKER->BORROW [pos]; D[0];  BORROW[-1]; D->BORROW [next_char];" :
+    "WORKER[minus1]; WORKER->D [pos];      D[-1]; BORROW[9];  D->BORROW [next_char];",
+
+    "WORKER[minus1]; WORKER->BORROW [pos]; D[1];  BORROW[-1]; D->BORROW [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
+    "                                      D[0];  BORROW[9];  D->BORROW [next_char];                             CURSOR[check_zero]",
+    "WORKER[minus1]; WORKER->BORROW [pos]; D[2];  BORROW[-1]; D->BORROW [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
+    "                                      D[1];  BORROW[9];  D->BORROW [next_char];                             CURSOR[check_zero]",
+    "WORKER[minus1]; WORKER->BORROW [pos]; D[3];  BORROW[-1]; D->BORROW [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
+    "                                      D[2];  BORROW[9];  D->BORROW [next_char];                             CURSOR[check_zero]",
+    "WORKER[minus1]; WORKER->BORROW [pos]; D[4];  BORROW[-1]; D->BORROW [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
+    "                                      D[3];  BORROW[9];  D->BORROW [next_char];                             CURSOR[check_zero]",
+    "WORKER[minus1]; WORKER->BORROW [pos]; D[5];  BORROW[-1]; D->BORROW [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
+    "                                      D[4];  BORROW[9];  D->BORROW [next_char];                             CURSOR[check_zero]",
+    "WORKER[minus1]; WORKER->BORROW [pos]; D[6];  BORROW[-1]; D->BORROW [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
+    "                                      D[5];  BORROW[9];  D->BORROW [next_char];                             CURSOR[check_zero]",
+    "WORKER[minus1]; WORKER->BORROW [pos]; D[7];  BORROW[-1]; D->BORROW [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
+    "                                      D[6];  BORROW[9];  D->BORROW [next_char];                             CURSOR[check_zero]",
+    "WORKER[minus1]; WORKER->BORROW [pos]; D[8];  BORROW[-1]; D->BORROW [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
+    "                                      D[7];  BORROW[9];  D->BORROW [next_char];                             CURSOR[check_zero]",
+    "WORKER[minus1]; WORKER->BORROW [pos]; D[9];  BORROW[-1]; D->BORROW [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
+    "                                      D[8];  BORROW[9];  D->BORROW [next_char];                             CURSOR[check_zero]",
+    
+    "INPUT[input]; LINE1[line]; LINE2[line]; END[end_of_input]; INPUT->LINE1->LINE2 [next_line]; LINE2->END [end_of_input]" :
+    "",
+    
+    "COMMENT[end of file]" : ""
+}
