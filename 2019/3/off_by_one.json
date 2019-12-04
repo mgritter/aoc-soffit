@@ -1,0 +1,35 @@
+{
+    "version" : "0.1",
+
+    "COMMENT[D7 results in d + 7 more, so remote the commas and correct off-by-one]" : "",
+
+    "D1[U]; D2[U]; COMMA[,]; D1->D2->COMMA [next_char]" :
+    "D1^D2^COMMA[U]",
+    "D1[D]; D2[D]; COMMA[,]; D1->D2->COMMA [next_char]" :
+    "D1^D2^COMMA[D]",
+    "D1[L]; D2[L]; COMMA[,]; D1->D2->COMMA [next_char]" :
+    "D1^D2^COMMA[L]",
+    "D1[R]; D2[R]; COMMA[,]; D1->D2->COMMA [next_char]" :
+    "D1^D2^COMMA[R]",
+
+    "INPUT[input]; LINE1[line]; LINE2[line]; END[end_of_input]; INPUT->LINE1->LINE2 [next_line]; LINE2->END [end_of_input]" :
+    "LINE1[s_a]; LINE2[s_b]",
+
+    "D[D]; D->START [end_of_line]; START[s_a]" :
+    "D[D]; D->END [next_char]; END[end]; START[s_a]",
+    "D[U]; D->START [end_of_line]; START[s_a]" :
+    "D[U]; D->END [next_char]; END[end]; START[s_a]",
+    "D[L]; D->START [end_of_line]; START[s_a]" :
+    "D[L]; D->END [next_char]; END[end]; START[s_a]",
+    "D[R]; D->START [end_of_line]; START[s_a]" :
+    "D[R]; D->END [next_char]; END[end]; START[s_a]",
+
+    "D[D]; D->START [end_of_line]; START[s_b]" :
+    "D[D]; D->END [next_char]; END[end]; START[s_b]",
+    "D[U]; D->START [end_of_line]; START[s_b]" :
+    "D[U]; D->END [next_char]; END[end]; START[s_b]",
+    "D[L]; D->START [end_of_line]; START[s_b]" :
+    "D[L]; D->END [next_char]; END[end]; START[s_b]",
+    "D[R]; D->START [end_of_line]; START[s_b]" :
+    "D[R]; D->END [next_char]; END[end]; START[s_b]"    
+}

@@ -1,6 +1,6 @@
 {
     "version" : "0.1",
-    "start" : "STATE[s_init];",
+    "start" : "",
 
     "COMMENT[Pad the end of input with commas]" : "",
 

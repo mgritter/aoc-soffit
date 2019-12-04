@@ -1,617 +1,210 @@
 {
     "version" : "0.1",
 
-    "COMMENT[start reading the first line]" : "",
+    "COMMENT[every comma is a segment]" : "",
+
+    "COMMA[,]; D[0]; D->COMMA [next_char]" :
+    "COMMA[,]; D[x]; D->COMMA [next_char]; D->BASE [base]; BASE[unit]; D->Q [quantity]; Q[0]",
+    "COMMA[,]; D[1]; D->COMMA [next_char]" :
+    "COMMA[,]; D[x]; D->COMMA [next_char]; D->BASE [base]; BASE[unit]; D->Q [quantity]; Q[1]",
+    "COMMA[,]; D[2]; D->COMMA [next_char]" :
+    "COMMA[,]; D[x]; D->COMMA [next_char]; D->BASE [base]; BASE[unit]; D->Q [quantity]; Q[2]",
+    "COMMA[,]; D[3]; D->COMMA [next_char]" :
+    "COMMA[,]; D[x]; D->COMMA [next_char]; D->BASE [base]; BASE[unit]; D->Q [quantity]; Q[3]",
+    "COMMA[,]; D[4]; D->COMMA [next_char]" :
+    "COMMA[,]; D[x]; D->COMMA [next_char]; D->BASE [base]; BASE[unit]; D->Q [quantity]; Q[4]",
+    "COMMA[,]; D[5]; D->COMMA [next_char]" :
+    "COMMA[,]; D[x]; D->COMMA [next_char]; D->BASE [base]; BASE[unit]; D->Q [quantity]; Q[5]",
+    "COMMA[,]; D[6]; D->COMMA [next_char]" :
+    "COMMA[,]; D[x]; D->COMMA [next_char]; D->BASE [base]; BASE[unit]; D->Q [quantity]; Q[6]",
+    "COMMA[,]; D[7]; D->COMMA [next_char]" :
+    "COMMA[,]; D[x]; D->COMMA [next_char]; D->BASE [base]; BASE[unit]; D->Q [quantity]; Q[7]",
+    "COMMA[,]; D[8]; D->COMMA [next_char]" :
+    "COMMA[,]; D[x]; D->COMMA [next_char]; D->BASE [base]; BASE[unit]; D->Q [quantity]; Q[8]",
+    "COMMA[,]; D[9]; D->COMMA [next_char]" :
+    "COMMA[,]; D[x]; D->COMMA [next_char]; D->BASE [base]; BASE[unit]; D->Q [quantity]; Q[9]",
+
+    "COMMENT[rules to label powers of 10]" : "",
+
+    "D[x]; PD[0]; PD->D[next_char]; D->BASE [base]; BASE[unit]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[unit]; PD->BIGGER [base]; BIGGER[ten]; PD->Q [quantity]; Q[0]",
+    "D[x]; PD[1]; PD->D[next_char]; D->BASE [base]; BASE[unit]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[unit]; PD->BIGGER [base]; BIGGER[ten]; PD->Q [quantity]; Q[1]",
+    "D[x]; PD[2]; PD->D[next_char]; D->BASE [base]; BASE[unit]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[unit]; PD->BIGGER [base]; BIGGER[ten]; PD->Q [quantity]; Q[2]",
+    "D[x]; PD[3]; PD->D[next_char]; D->BASE [base]; BASE[unit]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[unit]; PD->BIGGER [base]; BIGGER[ten]; PD->Q [quantity]; Q[3]",
+    "D[x]; PD[4]; PD->D[next_char]; D->BASE [base]; BASE[unit]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[unit]; PD->BIGGER [base]; BIGGER[ten]; PD->Q [quantity]; Q[4]",
+    "D[x]; PD[5]; PD->D[next_char]; D->BASE [base]; BASE[unit]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[unit]; PD->BIGGER [base]; BIGGER[ten]; PD->Q [quantity]; Q[5]",
+    "D[x]; PD[6]; PD->D[next_char]; D->BASE [base]; BASE[unit]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[unit]; PD->BIGGER [base]; BIGGER[ten]; PD->Q [quantity]; Q[6]",
+    "D[x]; PD[7]; PD->D[next_char]; D->BASE [base]; BASE[unit]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[unit]; PD->BIGGER [base]; BIGGER[ten]; PD->Q [quantity]; Q[7]",
+    "D[x]; PD[8]; PD->D[next_char]; D->BASE [base]; BASE[unit]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[unit]; PD->BIGGER [base]; BIGGER[ten]; PD->Q [quantity]; Q[8]",
+    "D[x]; PD[9]; PD->D[next_char]; D->BASE [base]; BASE[unit]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[unit]; PD->BIGGER [base]; BIGGER[ten]; PD->Q [quantity]; Q[9]",
+    "D[x]; PD[0]; PD->D[next_char]; D->BASE [base]; BASE[ten]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[ten]; PD->BIGGER [base]; BIGGER[hundred]; PD->Q [quantity]; Q[0]",
+    "D[x]; PD[1]; PD->D[next_char]; D->BASE [base]; BASE[ten]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[ten]; PD->BIGGER [base]; BIGGER[hundred]; PD->Q [quantity]; Q[1]",
+    "D[x]; PD[2]; PD->D[next_char]; D->BASE [base]; BASE[ten]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[ten]; PD->BIGGER [base]; BIGGER[hundred]; PD->Q [quantity]; Q[2]",
+    "D[x]; PD[3]; PD->D[next_char]; D->BASE [base]; BASE[ten]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[ten]; PD->BIGGER [base]; BIGGER[hundred]; PD->Q [quantity]; Q[3]",
+    "D[x]; PD[4]; PD->D[next_char]; D->BASE [base]; BASE[ten]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[ten]; PD->BIGGER [base]; BIGGER[hundred]; PD->Q [quantity]; Q[4]",
+    "D[x]; PD[5]; PD->D[next_char]; D->BASE [base]; BASE[ten]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[ten]; PD->BIGGER [base]; BIGGER[hundred]; PD->Q [quantity]; Q[5]",
+    "D[x]; PD[6]; PD->D[next_char]; D->BASE [base]; BASE[ten]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[ten]; PD->BIGGER [base]; BIGGER[hundred]; PD->Q [quantity]; Q[6]",
+    "D[x]; PD[7]; PD->D[next_char]; D->BASE [base]; BASE[ten]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[ten]; PD->BIGGER [base]; BIGGER[hundred]; PD->Q [quantity]; Q[7]",
+    "D[x]; PD[8]; PD->D[next_char]; D->BASE [base]; BASE[ten]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[ten]; PD->BIGGER [base]; BIGGER[hundred]; PD->Q [quantity]; Q[8]",
+    "D[x]; PD[9]; PD->D[next_char]; D->BASE [base]; BASE[ten]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[ten]; PD->BIGGER [base]; BIGGER[hundred]; PD->Q [quantity]; Q[9]",
+    "D[x]; PD[0]; PD->D[next_char]; D->BASE [base]; BASE[hundred]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[hundred]; PD->BIGGER [base]; BIGGER[thousand]; PD->Q [quantity]; Q[0]",
+    "D[x]; PD[1]; PD->D[next_char]; D->BASE [base]; BASE[hundred]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[hundred]; PD->BIGGER [base]; BIGGER[thousand]; PD->Q [quantity]; Q[1]",
+    "D[x]; PD[2]; PD->D[next_char]; D->BASE [base]; BASE[hundred]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[hundred]; PD->BIGGER [base]; BIGGER[thousand]; PD->Q [quantity]; Q[2]",
+    "D[x]; PD[3]; PD->D[next_char]; D->BASE [base]; BASE[hundred]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[hundred]; PD->BIGGER [base]; BIGGER[thousand]; PD->Q [quantity]; Q[3]",
+    "D[x]; PD[4]; PD->D[next_char]; D->BASE [base]; BASE[hundred]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[hundred]; PD->BIGGER [base]; BIGGER[thousand]; PD->Q [quantity]; Q[4]",
+    "D[x]; PD[5]; PD->D[next_char]; D->BASE [base]; BASE[hundred]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[hundred]; PD->BIGGER [base]; BIGGER[thousand]; PD->Q [quantity]; Q[5]",
+    "D[x]; PD[6]; PD->D[next_char]; D->BASE [base]; BASE[hundred]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[hundred]; PD->BIGGER [base]; BIGGER[thousand]; PD->Q [quantity]; Q[6]",
+    "D[x]; PD[7]; PD->D[next_char]; D->BASE [base]; BASE[hundred]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[hundred]; PD->BIGGER [base]; BIGGER[thousand]; PD->Q [quantity]; Q[7]",
+    "D[x]; PD[8]; PD->D[next_char]; D->BASE [base]; BASE[hundred]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[hundred]; PD->BIGGER [base]; BIGGER[thousand]; PD->Q [quantity]; Q[8]",
+    "D[x]; PD[9]; PD->D[next_char]; D->BASE [base]; BASE[hundred]" :
+    "D[x]; PD[x]; PD->D[next_char]; D->BASE [base]; BASE[hundred]; PD->BIGGER [base]; BIGGER[thousand]; PD->Q [quantity]; Q[9]",
+
+    "COMMENT[rules to expand powers of ten (left side only to avoid messing up assignment)]" : "",
     
-    "STATE[s_init]; INPUT[input]; INPUT->LINE [next_line]; LINE[line]; LINE->DIR[next_char]; DIR[L];" :
-    "STATE[s_ab];   INPUT[input]; INPUT->LINE [next_line]; LINE[line]; LINE->DIR[next_char]; DIR[L]; CURSOR[cursor]; CURSOR->BLANK[write]; CURSOR->DIR[read]; STATE->BLANK[path]",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[1]; A1->U1 [base]; U1[ten]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[1]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[1]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[1]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[1]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[1]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[1]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[1]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[1]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[1]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[1]; AX->UX[base]; UX[unit];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[2]; A1->U1 [base]; U1[ten]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[2]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[2]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[2]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[2]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[2]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[2]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[2]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[2]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[2]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[2]; AX->UX[base]; UX[unit];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[3]; A1->U1 [base]; U1[ten]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[3]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[3]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[3]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[3]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[3]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[3]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[3]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[3]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[3]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[3]; AX->UX[base]; UX[unit];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[4]; A1->U1 [base]; U1[ten]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[4]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[4]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[4]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[4]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[4]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[4]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[4]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[4]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[4]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[4]; AX->UX[base]; UX[unit];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[5]; A1->U1 [base]; U1[ten]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[5]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[5]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[5]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[5]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[5]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[5]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[5]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[5]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[5]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[5]; AX->UX[base]; UX[unit];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[6]; A1->U1 [base]; U1[ten]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[6]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[6]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[6]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[6]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[6]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[6]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[6]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[6]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[6]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[6]; AX->UX[base]; UX[unit];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[7]; A1->U1 [base]; U1[ten]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[7]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[7]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[7]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[7]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[7]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[7]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[7]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[7]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[7]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[7]; AX->UX[base]; UX[unit];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[8]; A1->U1 [base]; U1[ten]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[8]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[8]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[8]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[8]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[8]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[8]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[8]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[8]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[8]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[8]; AX->UX[base]; UX[unit];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[9]; A1->U1 [base]; U1[ten]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[9]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[9]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[9]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[9]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[9]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[9]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[9]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[9]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[9]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[9]; AX->UX[base]; UX[unit];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[1]; A1->U1 [base]; U1[hundred]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[1]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[1]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[1]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[1]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[1]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[1]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[1]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[1]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[1]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[1]; AX->UX[base]; UX[ten];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[2]; A1->U1 [base]; U1[hundred]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[2]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[2]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[2]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[2]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[2]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[2]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[2]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[2]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[2]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[2]; AX->UX[base]; UX[ten];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[3]; A1->U1 [base]; U1[hundred]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[3]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[3]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[3]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[3]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[3]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[3]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[3]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[3]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[3]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[3]; AX->UX[base]; UX[ten];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[4]; A1->U1 [base]; U1[hundred]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[4]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[4]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[4]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[4]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[4]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[4]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[4]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[4]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[4]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[4]; AX->UX[base]; UX[ten];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[5]; A1->U1 [base]; U1[hundred]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[5]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[5]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[5]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[5]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[5]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[5]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[5]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[5]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[5]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[5]; AX->UX[base]; UX[ten];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[6]; A1->U1 [base]; U1[hundred]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[6]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[6]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[6]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[6]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[6]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[6]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[6]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[6]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[6]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[6]; AX->UX[base]; UX[ten];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[7]; A1->U1 [base]; U1[hundred]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[7]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[7]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[7]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[7]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[7]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[7]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[7]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[7]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[7]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[7]; AX->UX[base]; UX[ten];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[8]; A1->U1 [base]; U1[hundred]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[8]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[8]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[8]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[8]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[8]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[8]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[8]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[8]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[8]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[8]; AX->UX[base]; UX[ten];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[9]; A1->U1 [base]; U1[hundred]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[9]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[9]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[9]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[9]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[9]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[9]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[9]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[9]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[9]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[9]; AX->UX[base]; UX[ten];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[1]; A1->U1 [base]; U1[thousand]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[1]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[1]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[1]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[1]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[1]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[1]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[1]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[1]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[1]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[1]; AX->UX[base]; UX[hundred];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[2]; A1->U1 [base]; U1[thousand]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[2]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[2]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[2]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[2]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[2]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[2]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[2]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[2]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[2]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[2]; AX->UX[base]; UX[hundred];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[3]; A1->U1 [base]; U1[thousand]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[3]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[3]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[3]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[3]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[3]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[3]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[3]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[3]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[3]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[3]; AX->UX[base]; UX[hundred];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[4]; A1->U1 [base]; U1[thousand]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[4]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[4]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[4]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[4]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[4]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[4]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[4]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[4]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[4]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[4]; AX->UX[base]; UX[hundred];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[5]; A1->U1 [base]; U1[thousand]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[5]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[5]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[5]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[5]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[5]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[5]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[5]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[5]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[5]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[5]; AX->UX[base]; UX[hundred];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[6]; A1->U1 [base]; U1[thousand]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[6]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[6]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[6]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[6]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[6]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[6]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[6]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[6]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[6]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[6]; AX->UX[base]; UX[hundred];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[7]; A1->U1 [base]; U1[thousand]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[7]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[7]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[7]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[7]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[7]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[7]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[7]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[7]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[7]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[7]; AX->UX[base]; UX[hundred];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[8]; A1->U1 [base]; U1[thousand]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[8]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[8]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[8]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[8]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[8]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[8]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[8]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[8]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[8]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[8]; AX->UX[base]; UX[hundred];",
+    "B[U]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[9]; A1->U1 [base]; U1[thousand]" :    "B[U]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[9]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[9]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[9]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[9]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[9]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[9]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[9]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[9]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[9]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[9]; AX->UX[base]; UX[hundred];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[1]; A1->U1 [base]; U1[ten]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[1]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[1]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[1]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[1]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[1]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[1]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[1]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[1]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[1]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[1]; AX->UX[base]; UX[unit];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[2]; A1->U1 [base]; U1[ten]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[2]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[2]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[2]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[2]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[2]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[2]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[2]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[2]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[2]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[2]; AX->UX[base]; UX[unit];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[3]; A1->U1 [base]; U1[ten]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[3]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[3]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[3]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[3]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[3]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[3]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[3]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[3]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[3]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[3]; AX->UX[base]; UX[unit];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[4]; A1->U1 [base]; U1[ten]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[4]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[4]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[4]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[4]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[4]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[4]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[4]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[4]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[4]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[4]; AX->UX[base]; UX[unit];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[5]; A1->U1 [base]; U1[ten]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[5]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[5]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[5]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[5]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[5]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[5]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[5]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[5]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[5]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[5]; AX->UX[base]; UX[unit];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[6]; A1->U1 [base]; U1[ten]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[6]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[6]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[6]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[6]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[6]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[6]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[6]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[6]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[6]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[6]; AX->UX[base]; UX[unit];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[7]; A1->U1 [base]; U1[ten]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[7]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[7]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[7]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[7]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[7]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[7]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[7]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[7]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[7]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[7]; AX->UX[base]; UX[unit];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[8]; A1->U1 [base]; U1[ten]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[8]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[8]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[8]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[8]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[8]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[8]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[8]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[8]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[8]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[8]; AX->UX[base]; UX[unit];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[9]; A1->U1 [base]; U1[ten]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[9]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[9]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[9]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[9]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[9]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[9]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[9]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[9]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[9]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[9]; AX->UX[base]; UX[unit];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[1]; A1->U1 [base]; U1[hundred]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[1]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[1]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[1]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[1]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[1]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[1]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[1]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[1]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[1]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[1]; AX->UX[base]; UX[ten];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[2]; A1->U1 [base]; U1[hundred]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[2]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[2]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[2]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[2]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[2]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[2]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[2]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[2]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[2]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[2]; AX->UX[base]; UX[ten];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[3]; A1->U1 [base]; U1[hundred]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[3]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[3]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[3]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[3]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[3]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[3]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[3]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[3]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[3]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[3]; AX->UX[base]; UX[ten];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[4]; A1->U1 [base]; U1[hundred]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[4]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[4]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[4]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[4]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[4]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[4]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[4]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[4]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[4]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[4]; AX->UX[base]; UX[ten];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[5]; A1->U1 [base]; U1[hundred]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[5]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[5]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[5]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[5]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[5]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[5]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[5]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[5]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[5]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[5]; AX->UX[base]; UX[ten];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[6]; A1->U1 [base]; U1[hundred]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[6]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[6]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[6]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[6]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[6]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[6]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[6]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[6]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[6]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[6]; AX->UX[base]; UX[ten];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[7]; A1->U1 [base]; U1[hundred]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[7]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[7]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[7]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[7]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[7]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[7]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[7]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[7]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[7]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[7]; AX->UX[base]; UX[ten];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[8]; A1->U1 [base]; U1[hundred]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[8]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[8]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[8]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[8]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[8]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[8]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[8]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[8]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[8]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[8]; AX->UX[base]; UX[ten];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[9]; A1->U1 [base]; U1[hundred]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[9]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[9]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[9]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[9]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[9]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[9]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[9]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[9]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[9]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[9]; AX->UX[base]; UX[ten];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[1]; A1->U1 [base]; U1[thousand]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[1]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[1]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[1]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[1]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[1]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[1]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[1]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[1]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[1]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[1]; AX->UX[base]; UX[hundred];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[2]; A1->U1 [base]; U1[thousand]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[2]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[2]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[2]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[2]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[2]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[2]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[2]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[2]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[2]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[2]; AX->UX[base]; UX[hundred];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[3]; A1->U1 [base]; U1[thousand]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[3]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[3]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[3]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[3]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[3]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[3]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[3]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[3]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[3]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[3]; AX->UX[base]; UX[hundred];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[4]; A1->U1 [base]; U1[thousand]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[4]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[4]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[4]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[4]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[4]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[4]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[4]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[4]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[4]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[4]; AX->UX[base]; UX[hundred];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[5]; A1->U1 [base]; U1[thousand]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[5]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[5]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[5]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[5]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[5]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[5]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[5]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[5]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[5]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[5]; AX->UX[base]; UX[hundred];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[6]; A1->U1 [base]; U1[thousand]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[6]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[6]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[6]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[6]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[6]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[6]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[6]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[6]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[6]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[6]; AX->UX[base]; UX[hundred];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[7]; A1->U1 [base]; U1[thousand]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[7]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[7]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[7]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[7]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[7]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[7]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[7]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[7]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[7]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[7]; AX->UX[base]; UX[hundred];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[8]; A1->U1 [base]; U1[thousand]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[8]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[8]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[8]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[8]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[8]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[8]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[8]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[8]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[8]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[8]; AX->UX[base]; UX[hundred];",
+    "B[D]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[9]; A1->U1 [base]; U1[thousand]" :    "B[D]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[9]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[9]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[9]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[9]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[9]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[9]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[9]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[9]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[9]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[9]; AX->UX[base]; UX[hundred];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[1]; A1->U1 [base]; U1[ten]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[1]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[1]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[1]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[1]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[1]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[1]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[1]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[1]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[1]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[1]; AX->UX[base]; UX[unit];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[2]; A1->U1 [base]; U1[ten]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[2]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[2]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[2]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[2]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[2]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[2]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[2]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[2]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[2]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[2]; AX->UX[base]; UX[unit];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[3]; A1->U1 [base]; U1[ten]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[3]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[3]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[3]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[3]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[3]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[3]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[3]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[3]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[3]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[3]; AX->UX[base]; UX[unit];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[4]; A1->U1 [base]; U1[ten]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[4]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[4]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[4]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[4]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[4]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[4]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[4]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[4]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[4]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[4]; AX->UX[base]; UX[unit];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[5]; A1->U1 [base]; U1[ten]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[5]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[5]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[5]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[5]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[5]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[5]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[5]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[5]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[5]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[5]; AX->UX[base]; UX[unit];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[6]; A1->U1 [base]; U1[ten]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[6]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[6]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[6]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[6]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[6]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[6]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[6]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[6]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[6]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[6]; AX->UX[base]; UX[unit];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[7]; A1->U1 [base]; U1[ten]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[7]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[7]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[7]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[7]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[7]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[7]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[7]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[7]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[7]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[7]; AX->UX[base]; UX[unit];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[8]; A1->U1 [base]; U1[ten]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[8]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[8]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[8]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[8]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[8]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[8]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[8]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[8]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[8]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[8]; AX->UX[base]; UX[unit];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[9]; A1->U1 [base]; U1[ten]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[9]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[9]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[9]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[9]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[9]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[9]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[9]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[9]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[9]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[9]; AX->UX[base]; UX[unit];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[1]; A1->U1 [base]; U1[hundred]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[1]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[1]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[1]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[1]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[1]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[1]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[1]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[1]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[1]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[1]; AX->UX[base]; UX[ten];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[2]; A1->U1 [base]; U1[hundred]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[2]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[2]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[2]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[2]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[2]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[2]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[2]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[2]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[2]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[2]; AX->UX[base]; UX[ten];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[3]; A1->U1 [base]; U1[hundred]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[3]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[3]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[3]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[3]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[3]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[3]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[3]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[3]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[3]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[3]; AX->UX[base]; UX[ten];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[4]; A1->U1 [base]; U1[hundred]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[4]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[4]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[4]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[4]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[4]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[4]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[4]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[4]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[4]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[4]; AX->UX[base]; UX[ten];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[5]; A1->U1 [base]; U1[hundred]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[5]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[5]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[5]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[5]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[5]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[5]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[5]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[5]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[5]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[5]; AX->UX[base]; UX[ten];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[6]; A1->U1 [base]; U1[hundred]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[6]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[6]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[6]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[6]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[6]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[6]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[6]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[6]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[6]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[6]; AX->UX[base]; UX[ten];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[7]; A1->U1 [base]; U1[hundred]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[7]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[7]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[7]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[7]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[7]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[7]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[7]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[7]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[7]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[7]; AX->UX[base]; UX[ten];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[8]; A1->U1 [base]; U1[hundred]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[8]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[8]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[8]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[8]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[8]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[8]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[8]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[8]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[8]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[8]; AX->UX[base]; UX[ten];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[9]; A1->U1 [base]; U1[hundred]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[9]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[9]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[9]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[9]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[9]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[9]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[9]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[9]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[9]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[9]; AX->UX[base]; UX[ten];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[1]; A1->U1 [base]; U1[thousand]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[1]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[1]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[1]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[1]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[1]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[1]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[1]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[1]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[1]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[1]; AX->UX[base]; UX[hundred];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[2]; A1->U1 [base]; U1[thousand]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[2]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[2]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[2]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[2]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[2]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[2]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[2]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[2]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[2]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[2]; AX->UX[base]; UX[hundred];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[3]; A1->U1 [base]; U1[thousand]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[3]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[3]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[3]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[3]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[3]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[3]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[3]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[3]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[3]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[3]; AX->UX[base]; UX[hundred];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[4]; A1->U1 [base]; U1[thousand]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[4]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[4]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[4]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[4]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[4]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[4]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[4]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[4]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[4]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[4]; AX->UX[base]; UX[hundred];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[5]; A1->U1 [base]; U1[thousand]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[5]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[5]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[5]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[5]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[5]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[5]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[5]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[5]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[5]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[5]; AX->UX[base]; UX[hundred];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[6]; A1->U1 [base]; U1[thousand]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[6]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[6]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[6]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[6]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[6]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[6]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[6]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[6]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[6]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[6]; AX->UX[base]; UX[hundred];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[7]; A1->U1 [base]; U1[thousand]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[7]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[7]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[7]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[7]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[7]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[7]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[7]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[7]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[7]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[7]; AX->UX[base]; UX[hundred];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[8]; A1->U1 [base]; U1[thousand]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[8]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[8]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[8]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[8]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[8]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[8]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[8]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[8]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[8]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[8]; AX->UX[base]; UX[hundred];",
+    "B[L]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[9]; A1->U1 [base]; U1[thousand]" :    "B[L]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[9]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[9]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[9]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[9]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[9]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[9]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[9]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[9]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[9]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[9]; AX->UX[base]; UX[hundred];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[1]; A1->U1 [base]; U1[ten]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[1]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[1]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[1]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[1]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[1]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[1]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[1]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[1]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[1]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[1]; AX->UX[base]; UX[unit];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[2]; A1->U1 [base]; U1[ten]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[2]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[2]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[2]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[2]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[2]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[2]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[2]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[2]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[2]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[2]; AX->UX[base]; UX[unit];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[3]; A1->U1 [base]; U1[ten]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[3]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[3]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[3]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[3]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[3]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[3]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[3]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[3]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[3]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[3]; AX->UX[base]; UX[unit];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[4]; A1->U1 [base]; U1[ten]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[4]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[4]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[4]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[4]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[4]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[4]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[4]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[4]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[4]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[4]; AX->UX[base]; UX[unit];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[5]; A1->U1 [base]; U1[ten]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[5]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[5]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[5]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[5]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[5]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[5]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[5]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[5]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[5]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[5]; AX->UX[base]; UX[unit];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[6]; A1->U1 [base]; U1[ten]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[6]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[6]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[6]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[6]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[6]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[6]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[6]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[6]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[6]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[6]; AX->UX[base]; UX[unit];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[7]; A1->U1 [base]; U1[ten]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[7]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[7]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[7]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[7]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[7]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[7]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[7]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[7]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[7]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[7]; AX->UX[base]; UX[unit];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[8]; A1->U1 [base]; U1[ten]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[8]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[8]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[8]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[8]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[8]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[8]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[8]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[8]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[8]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[8]; AX->UX[base]; UX[unit];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[9]; A1->U1 [base]; U1[ten]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[9]; A1->U1[base]; U1[unit];     A2[x];       A2->Q2[quantity]; Q2[9]; A2->U2[base]; U2[unit];     A3[x];       A3->Q3[quantity]; Q3[9]; A3->U3[base]; U3[unit];     A4[x];       A4->Q4[quantity]; Q4[9]; A4->U4[base]; U4[unit];     A5[x];       A5->Q5[quantity]; Q5[9]; A5->U5[base]; U5[unit];     A6[x];       A6->Q6[quantity]; Q6[9]; A6->U6[base]; U6[unit];     A7[x];       A7->Q7[quantity]; Q7[9]; A7->U7[base]; U7[unit];     A8[x];       A8->Q8[quantity]; Q8[9]; A8->U8[base]; U8[unit];     A9[x];       A9->Q9[quantity]; Q9[9]; A9->U9[base]; U9[unit];     AX[x];       AX->QX[quantity]; QX[9]; AX->UX[base]; UX[unit];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[1]; A1->U1 [base]; U1[hundred]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[1]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[1]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[1]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[1]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[1]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[1]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[1]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[1]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[1]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[1]; AX->UX[base]; UX[ten];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[2]; A1->U1 [base]; U1[hundred]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[2]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[2]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[2]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[2]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[2]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[2]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[2]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[2]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[2]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[2]; AX->UX[base]; UX[ten];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[3]; A1->U1 [base]; U1[hundred]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[3]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[3]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[3]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[3]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[3]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[3]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[3]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[3]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[3]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[3]; AX->UX[base]; UX[ten];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[4]; A1->U1 [base]; U1[hundred]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[4]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[4]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[4]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[4]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[4]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[4]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[4]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[4]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[4]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[4]; AX->UX[base]; UX[ten];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[5]; A1->U1 [base]; U1[hundred]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[5]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[5]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[5]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[5]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[5]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[5]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[5]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[5]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[5]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[5]; AX->UX[base]; UX[ten];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[6]; A1->U1 [base]; U1[hundred]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[6]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[6]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[6]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[6]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[6]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[6]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[6]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[6]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[6]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[6]; AX->UX[base]; UX[ten];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[7]; A1->U1 [base]; U1[hundred]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[7]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[7]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[7]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[7]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[7]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[7]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[7]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[7]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[7]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[7]; AX->UX[base]; UX[ten];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[8]; A1->U1 [base]; U1[hundred]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[8]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[8]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[8]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[8]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[8]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[8]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[8]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[8]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[8]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[8]; AX->UX[base]; UX[ten];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[9]; A1->U1 [base]; U1[hundred]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[9]; A1->U1[base]; U1[ten];     A2[x];       A2->Q2[quantity]; Q2[9]; A2->U2[base]; U2[ten];     A3[x];       A3->Q3[quantity]; Q3[9]; A3->U3[base]; U3[ten];     A4[x];       A4->Q4[quantity]; Q4[9]; A4->U4[base]; U4[ten];     A5[x];       A5->Q5[quantity]; Q5[9]; A5->U5[base]; U5[ten];     A6[x];       A6->Q6[quantity]; Q6[9]; A6->U6[base]; U6[ten];     A7[x];       A7->Q7[quantity]; Q7[9]; A7->U7[base]; U7[ten];     A8[x];       A8->Q8[quantity]; Q8[9]; A8->U8[base]; U8[ten];     A9[x];       A9->Q9[quantity]; Q9[9]; A9->U9[base]; U9[ten];     AX[x];       AX->QX[quantity]; QX[9]; AX->UX[base]; UX[ten];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[1]; A1->U1 [base]; U1[thousand]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[1]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[1]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[1]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[1]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[1]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[1]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[1]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[1]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[1]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[1]; AX->UX[base]; UX[hundred];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[2]; A1->U1 [base]; U1[thousand]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[2]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[2]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[2]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[2]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[2]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[2]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[2]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[2]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[2]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[2]; AX->UX[base]; UX[hundred];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[3]; A1->U1 [base]; U1[thousand]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[3]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[3]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[3]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[3]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[3]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[3]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[3]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[3]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[3]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[3]; AX->UX[base]; UX[hundred];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[4]; A1->U1 [base]; U1[thousand]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[4]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[4]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[4]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[4]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[4]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[4]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[4]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[4]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[4]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[4]; AX->UX[base]; UX[hundred];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[5]; A1->U1 [base]; U1[thousand]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[5]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[5]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[5]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[5]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[5]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[5]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[5]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[5]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[5]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[5]; AX->UX[base]; UX[hundred];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[6]; A1->U1 [base]; U1[thousand]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[6]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[6]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[6]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[6]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[6]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[6]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[6]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[6]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[6]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[6]; AX->UX[base]; UX[hundred];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[7]; A1->U1 [base]; U1[thousand]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[7]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[7]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[7]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[7]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[7]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[7]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[7]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[7]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[7]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[7]; AX->UX[base]; UX[hundred];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[8]; A1->U1 [base]; U1[thousand]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[8]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[8]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[8]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[8]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[8]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[8]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[8]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[8]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[8]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[8]; AX->UX[base]; UX[hundred];",
+    "B[R]; B->A1[next_char]; A1[x]; A1->Q1[quantity]; Q1[9]; A1->U1 [base]; U1[thousand]" :    "B[R]; B->AX->A9->A8->A7->A6->A5->A4->A3->A2->A1[next_char];      A1[x];       A1->Q1[quantity]; Q1[9]; A1->U1[base]; U1[hundred];     A2[x];       A2->Q2[quantity]; Q2[9]; A2->U2[base]; U2[hundred];     A3[x];       A3->Q3[quantity]; Q3[9]; A3->U3[base]; U3[hundred];     A4[x];       A4->Q4[quantity]; Q4[9]; A4->U4[base]; U4[hundred];     A5[x];       A5->Q5[quantity]; Q5[9]; A5->U5[base]; U5[hundred];     A6[x];       A6->Q6[quantity]; Q6[9]; A6->U6[base]; U6[hundred];     A7[x];       A7->Q7[quantity]; Q7[9]; A7->U7[base]; U7[hundred];     A8[x];       A8->Q8[quantity]; Q8[9]; A8->U8[base]; U8[hundred];     A9[x];       A9->Q9[quantity]; Q9[9]; A9->U9[base]; U9[hundred];     AX[x];       AX->QX[quantity]; QX[9]; AX->UX[base]; UX[hundred];",
+
+    "COMMENT[rules to units to a multiple]" : "",
     
-    "STATE[s_init]; INPUT[input]; INPUT->LINE [next_line]; LINE[line]; LINE->DIR[next_char]; DIR[R];" :
-    "STATE[s_ab];   INPUT[input]; INPUT->LINE [next_line]; LINE[line]; LINE->DIR[next_char]; DIR[R]; CURSOR[cursor]; CURSOR->BLANK[write]; CURSOR->DIR[read]; STATE->BLANK[path]",
-    
-    "STATE[s_init]; INPUT[input]; INPUT->LINE [next_line]; LINE[line]; LINE->DIR[next_char]; DIR[U];" :
-    "STATE[s_ab];   INPUT[input]; INPUT->LINE [next_line]; LINE[line]; LINE->DIR[next_char]; DIR[U]; CURSOR[cursor]; CURSOR->BLANK[write]; CURSOR->DIR[read]; STATE->BLANK[path]",
-    
-    "STATE[s_init]; INPUT[input]; INPUT->LINE [next_line]; LINE[line]; LINE->DIR[next_char]; DIR[D];" :
-    "STATE[s_ab];   INPUT[input]; INPUT->LINE [next_line]; LINE[line]; LINE->DIR[next_char]; DIR[D]; CURSOR[cursor]; CURSOR->BLANK[write]; CURSOR->DIR[read]; STATE->BLANK[path]",
+    "D[U]; A[x]; B[x]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[0];" :    "D[U]; B[x]; D->B[next_char]",    "D[U]; A[x]; B[,]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[0];" :    "D[U]; B[x]; D->B[next_char]",    "D[U]; A[x]; B[x]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[ten]; Q[0];" :    "D[U]; B[x]; D->B[next_char]",    "D[U]; A[x]; B[,]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[ten]; Q[0];" :    "D[U]; B[x]; D->B[next_char]",    "D[U]; A[x]; B[x]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[hundred]; Q[0];" :    "D[U]; B[x]; D->B[next_char]",    "D[U]; A[x]; B[,]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[hundred]; Q[0];" :    "D[U]; B[x]; D->B[next_char]",    "D[U]; A[x]; B[x]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[thousand]; Q[0];" :    "D[U]; B[x]; D->B[next_char]",    "D[U]; A[x]; B[,]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[thousand]; Q[0];" :    "D[U]; B[x]; D->B[next_char]",    "D[U]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[1];" :    "D[U]; A[U]; D->A[next_char]",    "D[U]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[2]" :    "D[U]; A2[U]; A[U]; D->A2->A[next_char]",    "D[U]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[3]" :    "D[U]; A3[U]; A2[U]; A[U]; D->A3->A2->A[next_char]",    "D[U]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[4]" :    "D[U]; A4[U]; A3[U]; A2[U]; A[U]; D->A4->A3->A2->A[next_char]",    "D[U]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[5]" :    "D[U]; A5[U]; A4[U]; A3[U]; A2[U]; A[U]; D->A5->A4->A3->A2->A[next_char]",    "D[U]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[6]" :    "D[U]; A6[U]; A5[U]; A4[U]; A3[U]; A2[U]; A[U]; D->A6->A5->A4->A3->A2->A[next_char]",    "D[U]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[7]" :    "D[U]; A7[U]; A6[U]; A5[U]; A4[U]; A3[U]; A2[U]; A[U]; D->A7->A6->A5->A4->A3->A2->A[next_char]",    "D[U]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[8]" :    "D[U]; A8[U]; A7[U]; A6[U]; A5[U]; A4[U]; A3[U]; A2[U]; A[U]; D->A8->A7->A6->A5->A4->A3->A2->A[next_char]",    "D[U]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[9]" :    "D[U]; A9[U]; A8[U]; A7[U]; A6[U]; A5[U]; A4[U]; A3[U]; A2[U]; A[U]; D->A9->A8->A7->A6->A5->A4->A3->A2->A[next_char]",
+    "D[D]; A[x]; B[x]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[0];" :    "D[D]; B[x]; D->B[next_char]",    "D[D]; A[x]; B[,]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[0];" :    "D[D]; B[x]; D->B[next_char]",    "D[D]; A[x]; B[x]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[ten]; Q[0];" :    "D[D]; B[x]; D->B[next_char]",    "D[D]; A[x]; B[,]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[ten]; Q[0];" :    "D[D]; B[x]; D->B[next_char]",    "D[D]; A[x]; B[x]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[hundred]; Q[0];" :    "D[D]; B[x]; D->B[next_char]",    "D[D]; A[x]; B[,]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[hundred]; Q[0];" :    "D[D]; B[x]; D->B[next_char]",    "D[D]; A[x]; B[x]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[thousand]; Q[0];" :    "D[D]; B[x]; D->B[next_char]",    "D[D]; A[x]; B[,]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[thousand]; Q[0];" :    "D[D]; B[x]; D->B[next_char]",    "D[D]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[1];" :    "D[D]; A[D]; D->A[next_char]",    "D[D]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[2]" :    "D[D]; A2[D]; A[D]; D->A2->A[next_char]",    "D[D]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[3]" :    "D[D]; A3[D]; A2[D]; A[D]; D->A3->A2->A[next_char]",    "D[D]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[4]" :    "D[D]; A4[D]; A3[D]; A2[D]; A[D]; D->A4->A3->A2->A[next_char]",    "D[D]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[5]" :    "D[D]; A5[D]; A4[D]; A3[D]; A2[D]; A[D]; D->A5->A4->A3->A2->A[next_char]",    "D[D]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[6]" :    "D[D]; A6[D]; A5[D]; A4[D]; A3[D]; A2[D]; A[D]; D->A6->A5->A4->A3->A2->A[next_char]",    "D[D]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[7]" :    "D[D]; A7[D]; A6[D]; A5[D]; A4[D]; A3[D]; A2[D]; A[D]; D->A7->A6->A5->A4->A3->A2->A[next_char]",    "D[D]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[8]" :    "D[D]; A8[D]; A7[D]; A6[D]; A5[D]; A4[D]; A3[D]; A2[D]; A[D]; D->A8->A7->A6->A5->A4->A3->A2->A[next_char]",    "D[D]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[9]" :    "D[D]; A9[D]; A8[D]; A7[D]; A6[D]; A5[D]; A4[D]; A3[D]; A2[D]; A[D]; D->A9->A8->A7->A6->A5->A4->A3->A2->A[next_char]",
+    "D[L]; A[x]; B[x]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[0];" :    "D[L]; B[x]; D->B[next_char]",    "D[L]; A[x]; B[,]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[0];" :    "D[L]; B[x]; D->B[next_char]",    "D[L]; A[x]; B[x]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[ten]; Q[0];" :    "D[L]; B[x]; D->B[next_char]",    "D[L]; A[x]; B[,]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[ten]; Q[0];" :    "D[L]; B[x]; D->B[next_char]",    "D[L]; A[x]; B[x]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[hundred]; Q[0];" :    "D[L]; B[x]; D->B[next_char]",    "D[L]; A[x]; B[,]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[hundred]; Q[0];" :    "D[L]; B[x]; D->B[next_char]",    "D[L]; A[x]; B[x]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[thousand]; Q[0];" :    "D[L]; B[x]; D->B[next_char]",    "D[L]; A[x]; B[,]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[thousand]; Q[0];" :    "D[L]; B[x]; D->B[next_char]",    "D[L]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[1];" :    "D[L]; A[L]; D->A[next_char]",    "D[L]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[2]" :    "D[L]; A2[L]; A[L]; D->A2->A[next_char]",    "D[L]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[3]" :    "D[L]; A3[L]; A2[L]; A[L]; D->A3->A2->A[next_char]",    "D[L]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[4]" :    "D[L]; A4[L]; A3[L]; A2[L]; A[L]; D->A4->A3->A2->A[next_char]",    "D[L]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[5]" :    "D[L]; A5[L]; A4[L]; A3[L]; A2[L]; A[L]; D->A5->A4->A3->A2->A[next_char]",    "D[L]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[6]" :    "D[L]; A6[L]; A5[L]; A4[L]; A3[L]; A2[L]; A[L]; D->A6->A5->A4->A3->A2->A[next_char]",    "D[L]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[7]" :    "D[L]; A7[L]; A6[L]; A5[L]; A4[L]; A3[L]; A2[L]; A[L]; D->A7->A6->A5->A4->A3->A2->A[next_char]",    "D[L]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[8]" :    "D[L]; A8[L]; A7[L]; A6[L]; A5[L]; A4[L]; A3[L]; A2[L]; A[L]; D->A8->A7->A6->A5->A4->A3->A2->A[next_char]",    "D[L]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[9]" :    "D[L]; A9[L]; A8[L]; A7[L]; A6[L]; A5[L]; A4[L]; A3[L]; A2[L]; A[L]; D->A9->A8->A7->A6->A5->A4->A3->A2->A[next_char]",
+    "D[R]; A[x]; B[x]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[0];" :    "D[R]; B[x]; D->B[next_char]",    "D[R]; A[x]; B[,]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[0];" :    "D[R]; B[x]; D->B[next_char]",    "D[R]; A[x]; B[x]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[ten]; Q[0];" :    "D[R]; B[x]; D->B[next_char]",    "D[R]; A[x]; B[,]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[ten]; Q[0];" :    "D[R]; B[x]; D->B[next_char]",    "D[R]; A[x]; B[x]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[hundred]; Q[0];" :    "D[R]; B[x]; D->B[next_char]",    "D[R]; A[x]; B[,]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[hundred]; Q[0];" :    "D[R]; B[x]; D->B[next_char]",    "D[R]; A[x]; B[x]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[thousand]; Q[0];" :    "D[R]; B[x]; D->B[next_char]",    "D[R]; A[x]; B[,]; D->A->B[next_char]; A->Q[quantity]; A->U[base]; U[thousand]; Q[0];" :    "D[R]; B[x]; D->B[next_char]",    "D[R]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[1];" :    "D[R]; A[R]; D->A[next_char]",    "D[R]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[2]" :    "D[R]; A2[R]; A[R]; D->A2->A[next_char]",    "D[R]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[3]" :    "D[R]; A3[R]; A2[R]; A[R]; D->A3->A2->A[next_char]",    "D[R]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[4]" :    "D[R]; A4[R]; A3[R]; A2[R]; A[R]; D->A4->A3->A2->A[next_char]",    "D[R]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[5]" :    "D[R]; A5[R]; A4[R]; A3[R]; A2[R]; A[R]; D->A5->A4->A3->A2->A[next_char]",    "D[R]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[6]" :    "D[R]; A6[R]; A5[R]; A4[R]; A3[R]; A2[R]; A[R]; D->A6->A5->A4->A3->A2->A[next_char]",    "D[R]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[7]" :    "D[R]; A7[R]; A6[R]; A5[R]; A4[R]; A3[R]; A2[R]; A[R]; D->A7->A6->A5->A4->A3->A2->A[next_char]",    "D[R]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[8]" :    "D[R]; A8[R]; A7[R]; A6[R]; A5[R]; A4[R]; A3[R]; A2[R]; A[R]; D->A8->A7->A6->A5->A4->A3->A2->A[next_char]",    "D[R]; A[x]; D->A[next_char]; A->Q[quantity]; A->U[base]; U[unit]; Q[9]" :    "D[R]; A9[R]; A8[R]; A7[R]; A6[R]; A5[R]; A4[R]; A3[R]; A2[R]; A[R]; D->A9->A8->A7->A6->A5->A4->A3->A2->A[next_char]",
 
-    "COMMENT[simultaneously start the second line]" : "",
 
-    "SA[s_ab]; INPUT[input]; INPUT->LINE1 [next_line]; LINE1[line]; LINE1->LINE2[next_line]; LINE2[line]; LINE2->DIR[next_char]; DIR[D];" :
-    "SA[s_a];  INPUT[input]; INPUT->LINE1 [next_line]; LINE1[line]; LINE1->LINE2[next_line]; LINE2[line]; LINE2->DIR[next_char]; DIR[D]; CURSOR[cursor]; CURSOR->BLANK[write]; CURSOR->DIR[read]; SB->BLANK [path]; SB[s_b]",
-
-    "SA[s_ab]; INPUT[input]; INPUT->LINE1 [next_line]; LINE1[line]; LINE1->LINE2[next_line]; LINE2[line]; LINE2->DIR[next_char]; DIR[U];" : 
-    "SA[s_a];  INPUT[input]; INPUT->LINE1 [next_line]; LINE1[line]; LINE1->LINE2[next_line]; LINE2[line]; LINE2->DIR[next_char]; DIR[U]; CURSOR[cursor]; CURSOR->BLANK[write]; CURSOR->DIR[read]; SB->BLANK [path]; SB[s_b]",
-    
-    "SA[s_ab]; INPUT[input]; INPUT->LINE1 [next_line]; LINE1[line]; LINE1->LINE2[next_line]; LINE2[line]; LINE2->DIR[next_char]; DIR[L];" : 
-    "SA[s_a];  INPUT[input]; INPUT->LINE1 [next_line]; LINE1[line]; LINE1->LINE2[next_line]; LINE2[line]; LINE2->DIR[next_char]; DIR[L]; CURSOR[cursor]; CURSOR->BLANK[write]; CURSOR->DIR[read]; SB->BLANK [path]; SB[s_b]",
-    
-    "SA[s_ab]; INPUT[input]; INPUT->LINE1 [next_line]; LINE1[line]; LINE1->LINE2[next_line]; LINE2[line]; LINE2->DIR[next_char]; DIR[R];" :
-    "SA[s_a];  INPUT[input]; INPUT->LINE1 [next_line]; LINE1[line]; LINE1->LINE2[next_line]; LINE2[line]; LINE2->DIR[next_char]; DIR[R]; CURSOR[cursor]; CURSOR->BLANK[write]; CURSOR->DIR[read]; SB->BLANK [path]; SB[s_b]",
-
-    "COMMENT[find the end comma first]" : "",
-
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[0]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[0]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[1]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[1]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[2]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[2]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[3]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[3]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[4]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[4]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[5]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[5]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[6]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[6]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[7]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[7]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[8]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[8]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[9]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[D]; DIR->DIGIT [next_char]; DIGIT[9]; CURSOR->DIGIT [comma]",
-
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[0]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[0]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[1]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[1]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[2]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[2]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[3]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[3]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[4]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[4]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[5]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[5]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[6]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[6]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[7]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[7]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[8]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[8]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[9]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[U]; DIR->DIGIT [next_char]; DIGIT[9]; CURSOR->DIGIT [comma]",
-
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[0]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[0]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[1]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[1]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[2]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[2]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[3]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[3]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[4]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[4]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[5]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[5]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[6]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[6]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[7]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[7]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[8]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[8]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[9]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[L]; DIR->DIGIT [next_char]; DIGIT[9]; CURSOR->DIGIT [comma]",
-    
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[0]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[0]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[1]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[1]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[2]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[2]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[3]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[3]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[4]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[4]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[5]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[5]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[6]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[6]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[7]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[7]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[8]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[8]; CURSOR->DIGIT [comma]",
-    "CURSOR[cursor]; CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[9]" :
-    "CURSOR[find];   CURSOR->DIR[read]; DIR[R]; DIR->DIGIT [next_char]; DIGIT[9]; CURSOR->DIGIT [comma]",
-
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[0]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[0]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[1]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[1]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[2]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[2]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[3]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[3]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[4]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[4]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[5]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[5]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[6]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[6]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[7]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[7]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[8]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[8]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[9]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[9]",
-
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[0]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[0]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[1]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[1]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[2]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[2]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[3]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[3]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[4]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[4]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[5]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[5]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[6]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[6]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[7]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[7]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[8]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[8]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[9]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[9]",
-
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[0]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[0]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[1]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[1]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[2]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[2]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[3]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[3]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[4]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[4]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[5]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[5]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[6]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[6]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[7]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[7]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[8]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[8]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[9]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[9]",
-
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[0]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[0]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[1]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[1]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[2]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[2]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[3]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[3]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[4]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[4]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[5]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[5]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[6]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[6]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[7]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[7]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[8]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[8]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[9]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[9]",
-
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[0]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[0]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[1]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[1]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[2]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[2]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[3]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[3]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[4]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[4]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[5]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[5]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[6]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[6]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[7]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[7]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[8]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[8]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[9]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[9]",
-
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[0]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[0]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[1]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[1]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[2]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[2]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[3]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[3]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[4]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[4]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[5]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[5]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[6]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[6]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[7]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[7]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[8]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[8]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[9]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[9]",
-
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[0]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[0]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[1]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[1]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[2]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[2]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[3]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[3]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[4]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[4]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[5]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[5]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[6]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[6]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[7]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[7]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[8]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[8]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[9]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[9]",
-
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[0]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[0]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[1]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[1]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[2]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[2]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[3]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[3]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[4]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[4]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[5]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[5]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[6]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[6]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[7]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[7]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[8]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[8]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[9]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[9]",
-
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[0]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[0]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[1]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[1]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[2]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[2]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[3]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[3]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[4]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[4]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[5]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[5]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[6]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[6]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[7]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[7]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[8]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[8]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[9]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[9]",
-
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[0]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[0]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[1]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[1]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[2]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[2]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[3]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[3]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[4]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[4]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[5]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[5]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[6]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[6]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[7]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[7]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[8]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[8]",
-    "CURSOR[find]; CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[9]" :
-    "CURSOR[find]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[9]",
-
-    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[,]" :
-    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[0]; DIGIT->NEXT [next_char]; NEXT[,]",
-    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[,]" :
-    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[1]; DIGIT->NEXT [next_char]; NEXT[,]",
-    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[,]" :
-    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[2]; DIGIT->NEXT [next_char]; NEXT[,]",
-    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[,]" :
-    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[3]; DIGIT->NEXT [next_char]; NEXT[,]",
-    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[,]" :
-    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[4]; DIGIT->NEXT [next_char]; NEXT[,]",
-    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[,]" :
-    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[5]; DIGIT->NEXT [next_char]; NEXT[,]",
-    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[,]" :
-    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[6]; DIGIT->NEXT [next_char]; NEXT[,]",
-    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[,]" :
-    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[7]; DIGIT->NEXT [next_char]; NEXT[,]",
-    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[,]" :
-    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[8]; DIGIT->NEXT [next_char]; NEXT[,]",
-    "CURSOR[find];  CURSOR->DIGIT[comma]; DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[,]" :
-    "CURSOR[ready]; CURSOR->NEXT[comma];  DIGIT[9]; DIGIT->NEXT [next_char]; NEXT[,]",    
-
-    "COMMENT[interleave copying the head character with decreasing the number after it]" : "",
-
-    "CURSOR[ready];     CURSOR->BLANK[write];    CURSOR->DIR[read]; DIR[L]" :
-    "CURSOR[decrement]; CURSOR->NEWBLANK[write]; CURSOR->DIR[read]; DIR[L]; BLANK[L]; BLANK->NEWBLANK[next];",
-    
-    "CURSOR[ready];     CURSOR->BLANK[write];    CURSOR->DIR[read]; DIR[R]" :
-    "CURSOR[decrement]; CURSOR->NEWBLANK[write]; CURSOR->DIR[read]; DIR[R]; BLANK[R]; BLANK->NEWBLANK[next];",
-
-    "CURSOR[ready];     CURSOR->BLANK[write];    CURSOR->DIR[read]; DIR[U]" :
-    "CURSOR[decrement]; CURSOR->NEWBLANK[write]; CURSOR->DIR[read]; DIR[U]; BLANK[U]; BLANK->NEWBLANK[next];",
-    
-    "CURSOR[ready];     CURSOR->BLANK[write];    CURSOR->DIR[read]; DIR[D]" :
-    "CURSOR[decrement]; CURSOR->NEWBLANK[write]; CURSOR->DIR[read]; DIR[D]; BLANK[D]; BLANK->NEWBLANK[next];",
-
-    "COMMENT[decrement the current number]" : "",
-    
-    "CURSOR[decrement]; CURSOR->COMMA[comma]; COMMA[,]" :
-    "CURSOR[wait];      CURSOR->COMMA[comma]; COMMA[,]; WORKER[minus1]; WORKER->COMMA [pos]; WORKER->CURSOR [when_done]",
-
-    "COMMENT[check for zero after decrement done]" : "",
-    "COMMENT[FIXME: probably should check for zero first!]" : "",
-    
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[1]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[1]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[1]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[1]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[1]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[1]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[1]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[1]",
-    
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[2]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[2]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[2]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[2]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[2]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[2]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[2]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[2]",
-
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[3]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[3]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[3]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[3]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[3]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[3]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[3]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[3]",
-
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[4]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[4]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[4]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[4]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[4]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[4]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[4]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[4]",
-
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[5]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[5]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[5]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[5]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[5]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[5]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[5]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[5]",
-
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[6]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[6]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[6]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[6]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[6]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[6]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[6]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[6]",
-
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[7]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[7]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[7]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[7]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[7]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[7]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[7]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[7]",
-
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[8]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[8]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[8]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[8]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[8]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[8]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[8]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[8]",
-
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[9]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[9]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[9]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[9]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[9]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[9]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[9]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[9]",
-
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[0]" :
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST^SECOND[0]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[0]" :
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST^SECOND[0]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[0]" :
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST^SECOND[0]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[0]" :
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST^SECOND[0]",
-
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[1]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST^SECOND[1]",    
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[1]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST^SECOND[1]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[1]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST^SECOND[1]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[1]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST^SECOND[1]",
-
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[2]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char];                                FIRST^SECOND[2]",    
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[2]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char];                                FIRST^SECOND[2]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[2]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char];                                FIRST^SECOND[2]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[2]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char];                                FIRST^SECOND[2]",
-    
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[3]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char];                                FIRST^SECOND[3]",    
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[3]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char];                                FIRST^SECOND[3]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[3]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char];                                FIRST^SECOND[3]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[3]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char];                                FIRST^SECOND[3]",
-    
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[4]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char];                                FIRST^SECOND[4]",    
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[4]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char];                                FIRST^SECOND[4]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[4]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char];                                FIRST^SECOND[4]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[4]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char];                                FIRST^SECOND[4]",
-    
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[5]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char];                                FIRST^SECOND[5]",    
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[5]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char];                                FIRST^SECOND[5]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[5]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char];                                FIRST^SECOND[5]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[5]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char];                                FIRST^SECOND[5]",
-    
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[6]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char];                                FIRST^SECOND[6]",    
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[6]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char];                                FIRST^SECOND[6]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[6]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char];                                FIRST^SECOND[6]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[6]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char];                                FIRST^SECOND[6]",
-    
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[7]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char];                                FIRST^SECOND[7]",    
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[7]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char];                                FIRST^SECOND[7]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[7]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char];                                FIRST^SECOND[7]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[7]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char];                                FIRST^SECOND[7]",
-    
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[8]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char];                                FIRST^SECOND[8]",    
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[8]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char];                                FIRST^SECOND[8]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[8]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char];                                FIRST^SECOND[8]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[8]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char];                                FIRST^SECOND[8]",
-    
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[9]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char];                                FIRST^SECOND[9]",    
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[9]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char];                                FIRST^SECOND[9]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[9]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char];                                FIRST^SECOND[9]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[9]" :
-    "CURSOR[ready];      CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char];                                FIRST^SECOND[9]",
-
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[D]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[,]" :
-    "CURSOR[advance]; SECOND^DIR[,]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[U]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[,]" :
-    "CURSOR[advance]; SECOND^DIR[,]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[L]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[,]" :
-    "CURSOR[advance]; SECOND^DIR[,]",
-    "CURSOR[check_zero]; CURSOR->DIR[read]; DIR[R]; DIR->FIRST[next_char]; FIRST[0]; FIRST->SECOND [next_char]; SECOND[,]" :
-    "CURSOR[advance]; SECOND^DIR[,]",
-
-    "COMMENT[move to next instruction, or end of line]" : "",
-
-    "CURSOR[advance]; CURSOR->COMMA[comma]; COMMA[,]; COMMA->NEXT[next_char]; NEXT[D]":
-    "CURSOR[cursor];  CURSOR->NEXT[read];                               COMMA^NEXT[D]",
-    "CURSOR[advance]; CURSOR->COMMA[comma]; COMMA[,]; COMMA->NEXT[next_char]; NEXT[U]":
-    "CURSOR[cursor];  CURSOR->NEXT[read];                               COMMA^NEXT[U]",
-    "CURSOR[advance]; CURSOR->COMMA[comma]; COMMA[,]; COMMA->NEXT[next_char]; NEXT[R]":
-    "CURSOR[cursor];  CURSOR->NEXT[read];                               COMMA^NEXT[R]",
-    "CURSOR[advance]; CURSOR->COMMA[comma]; COMMA[,]; COMMA->NEXT[next_char]; NEXT[L]":
-    "CURSOR[cursor];  CURSOR->NEXT[read];                               COMMA^NEXT[L]",
-
-    "CURSOR[advance]; CURSOR->COMMA[comma]; COMMA[,]; COMMA->LINE[end_of_line]; LINE[line]; LINE->COMMA[next_char]; CURSOR->BLANK [write]" :
-    "BLANK[end]; COMMA^LINE[line]",
-
-    "COMMENT[decrement worker]" : "",
-    "COMMENT[easy cases, only the unit digit changes]" : "",
-    "COMMENT[FIXME: we should be able to short-circuit check_zero]" : "",
-    
-    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[1]; D->COMMA [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
-    "                                     COMMA[,]; D[0]; D->COMMA [next_char];                             CURSOR[check_zero]",
-    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[2]; D->COMMA [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
-    "                                     COMMA[,]; D[1]; D->COMMA [next_char];                             CURSOR[check_zero]",
-    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[3]; D->COMMA [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
-    "                                     COMMA[,]; D[2]; D->COMMA [next_char];                             CURSOR[check_zero]",
-    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[4]; D->COMMA [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
-    "                                     COMMA[,]; D[3]; D->COMMA [next_char];                             CURSOR[check_zero]",
-    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[5]; D->COMMA [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
-    "                                     COMMA[,]; D[4]; D->COMMA [next_char];                             CURSOR[check_zero]",
-    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[6]; D->COMMA [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
-    "                                     COMMA[,]; D[5]; D->COMMA [next_char];                             CURSOR[check_zero]",
-    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[7]; D->COMMA [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
-    "                                     COMMA[,]; D[6]; D->COMMA [next_char];                             CURSOR[check_zero]",
-    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[8]; D->COMMA [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
-    "                                     COMMA[,]; D[7]; D->COMMA [next_char];                             CURSOR[check_zero]",
-    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[9]; D->COMMA [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
-    "                                     COMMA[,]; D[8]; D->COMMA [next_char];                             CURSOR[check_zero]",
-
-    "WORKER[minus1]; WORKER->COMMA [pos]; COMMA[,]; D[0]; D->COMMA [next_char];" :
-    "WORKER[minus1]; WORKER->D [pos];     COMMA[,]; D[-1]; D->COMMA [next_char];",
-
-    "WORKER[minus1]; WORKER->BORROW [pos]; D[0];  BORROW[-1]; D->BORROW [next_char];" :
-    "WORKER[minus1]; WORKER->D [pos];      D[-1]; BORROW[9];  D->BORROW [next_char];",
-
-    "WORKER[minus1]; WORKER->BORROW [pos]; D[1];  BORROW[-1]; D->BORROW [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
-    "                                      D[0];  BORROW[9];  D->BORROW [next_char];                             CURSOR[check_zero]",
-    "WORKER[minus1]; WORKER->BORROW [pos]; D[2];  BORROW[-1]; D->BORROW [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
-    "                                      D[1];  BORROW[9];  D->BORROW [next_char];                             CURSOR[check_zero]",
-    "WORKER[minus1]; WORKER->BORROW [pos]; D[3];  BORROW[-1]; D->BORROW [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
-    "                                      D[2];  BORROW[9];  D->BORROW [next_char];                             CURSOR[check_zero]",
-    "WORKER[minus1]; WORKER->BORROW [pos]; D[4];  BORROW[-1]; D->BORROW [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
-    "                                      D[3];  BORROW[9];  D->BORROW [next_char];                             CURSOR[check_zero]",
-    "WORKER[minus1]; WORKER->BORROW [pos]; D[5];  BORROW[-1]; D->BORROW [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
-    "                                      D[4];  BORROW[9];  D->BORROW [next_char];                             CURSOR[check_zero]",
-    "WORKER[minus1]; WORKER->BORROW [pos]; D[6];  BORROW[-1]; D->BORROW [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
-    "                                      D[5];  BORROW[9];  D->BORROW [next_char];                             CURSOR[check_zero]",
-    "WORKER[minus1]; WORKER->BORROW [pos]; D[7];  BORROW[-1]; D->BORROW [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
-    "                                      D[6];  BORROW[9];  D->BORROW [next_char];                             CURSOR[check_zero]",
-    "WORKER[minus1]; WORKER->BORROW [pos]; D[8];  BORROW[-1]; D->BORROW [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
-    "                                      D[7];  BORROW[9];  D->BORROW [next_char];                             CURSOR[check_zero]",
-    "WORKER[minus1]; WORKER->BORROW [pos]; D[9];  BORROW[-1]; D->BORROW [next_char]; WORKER->CURSOR [when_done]; CURSOR[wait]" :
-    "                                      D[8];  BORROW[9];  D->BORROW [next_char];                             CURSOR[check_zero]",
-    
-    "INPUT[input]; LINE1[line]; LINE2[line]; END[end_of_input]; INPUT->LINE1->LINE2 [next_line]; LINE2->END [end_of_input]" :
-    "",
-    
     "COMMENT[end of file]" : ""
 }
