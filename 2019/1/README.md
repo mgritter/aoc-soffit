@@ -54,6 +54,6 @@ Estimated parallelism (number of production rules that could be applied):
 
 Here's the graph after step 1 of part 2:
 
-![A big graph](big-division-graph.png)
+![A big graph](big-division-graph.svg)
 
 
