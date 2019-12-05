@@ -31,6 +31,29 @@ adding a loop to the job engine instead.)  I also had to implement a
 new set of rules to copy a value. But, the addition grammar could be
 re-used with only a minor change.
 
+A full 25 hours of execution for part2.json and input.txt:
 
-## Example
+```
+--------------------------------------------------------------------------------
+    Grammar              Steps  Time  
+  1 recursive_fuel.json   10585 21579.2s
+  2 add_numbers.json      22691 67062.3s
+--------------------------------------------------------------------------------
+4982961
+```
+
+## Example run
+
+Number of nodes running part 2:
+
+![number of nodes](node-count.png)
+
+Estimated parallelism (number of production rules that could be applied):
+
+![active production rules](parallelism-estimate.png)
+
+Here's the graph after step 1 of part 2:
+
+![A big graph](big-division-graph.png)
+
 
