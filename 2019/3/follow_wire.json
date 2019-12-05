@@ -1,0 +1,216 @@
+{
+    "version" : "0.1",
+
+    "COMMENT[Initialize location counters and radix tree]" : "",
+
+    "SA[s_a]; SB[s_b];" :
+    "SA[a_moves]; SB[b_moves]; PA[a_pos]; PA->P1[x]; P1[+]; P1->Z1; Z1[0]; Z1->END1; END1[end_of_number]; PA->P2[y]; P2[+]; P2->Z2; Z2[0]; Z2->END2; END2[end_of_number]; PB[b_pos]; PB->P3[x]; P3[+]; P3->Z3; Z3[0]; Z3->END3; END3[end_of_number]; PB->P4[y]; P4[+]; P4->Z4; Z4[0]; Z4->END4; END4[end_of_number]; ROOT[root]; ROOT->PLUS[+]; ROOT->MINUS[-]; PLUS[leaf]; MINUS[leaf];",
+
+    "A[a_moves]; POS[a_pos];" :
+    "A[wire]; A->AI[identity]; AI[a]; A->POS[pos]; POS[pos]",
+
+    "B[b_moves]; POS[b_pos];" :
+    "B[wire]; B->BI[identity]; BI[b]; B->POS[pos]; POS[pos]",
+
+    "COMMENT[consume one direction and start the process of updating the position based on it]" : "",
+    
+    "W[wire]; DIR[R]; W->DIR[next_char]; W->POS[pos]; POS[pos]; POS->N[x]; N[+]" :
+    "W^DIR[wire_inc];                    W->POS[pos]; POS[pos]; POS->N[x]; N[+]; PLUS[plus1]; PLUS->N [number]; PLUS->W [wire];",
+    "W[wire]; DIR[R]; W->DIR[next_char]; W->POS[pos]; POS[pos]; POS->N[x]; N[-]" :
+    "W^DIR[wire_inc];                    W->POS[pos]; POS[pos]; POS->N[x]; N[-]; PLUS[plus1]; PLUS->N [number]; PLUS->W [wire];",
+
+    "W[wire]; DIR[U]; W->DIR[next_char]; W->POS[pos]; POS[pos]; POS->N[y]; N[+]" :
+    "W^DIR[wire_inc];                    W->POS[pos]; POS[pos]; POS->N[y]; N[+]; PLUS[plus1]; PLUS->N [number]; PLUS->W [wire];",
+    "W[wire]; DIR[U]; W->DIR[next_char]; W->POS[pos]; POS[pos]; POS->N[y]; N[-]" :
+    "W^DIR[wire_inc];                    W->POS[pos]; POS[pos]; POS->N[y]; N[-]; PLUS[plus1]; PLUS->N [number]; PLUS->W [wire];",
+
+    "W[wire]; DIR[L]; W->DIR[next_char]; W->POS[pos]; POS[pos]; POS->N[x]; N[+]" :
+    "W^DIR[wire_inc];                    W->POS[pos]; POS[pos]; POS->N[x]; N[+]; MINUS[minus1]; MINUS->N [number]; MINUS->W [wire];",
+    "W[wire]; DIR[L]; W->DIR[next_char]; W->POS[pos]; POS[pos]; POS->N[x]; N[-]" :
+    "W^DIR[wire_inc];                    W->POS[pos]; POS[pos]; POS->N[x]; N[-]; MINUS[minus1]; MINUS->N [number]; MINUS->W [wire];",
+
+    "W[wire]; DIR[D]; W->DIR[next_char]; W->POS[pos]; POS[pos]; POS->N[y]; N[+]" :
+    "W^DIR[wire_inc];                    W->POS[pos]; POS[pos]; POS->N[y]; N[+]; MINUS[minus1]; MINUS->N [number]; MINUS->W [wire];",
+    "W[wire]; DIR[D]; W->DIR[next_char]; W->POS[pos]; POS[pos]; POS->N[y]; N[-]" :
+    "W^DIR[wire_inc];                    W->POS[pos]; POS[pos]; POS->N[y]; N[-]; MINUS[minus1]; MINUS->N [number]; MINUS->W [wire];",
+
+    "COMMENT[numbers are stored in binary, sign first then least significant bit]" : "",
+    "COMMENT[addition on positive numbers]" : "",
+    
+    "N[+]; N->D; D[0];                             PLUS[plus1]; PLUS->W [wire]; PLUS->N [number]; W[wire_inc]" : 
+    "N[+]; N->D; D[1];                             W[wire_mark]",
+
+    "N[+]; N->D; D[1];                             PLUS[plus1]; PLUS->N [number]" : 
+    "N[+]; N->D; D[0];                             PLUS[plus1]; PLUS->D [carry]",
+
+    "D[0]; D->E; E[0];                             PLUS[plus1]; PLUS->D [carry]; PLUS->W [wire]; W[wire_inc]" : 
+    "D[0]; D->E; E[1];                             W[wire_mark]",
+
+    "D[0]; D->E; E[1];                             PLUS[plus1]; PLUS->D [carry]" : 
+    "D[0]; D->E; E[0];                             PLUS[plus1]; PLUS->E [carry]", 
+
+    "D[0]; D->END; END[end_of_number];             PLUS[plus1]; PLUS->D [carry]; PLUS->W [wire]; W[wire_inc]" : 
+    "D[0]; D->E; E[1]; E->END; END[end_of_number]; W[wire_mark]",
+
+    "COMMENT[subtraction on positive numbers]" : "",
+
+    "N[+]; N->D; D[1];                             MINUS[minus1]; MINUS->W [wire]; MINUS->N [number]; W[wire_inc]" : 
+    "N[+]; N->D; D[0];                             W[wire_mark]",
+
+    "N[+]; N->D; D[0]; D->END; END[end_of_number]; MINUS[minus1]; MINUS->N [number]; MINUS->W [wire]; W[wire_inc]" : 
+    "N[-]; N->D; D[1]; D->END; END[end_of_number]; W[wire_mark]",
+
+    "N[+]; N->D; D[0]; D->E; E[0];                 MINUS[minus1]; MINUS->N [number]" : 
+    "N[+]; N->D; D[1]; D->E; E[0];                 MINUS[minus1]; MINUS->D [borrow]",
+
+    "N[+]; N->D; D[0]; D->E; E[1];                 MINUS[minus1]; MINUS->N [number]" : 
+    "N[+]; N->D; D[1]; D->E; E[1];                 MINUS[minus1]; MINUS->D [borrow]",
+
+    "D[1]; D->E; E[0];                             MINUS[minus1]; MINUS->D [borrow]" : 
+    "D[1]; D->E; E[1];                             MINUS[minus1]; MINUS->E [borrow]", 
+
+    "D[1]; D->E; E[1]; E->END; END[end_of_number]; MINUS[minus1]; MINUS->D [borrow]; MINUS->W [wire]; W[wire_inc]" : 
+    "D[1]; D->END;             END[end_of_number]; W[wire_mark]",
+
+    "D[1]; D->E; E[1]; E->F; F[0];                 MINUS[minus1]; MINUS->D [borrow]; MINUS->W [wire]; W[wire_inc]" : 
+    "D[1]; D->E; E[0]; E->F; F[0];                 W[wire_mark]",
+
+    "D[1]; D->E; E[1]; E->F; F[1];                 MINUS[minus1]; MINUS->D [borrow]; MINUS->W [wire]; W[wire_inc]" : 
+    "D[1]; D->E; E[0]; E->F; F[1];                 W[wire_mark]",
+
+    "COMMENT[addition on negative numbers]" : "",
+    
+    "N[-]; N->D; D[1]; D->END; END[end_of_number]; PLUS[plus1]; PLUS->W [wire]; PLUS->N [number]; W[wire_inc]" : 
+    "N[+]; N->D; D[0]; D->END; END[end_of_number]; W[wire_mark]",
+
+    "N[-]; N->D; D[1]; D->E; E[0];                 PLUS[plus1]; PLUS->W [wire]; PLUS->N [number]; W[wire_inc]" : 
+    "N[-]; N->D; D[0]; D->E; E[0];                 W[wire_mark]",
+    
+    "N[-]; N->D; D[1]; D->E; E[1];                 PLUS[plus1]; PLUS->W [wire]; PLUS->N [number]; W[wire_inc]" : 
+    "N[-]; N->D; D[0]; D->E; E[1];                 W[wire_mark]",
+    
+    "N[-]; N->D; D[0];                             PLUS[plus1]; PLUS->W [wire]; PLUS->N [number]; W[wire_inc]" : 
+    "N[-]; N->D; D[1];                             PLUS[minus1]; PLUS->W [wire]; PLUS->D [borrow]; W[wire_inc]",
+
+    "COMMENT[subtraction on negative numbers]" : "",
+
+    "N[-]; N->D; D[1];                             MINUS[minus1]; MINUS->W [wire]; MINUS->N [number]; W[wire_inc]" : 
+    "N[-]; N->D; D[0];                             MINUS[plus1];  MINUS->W [wire]; MINUS->D [carry];  W[wire_inc]",
+
+    "N[-]; N->D; D[0];                             MINUS[minus1]; MINUS->W [wire]; MINUS->N [number]; W[wire_inc]" : 
+    "N[-]; N->D; D[1];                             W[wire_mark]",
+    
+    "COMMENT[key in the tree is +x+y, zero is +0, ]" : "",
+
+    "W[wire_mark]" :
+    "W[wire_insert]; TREE[tree_x]; TREE->W [wire];",
+
+    "COMMENT[start inserting x]" : "",
+    
+    "TREE[tree_x];      TREE->W [wire]; W[wire_insert]; W->POS [pos]; POS[pos]; POS->N [x]; N[+]; ROOT[root]" :
+    "TREE[tree_insert]; TREE->W [wire]; W[wire_insert]; W->POS [pos]; POS[pos]; POS->N [x]; N[+]; ROOT[root]; TREE->N [key]; TREE->ROOT[pos]; TREE->X [component]; X[x]",
+    "TREE[tree_x];      TREE->W [wire]; W[wire_insert]; W->POS [pos]; POS[pos]; POS->N [x]; N[-]; ROOT[root]" :
+    "TREE[tree_insert]; TREE->W [wire]; W[wire_insert]; W->POS [pos]; POS[pos]; POS->N [x]; N[-]; ROOT[root]; TREE->N [key]; TREE->ROOT[pos]; TREE->X [component]; X[x]",
+
+    "COMMENT[root cases: leaf or internal node children, don't have to worry about end of key]" : "",
+
+    "TREE[tree_insert]; TREE->N [key];  N[-]; N->NN; NN [0]; TREE->ROOT [pos]; ROOT[root]; ROOT->LEAF [-]; LEAF [leaf]" : 
+    "TREE[tree_insert]; TREE->NN [key]; N[-]; N->NN; NN [0]; TREE->LEAF [pos]; ROOT[root]; ROOT->LEAF [-]; LEAF [leaf]",
+    "TREE[tree_insert]; TREE->N [key];  N[-]; N->NN; NN [0]; TREE->ROOT [pos]; ROOT[root]; ROOT->NODE [-]; NODE [node]" : 
+    "TREE[tree_insert]; TREE->NN [key]; N[-]; N->NN; NN [0]; TREE->NODE [pos]; ROOT[root]; ROOT->NODE [-]; NODE [node]",    
+    "TREE[tree_insert]; TREE->N [key];  N[-]; N->NN; NN [1]; TREE->ROOT [pos]; ROOT[root]; ROOT->LEAF [-]; LEAF [leaf]" : 
+    "TREE[tree_insert]; TREE->NN [key]; N[-]; N->NN; NN [1]; TREE->LEAF [pos]; ROOT[root]; ROOT->LEAF [-]; LEAF [leaf]",
+    "TREE[tree_insert]; TREE->N [key];  N[-]; N->NN; NN [1]; TREE->ROOT [pos]; ROOT[root]; ROOT->NODE [-]; NODE [node]" : 
+    "TREE[tree_insert]; TREE->NN [key]; N[-]; N->NN; NN [1]; TREE->NODE [pos]; ROOT[root]; ROOT->NODE [-]; NODE [node]",
+    
+    "TREE[tree_insert]; TREE->N [key];  N[+]; N->NN; NN [0]; TREE->ROOT [pos]; ROOT[root]; ROOT->LEAF [+]; LEAF [leaf]" : 
+    "TREE[tree_insert]; TREE->NN [key]; N[+]; N->NN; NN [0]; TREE->LEAF [pos]; ROOT[root]; ROOT->LEAF [+]; LEAF [leaf]",
+    "TREE[tree_insert]; TREE->N [key];  N[+]; N->NN; NN [0]; TREE->ROOT [pos]; ROOT[root]; ROOT->NODE [+]; NODE [node]" : 
+    "TREE[tree_insert]; TREE->NN [key]; N[+]; N->NN; NN [0]; TREE->NODE [pos]; ROOT[root]; ROOT->NODE [+]; NODE [node]",
+    "TREE[tree_insert]; TREE->N [key];  N[+]; N->NN; NN [1]; TREE->ROOT [pos]; ROOT[root]; ROOT->LEAF [+]; LEAF [leaf]" : 
+    "TREE[tree_insert]; TREE->NN [key]; N[+]; N->NN; NN [1]; TREE->LEAF [pos]; ROOT[root]; ROOT->LEAF [+]; LEAF [leaf]",
+    "TREE[tree_insert]; TREE->N [key];  N[+]; N->NN; NN [1]; TREE->ROOT [pos]; ROOT[root]; ROOT->NODE [+]; NODE [node]" : 
+    "TREE[tree_insert]; TREE->NN [key]; N[+]; N->NN; NN [1]; TREE->NODE [pos]; ROOT[root]; ROOT->NODE [+]; NODE [node]",
+    
+    "COMMENT[internal nodes: not at end of key]" : "",
+    "COMMENT[loop over: digit and matching edge; next digit; leaf or node]" : "",
+    
+    "TREE[tree_insert]; TREE->N [key];  N[-]; N->NN; NN [end_of_number]; TREE->NODE [pos]; NODE [node]; NODE->CH [-]; CH[leaf]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[-]; N->NN; NN [end_of_number]; TREE->CH [pos];   NODE [node]; NODE->CH [-]; CH[leaf]",
+    "TREE[tree_insert]; TREE->N [key];  N[-]; N->NN; NN [end_of_number]; TREE->NODE [pos]; NODE [node]; NODE->CH [-]; CH[node]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[-]; N->NN; NN [end_of_number]; TREE->CH [pos];   NODE [node]; NODE->CH [-]; CH[node]",    
+    "TREE[tree_insert]; TREE->N [key];  N[-]; N->NN; NN [0];             TREE->NODE [pos]; NODE [node]; NODE->CH [-]; CH[leaf]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[-]; N->NN; NN [0];             TREE->CH [pos];   NODE [node]; NODE->CH [-]; CH[leaf]",
+    "TREE[tree_insert]; TREE->N [key];  N[-]; N->NN; NN [0];             TREE->NODE [pos]; NODE [node]; NODE->CH [-]; CH[node]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[-]; N->NN; NN [0];             TREE->CH [pos];   NODE [node]; NODE->CH [-]; CH[node]",
+    "TREE[tree_insert]; TREE->N [key];  N[-]; N->NN; NN [1];             TREE->NODE [pos]; NODE [node]; NODE->CH [-]; CH[leaf]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[-]; N->NN; NN [1];             TREE->CH [pos];   NODE [node]; NODE->CH [-]; CH[leaf]",
+    "TREE[tree_insert]; TREE->N [key];  N[-]; N->NN; NN [1];             TREE->NODE [pos]; NODE [node]; NODE->CH [-]; CH[node]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[-]; N->NN; NN [1];             TREE->CH [pos];   NODE [node]; NODE->CH [-]; CH[node]",
+
+    "TREE[tree_insert]; TREE->N [key];  N[+]; N->NN; NN [end_of_number]; TREE->NODE [pos]; NODE [node]; NODE->CH [+]; CH[leaf]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[+]; N->NN; NN [end_of_number]; TREE->CH [pos];   NODE [node]; NODE->CH [+]; CH[leaf]",
+    "TREE[tree_insert]; TREE->N [key];  N[+]; N->NN; NN [end_of_number]; TREE->NODE [pos]; NODE [node]; NODE->CH [+]; CH[node]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[+]; N->NN; NN [end_of_number]; TREE->CH [pos];   NODE [node]; NODE->CH [+]; CH[node]",    
+    "TREE[tree_insert]; TREE->N [key];  N[+]; N->NN; NN [0];             TREE->NODE [pos]; NODE [node]; NODE->CH [+]; CH[leaf]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[+]; N->NN; NN [0];             TREE->CH [pos];   NODE [node]; NODE->CH [+]; CH[leaf]",
+    "TREE[tree_insert]; TREE->N [key];  N[+]; N->NN; NN [0];             TREE->NODE [pos]; NODE [node]; NODE->CH [+]; CH[node]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[+]; N->NN; NN [0];             TREE->CH [pos];   NODE [node]; NODE->CH [+]; CH[node]",
+    "TREE[tree_insert]; TREE->N [key];  N[+]; N->NN; NN [1];             TREE->NODE [pos]; NODE [node]; NODE->CH [+]; CH[leaf]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[+]; N->NN; NN [1];             TREE->CH [pos];   NODE [node]; NODE->CH [+]; CH[leaf]",
+    "TREE[tree_insert]; TREE->N [key];  N[+]; N->NN; NN [1];             TREE->NODE [pos]; NODE [node]; NODE->CH [+]; CH[node]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[+]; N->NN; NN [1];             TREE->CH [pos];   NODE [node]; NODE->CH [+]; CH[node]",
+
+    "TREE[tree_insert]; TREE->N [key];  N[0]; N->NN; NN [end_of_number]; TREE->NODE [pos]; NODE [node]; NODE->CH [0]; CH[leaf]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[0]; N->NN; NN [end_of_number]; TREE->CH [pos];   NODE [node]; NODE->CH [0]; CH[leaf]",
+    "TREE[tree_insert]; TREE->N [key];  N[0]; N->NN; NN [end_of_number]; TREE->NODE [pos]; NODE [node]; NODE->CH [0]; CH[node]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[0]; N->NN; NN [end_of_number]; TREE->CH [pos];   NODE [node]; NODE->CH [0]; CH[node]",    
+    "TREE[tree_insert]; TREE->N [key];  N[0]; N->NN; NN [0];             TREE->NODE [pos]; NODE [node]; NODE->CH [0]; CH[leaf]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[0]; N->NN; NN [0];             TREE->CH [pos];   NODE [node]; NODE->CH [0]; CH[leaf]",
+    "TREE[tree_insert]; TREE->N [key];  N[0]; N->NN; NN [0];             TREE->NODE [pos]; NODE [node]; NODE->CH [0]; CH[node]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[0]; N->NN; NN [0];             TREE->CH [pos];   NODE [node]; NODE->CH [0]; CH[node]",
+    "TREE[tree_insert]; TREE->N [key];  N[0]; N->NN; NN [1];             TREE->NODE [pos]; NODE [node]; NODE->CH [0]; CH[leaf]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[0]; N->NN; NN [1];             TREE->CH [pos];   NODE [node]; NODE->CH [0]; CH[leaf]",
+    "TREE[tree_insert]; TREE->N [key];  N[0]; N->NN; NN [1];             TREE->NODE [pos]; NODE [node]; NODE->CH [0]; CH[node]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[0]; N->NN; NN [1];             TREE->CH [pos];   NODE [node]; NODE->CH [0]; CH[node]",
+
+    "TREE[tree_insert]; TREE->N [key];  N[1]; N->NN; NN [end_of_number]; TREE->NODE [pos]; NODE [node]; NODE->CH [1]; CH[leaf]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[1]; N->NN; NN [end_of_number]; TREE->CH [pos];   NODE [node]; NODE->CH [1]; CH[leaf]",
+    "TREE[tree_insert]; TREE->N [key];  N[1]; N->NN; NN [end_of_number]; TREE->NODE [pos]; NODE [node]; NODE->CH [1]; CH[node]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[1]; N->NN; NN [end_of_number]; TREE->CH [pos];   NODE [node]; NODE->CH [1]; CH[node]",    
+    "TREE[tree_insert]; TREE->N [key];  N[1]; N->NN; NN [0];             TREE->NODE [pos]; NODE [node]; NODE->CH [1]; CH[leaf]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[1]; N->NN; NN [0];             TREE->CH [pos];   NODE [node]; NODE->CH [1]; CH[leaf]",
+    "TREE[tree_insert]; TREE->N [key];  N[1]; N->NN; NN [0];             TREE->NODE [pos]; NODE [node]; NODE->CH [1]; CH[node]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[1]; N->NN; NN [0];             TREE->CH [pos];   NODE [node]; NODE->CH [1]; CH[node]",
+    "TREE[tree_insert]; TREE->N [key];  N[1]; N->NN; NN [1];             TREE->NODE [pos]; NODE [node]; NODE->CH [1]; CH[leaf]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[1]; N->NN; NN [1];             TREE->CH [pos];   NODE [node]; NODE->CH [1]; CH[leaf]",
+    "TREE[tree_insert]; TREE->N [key];  N[1]; N->NN; NN [1];             TREE->NODE [pos]; NODE [node]; NODE->CH [1]; CH[node]" :
+    "TREE[tree_insert]; TREE->NN [key]; N[1]; N->NN; NN [1];             TREE->CH [pos];   NODE [node]; NODE->CH [1]; CH[node]",
+
+    "COMMENT[in leaf: always expand, for simplicity]" : "",
+
+    "TREE[tree_insert]; TREE->LEAF [pos]; LEAF [leaf]" :
+    "TREE[tree_insert]; TREE->LEAF [pos]; LEAF [node]; ZERO[leaf]; ONE[leaf]; PLUS[leaf]; MINUS[leaf]; LEAF->ZERO [0]; LEAF->ONE [1]; LEAF->PLUS[+]; LEAF->MINUS[-]",
+    
+    "COMMENT[at end of number, and in internal node; is it the end of the key?]" : "",
+    "COMMENT[not if component is x, switch to inserting y value]" : "",
+    
+    "TREE[tree_insert]; TREE->N [key]; N[end_of_number]; TREE->NODE [pos]; NODE[node]; TREE->X [component]; X[x]" :
+    "TREE[tree_y];                     N[end_of_number]; TREE->NODE [pos]; NODE[node];", 
+
+    "TREE[tree_y];      TREE->W [wire]; W[wire_insert]; W->POS [pos]; POS[pos]; POS->N [y]; N[-]" :
+    "TREE[tree_insert]; TREE->W [wire]; W[wire_insert]; W->POS [pos]; POS[pos]; POS->N [y]; N[-]; TREE->N [key]; TREE->Y [component]; Y[y]",
+    
+    "TREE[tree_y];      TREE->W [wire]; W[wire_insert]; W->POS [pos]; POS[pos]; POS->N [y]; N[+]" :
+    "TREE[tree_insert]; TREE->W [wire]; W[wire_insert]; W->POS [pos]; POS[pos]; POS->N [y]; N[+]; TREE->N [key]; TREE->Y [component]; Y[y]",
+
+    "COMMENT[component is y, mark the node]" : "",
+    
+    "TREE[tree_insert]; TREE->N [key]; N[end_of_number]; TREE->NODE [pos]; NODE[node]; TREE->Y [component]; Y[y]; TREE->W [wire]; W[wire_insert]; W->WI[identity]; WI[a]" :
+    "                                  N[end_of_number];                   NODE[node]; NODE<-VISIT; VISIT[a_visit];               W[wire];        W->WI[identity]; WI[a];",
+    
+    "TREE[tree_insert]; TREE->N [key]; N[end_of_number]; TREE->NODE [pos]; NODE[node]; TREE->Y [component]; Y[y]; TREE->W [wire]; W[wire_insert]; W->WI[identity]; WI[b]" :
+    "                                  N[end_of_number];                   NODE[node]; NODE<-VISIT; VISIT[b_visit];               W[wire];        W->WI[identity]; WI[b];",
+
+    "COMMENT[end of file]" : ""
+}

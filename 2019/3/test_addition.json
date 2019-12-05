@@ -1,0 +1,111 @@
+{
+    "version" : "0.1",
+
+    "start" : "X[example0]",   
+
+    "X[example0]" :
+    "X[example1]; SIGN[+]; D1[0]; END[end_of_number]; SIGN->D1->END; OP[plus1]; OP->W1[wire]; OP->SIGN [number]; W1[wire_inc]; X->SIGN[1]",
+
+    "X[example1]" :
+    "X[example2]; SIGN[+]; D1[1]; END[end_of_number]; SIGN->D1->END; OP[plus1]; OP->W1[wire]; OP->SIGN [number]; W1[wire_inc]; X->SIGN[2]",
+
+    "X[example2]" :
+    "X[example3]; SIGN[+]; D1[0]; END[end_of_number]; SIGN->D1->END; OP[minus1]; OP->W1[wire]; OP->SIGN [number]; W1[wire_inc]; X->SIGN[-1]",
+
+    "X[example3]" :
+    "X[example4]; SIGN[+]; D1[1]; END[end_of_number]; SIGN->D1->END; OP[minus1]; OP->W1[wire]; OP->SIGN [number]; W1[wire_inc]; X->SIGN[0]",
+
+    "X[example4]" :
+    "X[example5]; SIGN[-]; D1[1]; END[end_of_number]; SIGN->D1->END; OP[minus1]; OP->W1[wire]; OP->SIGN [number]; W1[wire_inc]; X->SIGN[-2]",
+
+    "X[example5]" :
+    "X[example6]; SIGN[-]; D1[1]; END[end_of_number]; SIGN->D1->END; OP[plus1]; OP->W1[wire]; OP->SIGN [number]; W1[wire_inc]; X->SIGN[0]",
+    
+    "X[example6]" :
+    "X[example7]; SIGN[+]; D1[1]; D2[1]; D3[1]; D4[1]; END[end_of_number]; SIGN->D1->D2->D3->D4->END; OP[plus1]; OP->W1[wire]; OP->SIGN [number]; W1[wire_inc]; X->SIGN[16]",
+
+    "X[example7]" :
+    "X[example8]; SIGN[+]; D1[0]; D2[0]; D3[0]; D4[1]; END[end_of_number]; SIGN->D1->D2->D3->D4->END; OP[minus1]; OP->W1[wire]; OP->SIGN [number]; W1[wire_inc]; X->SIGN[7]",
+
+    "X[example8]" :
+    "X[example9]; SIGN[-]; D1[0]; D2[0]; D3[0]; D4[1]; END[end_of_number]; SIGN->D1->D2->D3->D4->END; OP[plus1]; OP->W1[wire]; OP->SIGN [number]; W1[wire_inc]; X->SIGN[-7]",
+
+    "X[example9]" :
+    "X[example10]; SIGN[-]; D1[0]; D2[0]; D3[0]; D4[1]; END[end_of_number]; SIGN->D1->D2->D3->D4->END; OP[minus1]; OP->W1[wire]; OP->SIGN [number]; W1[wire_inc]; X->SIGN[-9]",
+
+    "X[example10]" :
+    "X[example11]; SIGN[-]; D1[0]; D2[1]; D3[0]; D4[1]; END[end_of_number]; SIGN->D1->D2->D3->D4->END; OP[plus1]; OP->W1[wire]; OP->SIGN [number]; W1[wire_inc]; X->SIGN[-9]",
+    
+    "X[example11]" :
+    "X[example12]; SIGN[-]; D1[0]; D2[1]; D3[0]; D4[1]; END[end_of_number]; SIGN->D1->D2->D3->D4->END; OP[minus1]; OP->W1[wire]; OP->SIGN [number]; W1[wire_inc]; X->SIGN[-10]",
+
+    "COMMENT[addition on positive numbers]" : "",
+    
+    "N[+]; N->D; D[0];                             PLUS[plus1]; PLUS->W [wire]; PLUS->N [number]; W[wire_inc]" : 
+    "N[+]; N->D; D[1];                             W[wire_mark]",
+
+    "N[+]; N->D; D[1];                             PLUS[plus1]; PLUS->N [number]" : 
+    "N[+]; N->D; D[0];                             PLUS[plus1]; PLUS->D [carry]",
+
+    "D[0]; D->E; E[0];                             PLUS[plus1]; PLUS->D [carry]; PLUS->W [wire]; W[wire_inc]" : 
+    "D[0]; D->E; E[1];                             W[wire_mark]",
+
+    "D[0]; D->E; E[1];                             PLUS[plus1]; PLUS->D [carry]" : 
+    "D[0]; D->E; E[0];                             PLUS[plus1]; PLUS->E [carry]", 
+
+    "D[0]; D->END; END[end_of_number];             PLUS[plus1]; PLUS->D [carry]; PLUS->W [wire]; W[wire_inc]" : 
+    "D[0]; D->E; E[1]; E->END; END[end_of_number]; W[wire_mark]",
+
+    "COMMENT[subtraction on positive numbers]" : "",
+
+    "N[+]; N->D; D[1];                             MINUS[minus1]; MINUS->W [wire]; MINUS->N [number]; W[wire_inc]" : 
+    "N[+]; N->D; D[0];                             W[wire_mark]",
+
+    "N[+]; N->D; D[0]; D->END; END[end_of_number]; MINUS[minus1]; MINUS->N [number]; MINUS->W [wire]; W[wire_inc]" : 
+    "N[-]; N->D; D[1]; D->END; END[end_of_number]; W[wire_mark]",
+
+    "N[+]; N->D; D[0]; D->E; E[0];                 MINUS[minus1]; MINUS->N [number]" : 
+    "N[+]; N->D; D[1]; D->E; E[0];                 MINUS[minus1]; MINUS->D [borrow]",
+
+    "N[+]; N->D; D[0]; D->E; E[1];                 MINUS[minus1]; MINUS->N [number]" : 
+    "N[+]; N->D; D[1]; D->E; E[1];                 MINUS[minus1]; MINUS->D [borrow]",
+
+    "D[1]; D->E; E[0];                             MINUS[minus1]; MINUS->D [borrow]" : 
+    "D[1]; D->E; E[1];                             MINUS[minus1]; MINUS->E [borrow]", 
+
+    "D[1]; D->E; E[1]; E->END; END[end_of_number]; MINUS[minus1]; MINUS->D [borrow]; MINUS->W [wire]; W[wire_inc]" : 
+    "D[1]; D->END;             END[end_of_number]; W[wire_mark]",
+
+    "D[1]; D->E; E[1]; E->F; F[0];                 MINUS[minus1]; MINUS->D [borrow]; MINUS->W [wire]; W[wire_inc]" : 
+    "D[1]; D->E; E[0]; E->F; F[0];                 W[wire_mark]",
+
+    "D[1]; D->E; E[1]; E->F; F[1];                 MINUS[minus1]; MINUS->D [borrow]; MINUS->W [wire]; W[wire_inc]" : 
+    "D[1]; D->E; E[0]; E->F; F[1];                 W[wire_mark]",
+
+    "COMMENT[addition on negative numbers]" : "",
+    
+    "N[-]; N->D; D[1]; D->END; END[end_of_number]; PLUS[plus1]; PLUS->W [wire]; PLUS->N [number]; W[wire_inc]" : 
+    "N[+]; N->D; D[0]; D->END; END[end_of_number]; W[wire_mark]",
+
+    "N[-]; N->D; D[1]; D->E; E[0];                 PLUS[plus1]; PLUS->W [wire]; PLUS->N [number]; W[wire_inc]" : 
+    "N[-]; N->D; D[0]; D->E; E[0];                 W[wire_mark]",
+    
+    "N[-]; N->D; D[1]; D->E; E[1];                 PLUS[plus1]; PLUS->W [wire]; PLUS->N [number]; W[wire_inc]" : 
+    "N[-]; N->D; D[0]; D->E; E[1];                 W[wire_mark]",
+    
+    "N[-]; N->D; D[0];                             PLUS[plus1]; PLUS->W [wire]; PLUS->N [number]; W[wire_inc]" : 
+    "N[-]; N->D; D[1];                             PLUS[minus1]; PLUS->W [wire]; PLUS->D [borrow]; W[wire_inc]",
+
+    "COMMENT[subtraction on negative numbers]" : "",
+
+    "N[-]; N->D; D[1];                             MINUS[minus1]; MINUS->W [wire]; MINUS->N [number]; W[wire_inc]" : 
+    "N[-]; N->D; D[0];                             MINUS[plus1];  MINUS->W [wire]; MINUS->D [carry];  W[wire_inc]",
+
+    "N[-]; N->D; D[0];                             MINUS[minus1]; MINUS->W [wire]; MINUS->N [number]; W[wire_inc]" : 
+    "N[-]; N->D; D[1];                             W[wire_mark]",
+    
+    
+    "COMMENT[foo]" : ""
+
+}
+
