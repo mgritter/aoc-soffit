@@ -1,0 +1,64 @@
+{
+    "version" : "0.1",
+
+    "COMMENT[Initialize output]" : "",
+
+    "ROOT [root]" :
+    "ROOT [root2]; OUTPUT[output]; OUTPUT->LINE[output]; LINE[line]; LABEL[y+, x+]; LINE->LABEL [next_char]",
+
+    "OUTPUT[output]; OUTPUT->LINE[output]; LINE[line]; VA[a_visit]; VB[b_visit]; NODE[node]; VA->NODE; VB->NODE" :
+    "OUTPUT[output]; OUTPUT->NEWLINE[output]; LINE[line]; VA[a_x]; VB[b_x];      NODE[node]; VA->NODE; VB->NODE; NEWLINE[line]; NEWLINE->LINE [next_line]; NEWLINE->NODE[next_char]",
+
+    "COMMENT[convert tree paths to output text in-line]" : "",
+    "COMMENT[parent might already be converted]" : "",
+        
+    "NODE[node]; PARENT[node]; PARENT->NODE[0]" :
+    "NODE[0];    PARENT[node]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[node]; PARENT->NODE[1]" :
+    "NODE[1];    PARENT[node]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[node]; PARENT->NODE[+]" :
+    "NODE[+];    PARENT[node]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[node]; PARENT->NODE[-]" :
+    "NODE[-];    PARENT[node]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[root2]; PARENT->NODE[0]" :
+    "NODE[0];    PARENT[root2]",
+    "NODE[node]; PARENT[root2]; PARENT->NODE[1]" :
+    "NODE[1];    PARENT[root2]",
+    "NODE[node]; PARENT[root2]; PARENT->NODE[+]" :
+    "NODE[+];    PARENT[root2]",
+    "NODE[node]; PARENT[root2]; PARENT->NODE[-]" :
+    "NODE[-];    PARENT[root2]",
+    "NODE[node]; PARENT[0]; PARENT->NODE[0]" :
+    "NODE[0];    PARENT[0]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[0]; PARENT->NODE[1]" :
+    "NODE[1];    PARENT[0]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[0]; PARENT->NODE[+]" :
+    "NODE[+];    PARENT[0]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[0]; PARENT->NODE[-]" :
+    "NODE[-];    PARENT[0]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[1]; PARENT->NODE[0]" :
+    "NODE[0];    PARENT[1]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[1]; PARENT->NODE[1]" :
+    "NODE[1];    PARENT[1]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[1]; PARENT->NODE[+]" :
+    "NODE[+];    PARENT[1]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[1]; PARENT->NODE[-]" :
+    "NODE[-];    PARENT[1]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[+]; PARENT->NODE[0]" :
+    "NODE[0];    PARENT[+]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[+]; PARENT->NODE[1]" :
+    "NODE[1];    PARENT[+]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[+]; PARENT->NODE[+]" :
+    "NODE[+];    PARENT[+]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[+]; PARENT->NODE[-]" :
+    "NODE[-];    PARENT[+]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[-]; PARENT->NODE[0]" :
+    "NODE[0];    PARENT[-]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[-]; PARENT->NODE[1]" :
+    "NODE[1];    PARENT[-]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[-]; PARENT->NODE[+]" :
+    "NODE[+];    PARENT[-]; NODE->PARENT[next_char]",
+    "NODE[node]; PARENT[-]; PARENT->NODE[-]" :
+    "NODE[-];    PARENT[-]; NODE->PARENT[next_char]"
+
+}
