@@ -1,0 +1,5 @@
+{
+    "version" : "0.1",
+    
+    "start" : "S[start]; S->G [grammar]; G[construct_dp.json];"
+}

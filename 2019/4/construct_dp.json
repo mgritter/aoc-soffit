@@ -1,0 +1,180 @@
+{
+    "version" : "0.1",
+
+    "start" : "C[construct]; C->NR5[num_remaining]; NR6[nr6]; NR5[nr]; NR4[nr]; NR3[nr]; NR2[nr]; NR1[nr1]; NR6->NR5->NR4->NR3->NR2->NR1; C->D3[digit]; C->D4[digit]; C->D5[digit]; C->D6[digit]; C->D7[digit]; C->D8[digit]; D3->D3[3]; D4->D4[4]; D5->D5[5]; D6->D6[6]; D7->D7[7]; D8->D8[8]; C->CHILD [child_needed]; CHILD[true]",
+
+    "C[construct]; C->CHILD [child_needed]; CHILD[true]" :
+    "C[construct]; NC[construct]; DN[digits_needed]; DN->NC; NC->C [parent]",
+
+    "C[construct]; NC[construct]; NC->C [parent]; C->NR[num_remaining]; NR[nr]; MINUS1[nr]; NR->MINUS1;" :
+    "C[construct]; NC[construct];                 C->NR[num_remaining]; NR[nr]; MINUS1[nr]; NR->MINUS1; NC->MINUS1[num_remaining]; NC->CHILD [child_needed]; CHILD[true]",
+    "C[construct]; NC[construct]; NC->C [parent]; C->NR[num_remaining]; NR[nr]; MINUS1[nr1]; NR->MINUS1;" :
+    "C[construct]; NC[construct];                 C->NR[num_remaining]; NR[nr]; MINUS1[nr1]; NR->MINUS1; NC->MINUS1[num_remaining];",
+
+
+    "COMMENT[we don't need the digits 0, 1, or 2, since they cannot appear.]" : "",
+    
+    "C[construct]; DN[digits_needed]; DN->C" :
+    "C[construct]; C->D3[digit]; D3->D3[3]; C->D4[digit]; C->D5[digit]; C->D6[digit]; C->D7[digit]; C->D8[digit]; C->D9[digit]; D3->D3[3]; D4->D4[4]; D5->D5[5]; D6->D6[6]; D7->D7[7]; D8->D8[8]; D9->D9[9]",
+
+    "COMMENT[leaf constructions]" : "",
+    
+    "C[construct]; C->D[digit]; C->N1[num_remaining]; N1[nr1]" :
+    "C[construct];              C->N1[num_remaining]; N1[nr1]; NT[dp]; NT->D[digit]; NT->N1[num_remaining]; NT->TRUE [need_double]; TRUE[true]; NF[dp]; NF->D[digit]; NF->N1[num_remaining]; NF->FALSE [need_double]; FALSE[false];",
+    
+    "COMMENT[non-leaf constructions]" : "",
+    "COMMENT[the pointer to which digit to add next is indirected through a blank node to start, to defer the copy]" : "",
+
+    "C[construct]; C->D[digit]; C->NR[num_remaining]; NR[nr]" :
+    "C[construct];              C->NR[num_remaining]; NR[nr]; NT[dp]; NT->D[digit]; NT->NR[num_remaining]; NT->TRUE [need_double]; TRUE[true]; NT->XT [child_indirect_digit]; XT->D; NF[dp]; NF->D[digit]; NF->NR[num_remaining]; NF->FALSE [need_double]; FALSE[false]; NF->XF [child_indirect_digit]; XF->D",
+
+    "N[dp]; N->X [child_indirect_digit]; X->D; D->D [3]" :
+    "N[dp]; N->X [eq_child_digit]; X[3]; D->D [3]",
+    "N[dp]; N->X [child_indirect_digit]; X->D; D->D [4]" :
+    "N[dp]; N->X [eq_child_digit]; X[4]; D->D [4]",
+    "N[dp]; N->X [child_indirect_digit]; X->D; D->D [5]" :
+    "N[dp]; N->X [eq_child_digit]; X[5]; D->D [5]",
+    "N[dp]; N->X [child_indirect_digit]; X->D; D->D [6]" :
+    "N[dp]; N->X [eq_child_digit]; X[6]; D->D [6]",
+    "N[dp]; N->X [child_indirect_digit]; X->D; D->D [7]" :
+    "N[dp]; N->X [eq_child_digit]; X[7]; D->D [7]",
+    "N[dp]; N->X [child_indirect_digit]; X->D; D->D [8]" :
+    "N[dp]; N->X [eq_child_digit]; X[8]; D->D [8]",
+    "N[dp]; N->X [child_indirect_digit]; X->D; D->D [9]" :
+    "N[dp]; N->X [eq_child_digit]; X[9]; D->D [9]",
+
+    "COMMENT[hook up non-leaf nodes one digit at a time]" : "",
+    "COMMENT[this case handles child digit == parent digit, which satisfies need_double, for the end of num_remaining]" : "",
+               
+    "D1->D1[3]; D2[3]; D3->D3[3]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[3]; D2[4]; D3->D3[3]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+    "D1->D1[3]; D2[3]; D3->D3[3]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[3]; D2[4]; D3->D3[3]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+
+    "D1->D1[4]; D2[4]; D3->D3[4]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[4]; D2[5]; D3->D3[4]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+    "D1->D1[4]; D2[4]; D3->D3[4]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[4]; D2[5]; D3->D3[4]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+
+    "D1->D1[5]; D2[5]; D3->D3[5]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[5]; D2[6]; D3->D3[5]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+    "D1->D1[5]; D2[5]; D3->D3[5]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[5]; D2[6]; D3->D3[5]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+
+    "D1->D1[6]; D2[6]; D3->D3[6]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[6]; D2[7]; D3->D3[6]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+    "D1->D1[6]; D2[6]; D3->D3[6]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[6]; D2[7]; D3->D3[6]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+
+    "D1->D1[7]; D2[7]; D3->D3[7]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[7]; D2[8]; D3->D3[7]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+    "D1->D1[7]; D2[7]; D3->D3[7]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[7]; D2[8]; D3->D3[7]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+
+    "D1->D1[8]; D2[8]; D3->D3[8]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[8]; D2[9]; D3->D3[8]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+    "D1->D1[8]; D2[8]; D3->D3[8]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[8]; D2[9]; D3->D3[8]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+
+    "D1->D1[9]; D2[9]; D3->D3[9]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[9];        D3->D3[9]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true];                           N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+    "D1->D1[9]; D2[9]; D3->D3[9]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[9];        D3->D3[9]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false];                           N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+
+    "COMMENT[same but for earlier positions]" : "",
+
+    "D1->D1[3]; D2[3]; D3->D3[3]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[3]; D2[4]; D3->D3[3]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+    "D1->D1[3]; D2[3]; D3->D3[3]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[3]; D2[4]; D3->D3[3]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+
+    "D1->D1[4]; D2[4]; D3->D3[4]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[4]; D2[5]; D3->D3[4]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+    "D1->D1[4]; D2[4]; D3->D3[4]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[4]; D2[5]; D3->D3[4]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+
+    "D1->D1[5]; D2[5]; D3->D3[5]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[5]; D2[6]; D3->D3[5]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+    "D1->D1[5]; D2[5]; D3->D3[5]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[5]; D2[6]; D3->D3[5]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+
+    "D1->D1[6]; D2[6]; D3->D3[6]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[6]; D2[7]; D3->D3[6]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+    "D1->D1[6]; D2[6]; D3->D3[6]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[6]; D2[7]; D3->D3[6]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+
+    "D1->D1[7]; D2[7]; D3->D3[7]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[7]; D2[8]; D3->D3[7]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+    "D1->D1[7]; D2[7]; D3->D3[7]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[7]; D2[8]; D3->D3[7]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+
+    "D1->D1[8]; D2[8]; D3->D3[8]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[8]; D2[9]; D3->D3[8]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+    "D1->D1[8]; D2[8]; D3->D3[8]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[8]; D2[9]; D3->D3[8]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+
+    "D1->D1[9]; D2[9]; D3->D3[9]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[9];        D3->D3[9]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true];                           N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+    "D1->D1[9]; D2[9]; D3->D3[9]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[eq_child_digit];   N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false];" :
+    "D1->D1[9];        D3->D3[9]; N1[dp]; N1->D1 [digit]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false];                           N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N2 [=]",
+    
+    "COMMENT[this case handles child digit > parent digit; it also builds the + into a tree of additions]" : "",
+    "COMMENT[loop over: next_child_digit 4 through 9, need_double true/false, MINUS1 = nr/nr1]" : "",
+
+    "D2[4]; D3->D3[4]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->N3 [=]; N3 [dp]" :
+    "D2[5]; D3->D3[4]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+    "D2[4]; D3->D3[4]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N3 [=]; N3 [dp]" :
+    "D2[5]; D3->D3[4]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+    "D2[4]; D3->D3[4]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->N3 [=]; N3 [dp]" :
+    "D2[5]; D3->D3[4]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+    "D2[4]; D3->D3[4]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N3 [=]; N3 [dp]" :
+    "D2[5]; D3->D3[4]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+
+    "D2[5]; D3->D3[5]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->N3 [=]; N3 [dp]" :
+    "D2[6]; D3->D3[5]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+    "D2[5]; D3->D3[5]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N3 [=]; N3 [dp]" :
+    "D2[6]; D3->D3[5]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+    "D2[5]; D3->D3[5]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->N3 [=]; N3 [dp]" :
+    "D2[6]; D3->D3[5]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+    "D2[5]; D3->D3[5]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N3 [=]; N3 [dp]" :
+    "D2[6]; D3->D3[5]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+
+    "D2[6]; D3->D3[6]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->N3 [=]; N3 [dp]" :
+    "D2[7]; D3->D3[6]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+    "D2[6]; D3->D3[6]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N3 [=]; N3 [dp]" :
+    "D2[7]; D3->D3[6]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+    "D2[6]; D3->D3[6]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->N3 [=]; N3 [dp]" :
+    "D2[7]; D3->D3[6]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+    "D2[6]; D3->D3[6]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N3 [=]; N3 [dp]" :
+    "D2[7]; D3->D3[6]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+
+    "D2[7]; D3->D3[7]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->N3 [=]; N3 [dp]" :
+    "D2[8]; D3->D3[7]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+    "D2[7]; D3->D3[7]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N3 [=]; N3 [dp]" :
+    "D2[8]; D3->D3[7]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+    "D2[7]; D3->D3[7]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->N3 [=]; N3 [dp]" :
+    "D2[8]; D3->D3[7]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+    "D2[7]; D3->D3[7]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N3 [=]; N3 [dp]" :
+    "D2[8]; D3->D3[7]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+
+    "D2[8]; D3->D3[8]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->N3 [=]; N3 [dp]" :
+    "D2[9]; D3->D3[8]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+    "D2[8]; D3->D3[8]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N3 [=]; N3 [dp]" :
+    "D2[9]; D3->D3[8]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+    "D2[8]; D3->D3[8]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->N3 [=]; N3 [dp]" :
+    "D2[9]; D3->D3[8]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+    "D2[8]; D3->D3[8]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N3 [=]; N3 [dp]" :
+    "D2[9]; D3->D3[8]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+
+    "D2[9]; D3->D3[9]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->N3 [=]; N3 [dp]" :
+    "       D3->D3[9]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[true];                           N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+    "D2[9]; D3->D3[9]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N3 [=]; N3 [dp]" :
+    "       D3->D3[9]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr1]; N1->BOOL1 [need_double]; BOOL1[false];                           N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+    "D2[9]; D3->D3[9]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->N3 [=]; N3 [dp]" :
+    "       D3->D3[9]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[true];                           N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[true]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+    "D2[9]; D3->D3[9]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false]; N1->D2[next_child_digit]; N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->N3 [=]; N3 [dp]" :
+    "       D3->D3[9]; N1[dp]; N1->NR [num_remaining]; NR[nr]; NR->MINUS1; MINUS1[nr]; N1->BOOL1 [need_double]; BOOL1[false];                           N2[dp]; N2->D3 [digit]; N2->MINUS1 [num_remaining]; N2->BOOL2 [need_double]; BOOL2[false]; N1->PLUS [=]; PLUS[dp]; PLUS->N2 [+]; PLUS->N3[+]; N3 [dp]",
+
+
+    "COMMENT[end of file]" : ""
+}

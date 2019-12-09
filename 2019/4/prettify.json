@@ -1,0 +1,196 @@
+{
+    "version" : "0.1",
+
+    "D->D[3]" : "D[3]",
+    "D->D[4]" : "D[4]",
+    "D->D[5]" : "D[5]",
+    "D->D[6]" : "D[6]",
+    "D->D[7]" : "D[7]",
+    "D->D[8]" : "D[8]",
+    "D->D[9]" : "D[9]",
+
+    "DP1[dp]; DP1->DIGIT[digit]; DP2[dp]; DP2->DIGIT[digit]; DIGIT[3]" : 
+    "DP1[dp]; DP1->DIGIT[digit]; DP2[dp]; DP2->COPY[digit]; DIGIT[3]; COPY[3]",
+    "DP1[dp]; DP1->DIGIT[digit]; DP2[dp]; DP2->DIGIT[digit]; DIGIT[4]" : 
+    "DP1[dp]; DP1->DIGIT[digit]; DP2[dp]; DP2->COPY[digit]; DIGIT[4]; COPY[4]",
+    "DP1[dp]; DP1->DIGIT[digit]; DP2[dp]; DP2->DIGIT[digit]; DIGIT[5]" : 
+    "DP1[dp]; DP1->DIGIT[digit]; DP2[dp]; DP2->COPY[digit]; DIGIT[5]; COPY[5]",
+    "DP1[dp]; DP1->DIGIT[digit]; DP2[dp]; DP2->DIGIT[digit]; DIGIT[6]" : 
+    "DP1[dp]; DP1->DIGIT[digit]; DP2[dp]; DP2->COPY[digit]; DIGIT[6]; COPY[6]",
+    "DP1[dp]; DP1->DIGIT[digit]; DP2[dp]; DP2->DIGIT[digit]; DIGIT[7]" : 
+    "DP1[dp]; DP1->DIGIT[digit]; DP2[dp]; DP2->COPY[digit]; DIGIT[7]; COPY[7]",
+    "DP1[dp]; DP1->DIGIT[digit]; DP2[dp]; DP2->DIGIT[digit]; DIGIT[8]" : 
+    "DP1[dp]; DP1->DIGIT[digit]; DP2[dp]; DP2->COPY[digit]; DIGIT[8]; COPY[8]",
+    "DP1[dp]; DP1->DIGIT[digit]; DP2[dp]; DP2->DIGIT[digit]; DIGIT[9]" : 
+    "DP1[dp]; DP1->DIGIT[digit]; DP2[dp]; DP2->COPY[digit]; DIGIT[9]; COPY[9]",
+
+    "NR6[nr6]; NR5[nr]; NR4[nr]; NR3[nr]; NR2[nr]; NR1[nr1]; NR6->NR5->NR4->NR3->NR2->NR1" :
+    "NR6[nr6]; NR5[nr5]; NR4[nr4]; NR3[nr3]; NR2[nr2]; NR1[nr1]; NR6->NR5->NR4->NR3->NR2->NR1",
+
+    "DP[dp]; DP->NR[num_remaining]; NR[nr6]" :
+    "DP[dp]; DP->NUM[num_remaining]; NR[nr6]; NUM[6]",
+    "DP[dp]; DP->NR[num_remaining]; NR[nr5]" :
+    "DP[dp]; DP->NUM[num_remaining]; NR[nr5]; NUM[5]",
+    "DP[dp]; DP->NR[num_remaining]; NR[nr4]" :
+    "DP[dp]; DP->NUM[num_remaining]; NR[nr4]; NUM[4]",
+    "DP[dp]; DP->NR[num_remaining]; NR[nr3]" :
+    "DP[dp]; DP->NUM[num_remaining]; NR[nr3]; NUM[3]",
+    "DP[dp]; DP->NR[num_remaining]; NR[nr2]" :
+    "DP[dp]; DP->NUM[num_remaining]; NR[nr2]; NUM[2]",
+    "DP[dp]; DP->NR[num_remaining]; NR[nr1]" :
+    "DP[dp]; DP->NUM[num_remaining]; NR[nr1]; NUM[1]",
+
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[3]; DP->NR[num_remaining]; NR[5]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(3,5,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[4]; DP->NR[num_remaining]; NR[5]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(4,5,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[5]; DP->NR[num_remaining]; NR[5]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(5,5,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[6]; DP->NR[num_remaining]; NR[5]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(6,5,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[7]; DP->NR[num_remaining]; NR[5]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(7,5,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[8]; DP->NR[num_remaining]; NR[5]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(8,5,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[9]; DP->NR[num_remaining]; NR[5]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(9,5,true)]",
+
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[3]; DP->NR[num_remaining]; NR[4]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(3,4,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[4]; DP->NR[num_remaining]; NR[4]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(4,4,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[5]; DP->NR[num_remaining]; NR[4]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(5,4,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[6]; DP->NR[num_remaining]; NR[4]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(6,4,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[7]; DP->NR[num_remaining]; NR[4]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(7,4,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[8]; DP->NR[num_remaining]; NR[4]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(8,4,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[9]; DP->NR[num_remaining]; NR[4]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(9,4,true)]",
+    
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[3]; DP->NR[num_remaining]; NR[3]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(3,3,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[4]; DP->NR[num_remaining]; NR[3]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(4,3,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[5]; DP->NR[num_remaining]; NR[3]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(5,3,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[6]; DP->NR[num_remaining]; NR[3]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(6,3,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[7]; DP->NR[num_remaining]; NR[3]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(7,3,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[8]; DP->NR[num_remaining]; NR[3]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(8,3,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[9]; DP->NR[num_remaining]; NR[3]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(9,3,true)]",
+    
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[3]; DP->NR[num_remaining]; NR[2]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(3,2,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[4]; DP->NR[num_remaining]; NR[2]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(4,2,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[5]; DP->NR[num_remaining]; NR[2]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(5,2,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[6]; DP->NR[num_remaining]; NR[2]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(6,2,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[7]; DP->NR[num_remaining]; NR[2]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(7,2,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[8]; DP->NR[num_remaining]; NR[2]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(8,2,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[9]; DP->NR[num_remaining]; NR[2]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(9,2,true)]",
+    
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[3]; DP->NR[num_remaining]; NR[1]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(3,1,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[4]; DP->NR[num_remaining]; NR[1]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(4,1,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[5]; DP->NR[num_remaining]; NR[1]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(5,1,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[6]; DP->NR[num_remaining]; NR[1]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(6,1,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[7]; DP->NR[num_remaining]; NR[1]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(7,1,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[8]; DP->NR[num_remaining]; NR[1]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(8,1,true)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[9]; DP->NR[num_remaining]; NR[1]; DP->BOOL[need_double]; BOOL[true]" :
+    "DP[N(9,1,true)]",
+
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[3]; DP->NR[num_remaining]; NR[5]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(3,5,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[4]; DP->NR[num_remaining]; NR[5]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(4,5,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[5]; DP->NR[num_remaining]; NR[5]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(5,5,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[6]; DP->NR[num_remaining]; NR[5]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(6,5,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[7]; DP->NR[num_remaining]; NR[5]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(7,5,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[8]; DP->NR[num_remaining]; NR[5]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(8,5,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[9]; DP->NR[num_remaining]; NR[5]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(9,5,false)]",
+
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[3]; DP->NR[num_remaining]; NR[4]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(3,4,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[4]; DP->NR[num_remaining]; NR[4]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(4,4,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[5]; DP->NR[num_remaining]; NR[4]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(5,4,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[6]; DP->NR[num_remaining]; NR[4]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(6,4,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[7]; DP->NR[num_remaining]; NR[4]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(7,4,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[8]; DP->NR[num_remaining]; NR[4]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(8,4,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[9]; DP->NR[num_remaining]; NR[4]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(9,4,false)]",
+    
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[3]; DP->NR[num_remaining]; NR[3]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(3,3,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[4]; DP->NR[num_remaining]; NR[3]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(4,3,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[5]; DP->NR[num_remaining]; NR[3]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(5,3,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[6]; DP->NR[num_remaining]; NR[3]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(6,3,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[7]; DP->NR[num_remaining]; NR[3]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(7,3,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[8]; DP->NR[num_remaining]; NR[3]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(8,3,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[9]; DP->NR[num_remaining]; NR[3]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(9,3,false)]",
+    
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[3]; DP->NR[num_remaining]; NR[2]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(3,2,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[4]; DP->NR[num_remaining]; NR[2]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(4,2,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[5]; DP->NR[num_remaining]; NR[2]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(5,2,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[6]; DP->NR[num_remaining]; NR[2]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(6,2,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[7]; DP->NR[num_remaining]; NR[2]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(7,2,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[8]; DP->NR[num_remaining]; NR[2]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(8,2,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[9]; DP->NR[num_remaining]; NR[2]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(9,2,false)]",
+    
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[3]; DP->NR[num_remaining]; NR[1]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(3,1,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[4]; DP->NR[num_remaining]; NR[1]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(4,1,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[5]; DP->NR[num_remaining]; NR[1]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(5,1,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[6]; DP->NR[num_remaining]; NR[1]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(6,1,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[7]; DP->NR[num_remaining]; NR[1]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(7,1,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[8]; DP->NR[num_remaining]; NR[1]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(8,1,false)]",
+    "DP[dp]; DP->DIGIT[digit]; DIGIT[9]; DP->NR[num_remaining]; NR[1]; DP->BOOL[need_double]; BOOL[false]" :
+    "DP[N(9,1,false)]",
+
+    "COMMENT[end of file]" : ""
+}
+
+    
