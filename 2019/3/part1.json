@@ -1,4 +1,5 @@
 {
     "version" : "0.1",
-    "start" : "S[start]; I[multiline]; S->I [input]; G[pad_input.json]; S->G [grammar]; S->S2[next]; S2->G2[grammar]; G2[convert_to_unary.json]; S2->S3[next]; S3->G3[grammar]; G3[off_by_one.json] "    
+    
+    "start" : "S[start]; I[multiline]; S->I [input]; G[pad_input.json]; S->G [grammar]; S->S2[next]; S2->G2[grammar]; G2[convert_to_unary.json]; S2->S3[next]; S3->G3[grammar]; G3[off_by_one.json]; S3->S4[next]; S4->G4[grammar]; G4[follow_wire.json]; S4->S5[next]; S5->G5[grammar]; G5[extract_matches.json]"    
 }
