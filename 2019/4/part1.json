@@ -1,5 +1,5 @@
 {
     "version" : "0.1",
     
-    "start" : "S[start]; S->G [grammar]; G[construct_dp.json];"
+    "start" : "S[start]; S->G [grammar]; G[construct_dp.json]; S->S2[next]; S2->G2 [grammar]; G2[compute_sums.json]; S2->S3[next]; S3->G3[grammar]; G3[prettify.json]"
 }

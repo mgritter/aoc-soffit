@@ -9,6 +9,8 @@
     "D->D[8]" : "D[8]",
     "D->D[9]" : "D[9]",
 
+    "DP[done]" : "DP[dp]",
+    
     "DP1[dp]; DP1->DIGIT[digit]; DP2[dp]; DP2->DIGIT[digit]; DIGIT[3]" : 
     "DP1[dp]; DP1->DIGIT[digit]; DP2[dp]; DP2->COPY[digit]; DIGIT[3]; COPY[3]",
     "DP1[dp]; DP1->DIGIT[digit]; DP2[dp]; DP2->DIGIT[digit]; DIGIT[4]" : 

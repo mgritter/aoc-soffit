@@ -1,0 +1,205 @@
+{
+    "version" : "0.1",
+
+    "COMMENT[we no longer need identical tags for these, and this makes lookup easier.]" : "",
+    
+    "NR6[nr6]; NR5[nr]; NR4[nr]; NR3[nr]; NR2[nr]; NR1[nr1]; NR6->NR5->NR4->NR3->NR2->NR1" :
+    "NR6[nr6]; NR5[nr5]; NR4[nr4]; NR3[nr3]; NR2[nr2]; NR1[nr1]; NR6->NR5->NR4->NR3->NR2->NR1; OUTPUT[init_output];",
+
+    "COMMENT[output expression tree]" : "",
+
+    "OUTPUT[init_output]" : "OUTPUT[output_plus]; OUTPUT->S2[=]; S2[dp]; S2->S4[+]; S4[dp]; S4->S5[+]; S5[N(3,5,true)]; S4->S6[+]; S6[dp]; S6->S7[+]; S7[N(4,5,true)]; S6->S8[+]; S8[N(5,5,true)]; S2->S9[+]; S9[dp]; S9->S10[+]; S10[N(6,5,true)]; S9->S11[+]; S11[dp]; S11->S12[+]; S12[N(7,5,true)]; S11->S13[+]; S13[N(8,5,true)]; OUTPUT2[output_minus]; OUTPUT2->S3[=]; S3[dp]; S3->S14[+]; S14[dp]; S14->S15[+]; S15[N(3,4,false)]; S14->S16[+]; S16[N(4,4,true)]; S3->S17[+]; S17[dp]; S17->S18[+]; S18[dp]; S18->S19[+]; S19[N(5,4,true)]; S18->S20[+]; S20[N(6,3,false)]; S17->S21[+]; S21[N(9,4,true)];",
+
+    "N[N(3,5,true)]; DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [3]; DP->NR[num_remaining]; NR[nr5]; DP->BOOL[need_double]; BOOL[true]" :
+    "              N^DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [3]; DP->NR[num_remaining]; NR[nr5]; DP->BOOL[need_double]; BOOL[true]",
+    "N[N(4,5,true)]; DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [4]; DP->NR[num_remaining]; NR[nr5]; DP->BOOL[need_double]; BOOL[true]" :
+    "              N^DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [4]; DP->NR[num_remaining]; NR[nr5]; DP->BOOL[need_double]; BOOL[true]",
+    "N[N(5,5,true)]; DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [5]; DP->NR[num_remaining]; NR[nr5]; DP->BOOL[need_double]; BOOL[true]" :
+    "              N^DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [5]; DP->NR[num_remaining]; NR[nr5]; DP->BOOL[need_double]; BOOL[true]",
+    "N[N(6,5,true)]; DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [6]; DP->NR[num_remaining]; NR[nr5]; DP->BOOL[need_double]; BOOL[true]" :
+    "              N^DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [6]; DP->NR[num_remaining]; NR[nr5]; DP->BOOL[need_double]; BOOL[true]",
+    "N[N(7,5,true)]; DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [7]; DP->NR[num_remaining]; NR[nr5]; DP->BOOL[need_double]; BOOL[true]" :
+    "              N^DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [7]; DP->NR[num_remaining]; NR[nr5]; DP->BOOL[need_double]; BOOL[true]",
+    "N[N(8,5,true)]; DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [8]; DP->NR[num_remaining]; NR[nr5]; DP->BOOL[need_double]; BOOL[true]" :
+    "              N^DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [8]; DP->NR[num_remaining]; NR[nr5]; DP->BOOL[need_double]; BOOL[true]",
+    "N[N(3,4,false)]; DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [3]; DP->NR[num_remaining]; NR[nr4]; DP->BOOL[need_double]; BOOL[false]" :
+    "              N^DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [3]; DP->NR[num_remaining]; NR[nr4]; DP->BOOL[need_double]; BOOL[false]",
+    "N[N(4,4,true)]; DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [4]; DP->NR[num_remaining]; NR[nr4]; DP->BOOL[need_double]; BOOL[true]" :
+    "              N^DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [4]; DP->NR[num_remaining]; NR[nr4]; DP->BOOL[need_double]; BOOL[true]",
+    "N[N(5,4,true)]; DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [5]; DP->NR[num_remaining]; NR[nr4]; DP->BOOL[need_double]; BOOL[true]" :
+    "              N^DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [5]; DP->NR[num_remaining]; NR[nr4]; DP->BOOL[need_double]; BOOL[true]",
+    "N[N(6,3,false)]; DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [6]; DP->NR[num_remaining]; NR[nr3]; DP->BOOL[need_double]; BOOL[false]" :
+    "               N^DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [6]; DP->NR[num_remaining]; NR[nr3]; DP->BOOL[need_double]; BOOL[false]",
+    "N[N(9,4,true)]; DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [9]; DP->NR[num_remaining]; NR[nr4]; DP->BOOL[need_double]; BOOL[true]" :
+    "              N^DP[dp]; DP->DIGIT[digit]; DIGIT->DIGIT [9]; DP->NR[num_remaining]; NR[nr4]; DP->BOOL[need_double]; BOOL[true]",
+
+    "COMMENT[base case T(x,1,true) = 1]" : "",
+
+    "DP[dp];   DP->NR[num_remaining]; NR[nr1]; DP->BOOL[need_double]; BOOL[true];" :
+    "DP[done]; DP->NR[num_remaining]; NR[nr1]; DP->BOOL[need_double]; BOOL[true]; DP->VAL[val]; VAL[number]; T1[+1]; E[end_of_number]; VAL->T1->E",
+
+    "COMMENT[base case T(x,1,false) = 10-x]" : "",
+
+    "DP[dp];   DP->NR[num_remaining]; NR[nr1]; DP->BOOL[need_double]; BOOL[false]; DP->DIGIT[digit]; DIGIT->DIGIT[3]" :
+    "DP[done]; DP->NR[num_remaining]; NR[nr1]; DP->BOOL[need_double]; BOOL[false]; DP->DIGIT[digit]; DIGIT->DIGIT[3]; DP->VAL[val]; VAL[number]; T1[+1]; T2[+1]; T4[+1]; E[end_of_number]; VAL->T1->T2->T4->E",
+    "DP[dp];   DP->NR[num_remaining]; NR[nr1]; DP->BOOL[need_double]; BOOL[false]; DP->DIGIT[digit]; DIGIT->DIGIT[4]" :
+    "DP[done]; DP->NR[num_remaining]; NR[nr1]; DP->BOOL[need_double]; BOOL[false]; DP->DIGIT[digit]; DIGIT->DIGIT[4]; DP->VAL[val]; VAL[number]; T1[+0]; T2[+1]; T4[+1]; E[end_of_number]; VAL->T1->T2->T4->E",
+    "DP[dp];   DP->NR[num_remaining]; NR[nr1]; DP->BOOL[need_double]; BOOL[false]; DP->DIGIT[digit]; DIGIT->DIGIT[5]" :
+    "DP[done]; DP->NR[num_remaining]; NR[nr1]; DP->BOOL[need_double]; BOOL[false]; DP->DIGIT[digit]; DIGIT->DIGIT[5]; DP->VAL[val]; VAL[number]; T1[+1]; T2[+0]; T4[+1]; E[end_of_number]; VAL->T1->T2->T4->E",
+    "DP[dp];   DP->NR[num_remaining]; NR[nr1]; DP->BOOL[need_double]; BOOL[false]; DP->DIGIT[digit]; DIGIT->DIGIT[6]" :
+    "DP[done]; DP->NR[num_remaining]; NR[nr1]; DP->BOOL[need_double]; BOOL[false]; DP->DIGIT[digit]; DIGIT->DIGIT[6]; DP->VAL[val]; VAL[number]; T1[+0]; T2[+0]; T4[+1]; E[end_of_number]; VAL->T1->T2->T4->E",
+    "DP[dp];   DP->NR[num_remaining]; NR[nr1]; DP->BOOL[need_double]; BOOL[false]; DP->DIGIT[digit]; DIGIT->DIGIT[7]" :
+    "DP[done]; DP->NR[num_remaining]; NR[nr1]; DP->BOOL[need_double]; BOOL[false]; DP->DIGIT[digit]; DIGIT->DIGIT[7]; DP->VAL[val]; VAL[number]; T1[+1]; T2[+1]; E[end_of_number]; VAL->T1->T2->E",
+    "DP[dp];   DP->NR[num_remaining]; NR[nr1]; DP->BOOL[need_double]; BOOL[false]; DP->DIGIT[digit]; DIGIT->DIGIT[8]" :
+    "DP[done]; DP->NR[num_remaining]; NR[nr1]; DP->BOOL[need_double]; BOOL[false]; DP->DIGIT[digit]; DIGIT->DIGIT[8]; DP->VAL[val]; VAL[number]; T1[+0]; T2[+1]; E[end_of_number]; VAL->T1->T2->E",
+    "DP[dp];   DP->NR[num_remaining]; NR[nr1]; DP->BOOL[need_double]; BOOL[false]; DP->DIGIT[digit]; DIGIT->DIGIT[9]" :
+    "DP[done]; DP->NR[num_remaining]; NR[nr1]; DP->BOOL[need_double]; BOOL[false]; DP->DIGIT[digit]; DIGIT->DIGIT[9]; DP->VAL[val]; VAL[number]; T1[+1]; E[end_of_number]; VAL->T1->E",
+
+    "COMMENT[equality is done lazily, no copy; does this cause a problem self-adding?]" : "",
+
+    "DP1[dp];   DP2[done]; DP1->DP2[=]; DP2->VAL[val]; VAL[number]" :
+    "DP1[done]; DP2[done]; DP1->DP2[=]; DP2->VAL[val]; VAL[number]; DP1->VAL[val];",
+
+    "COMMENT[numbers are stored little-endian, so digits are lined up correctly.]" : "",
+    
+    "SUM[dp];       DP2[done]; SUM->DP2[+]; DP2->VAL2[val]; VAL2[number]; DP3[done]; SUM->DP3[+]; DP3->VAL3[val]; VAL3[number]" :
+    "SUM[adding];   DP2[done]; SUM->DP2[+]; DP2->VAL2[val]; VAL2[number]; DP3[done]; SUM->DP3[+]; DP3->VAL3[val]; VAL3[number]; SUM->NEWVAL[val]; NEWVAL[number]; BLANK; ADDER[adder]; NEWVAL->BLANK->ADDER; ADDER->VAL2[arg]; ADDER->VAL3[arg]; ADDER->SUM[when_finished]",
+
+    "ADDER[adder]; ADDER->NUM [arg];   NUM[number]; NUM->DIGIT; DIGIT[+1]" :
+    "ADDER[adder]; ADDER->DIGIT [arg]; NUM[number]; NUM->DIGIT; DIGIT[+1]",
+    "ADDER[adder]; ADDER->NUM [arg];   NUM[number]; NUM->DIGIT; DIGIT[+0]" :
+    "ADDER[adder]; ADDER->DIGIT [arg]; NUM[number]; NUM->DIGIT; DIGIT[+0]",
+    
+    "COMMENT[we use some symmetry here; (0,0)->(0,1) and (0,0)->(1,0) are the same]" : "",
+
+    "D1[+0]; D2[+0]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[+0]; BLANK->ADDER" : 
+    "D1[+0]; D2[+0]; BLANK[+0]; ADDER[adder]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[+0]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+0]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[+1]; BLANK->ADDER" : 
+    "D1[+0]; D2[+0]; BLANK[+0]; ADDER[adder]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[+1]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+0]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+1]; N2[+1]; BLANK->ADDER" : 
+    "D1[+0]; D2[+0]; BLANK[+0]; ADDER[adder]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+1]; N2[+1]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+0]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[end_of_number]; BLANK->ADDER" : 
+    "D1[+0]; D2[+0]; BLANK[+0]; ADDER[adder]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[end_of_number]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+0]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+1]; N2[end_of_number]; BLANK->ADDER" : 
+    "D1[+0]; D2[+0]; BLANK[+0]; ADDER[adder]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+1]; N2[end_of_number]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+0]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[end_of_number]; BLANK->ADDER" : 
+    "D1[+0]; D2[+0]; BLANK[+0]; ADDER[adder]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[end_of_number]; BLANK->NEWBLANK->ADDER",
+
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[+0]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+1]; ADDER[adder]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[+0]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[+1]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+1]; ADDER[adder]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[+1]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+1]; N2[+0]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+1]; ADDER[adder]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+1]; N2[+0]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+1]; N2[+1]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+1]; ADDER[adder]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+1]; N2[+1]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[+0]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+1]; ADDER[adder]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[+0]; BLANK->NEWBLANK->ADDER",    
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[end_of_number]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+1]; ADDER[adder]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[end_of_number]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[+0]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+1]; ADDER[adder]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[+0]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+1]; N2[end_of_number]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+1]; ADDER[adder]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+1]; N2[end_of_number]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[+1]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+1]; ADDER[adder]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[+1]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[end_of_number]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+1]; ADDER[adder]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[end_of_number]; BLANK->NEWBLANK->ADDER",
+    
+    "D1[+1]; D2[+1]; BLANK;     ADDER[adder];  ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[+0]; BLANK->ADDER" : 
+    "D1[+1]; D2[+1]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[+0]; BLANK->NEWBLANK->ADDER",
+    "D1[+1]; D2[+1]; BLANK;     ADDER[adder];  ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[+1]; BLANK->ADDER" : 
+    "D1[+1]; D2[+1]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[+1]; BLANK->NEWBLANK->ADDER",
+    "D1[+1]; D2[+1]; BLANK;     ADDER[adder];  ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+1]; N2[+1]; BLANK->ADDER" : 
+    "D1[+1]; D2[+1]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+1]; N2[+1]; BLANK->NEWBLANK->ADDER",
+    "D1[+1]; D2[+1]; BLANK;     ADDER[adder];  ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[end_of_number]; BLANK->ADDER" : 
+    "D1[+1]; D2[+1]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[end_of_number]; BLANK->NEWBLANK->ADDER",
+    "D1[+1]; D2[+1]; BLANK;     ADDER[adder];  ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+1]; N2[end_of_number]; BLANK->ADDER" : 
+    "D1[+1]; D2[+1]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+1]; N2[end_of_number]; BLANK->NEWBLANK->ADDER",
+    "D1[+1]; D2[+1]; BLANK;     ADDER[adder];  ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[end_of_number]; BLANK->ADDER" : 
+    "D1[+1]; D2[+1]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[end_of_number]; BLANK->NEWBLANK->ADDER",
+    
+    "D1[+0]; D2[+0]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[+0]; BLANK->ADDER" : 
+    "D1[+0]; D2[+0]; BLANK[+1]; ADDER[adder];  ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[+0]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+0]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[+1]; BLANK->ADDER" : 
+    "D1[+0]; D2[+0]; BLANK[+1]; ADDER[adder];  ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[+1]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+0]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+1]; N2[+1]; BLANK->ADDER" : 
+    "D1[+0]; D2[+0]; BLANK[+1]; ADDER[adder];  ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+1]; N2[+1]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+0]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[end_of_number]; BLANK->ADDER" : 
+    "D1[+0]; D2[+0]; BLANK[+1]; ADDER[adder];  ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[end_of_number]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+0]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+1]; N2[end_of_number]; BLANK->ADDER" : 
+    "D1[+0]; D2[+0]; BLANK[+1]; ADDER[adder];  ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+1]; N2[end_of_number]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+0]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[end_of_number]; BLANK->ADDER" : 
+    "D1[+0]; D2[+0]; BLANK[+1]; ADDER[adder];  ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[end_of_number]; BLANK->NEWBLANK->ADDER",
+
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[+0]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[+0]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[+1]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[+1]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+1]; N2[+0]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+1]; N2[+0]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+1]; N2[+1]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+1]; N2[+1]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[+0]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[+0]; BLANK->NEWBLANK->ADDER",    
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[end_of_number]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[end_of_number]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[+0]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[+0]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+1]; N2[end_of_number]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+1]; N2[end_of_number]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[+1]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[+1]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[+1]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[end_of_number]; BLANK->ADDER" : 
+    "D1[+0]; D2[+1]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[end_of_number]; BLANK->NEWBLANK->ADDER",
+    
+    "D1[+1]; D2[+1]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[+0]; BLANK->ADDER" : 
+    "D1[+1]; D2[+1]; BLANK[+1]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[+0]; BLANK->NEWBLANK->ADDER",
+    "D1[+1]; D2[+1]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[+1]; BLANK->ADDER" : 
+    "D1[+1]; D2[+1]; BLANK[+1]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[+1]; BLANK->NEWBLANK->ADDER",
+    "D1[+1]; D2[+1]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+1]; N2[+1]; BLANK->ADDER" : 
+    "D1[+1]; D2[+1]; BLANK[+1]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+1]; N2[+1]; BLANK->NEWBLANK->ADDER",
+    "D1[+1]; D2[+1]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+0]; N2[end_of_number]; BLANK->ADDER" : 
+    "D1[+1]; D2[+1]; BLANK[+1]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+0]; N2[end_of_number]; BLANK->NEWBLANK->ADDER",
+    "D1[+1]; D2[+1]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[+1]; N2[end_of_number]; BLANK->ADDER" : 
+    "D1[+1]; D2[+1]; BLANK[+1]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[+1]; N2[end_of_number]; BLANK->NEWBLANK->ADDER",
+    "D1[+1]; D2[+1]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[end_of_number]; BLANK->ADDER" : 
+    "D1[+1]; D2[+1]; BLANK[+1]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->N2[arg]; D1->N1; D2->N2; N1[end_of_number]; N2[end_of_number]; BLANK->NEWBLANK->ADDER",
+
+    "D1[+0]; D2[end_of_number]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; N1[+0]; BLANK->ADDER" : 
+    "D1[+0]; D2[end_of_number]; BLANK[+0]; ADDER[adder]; ADDER->N1 [arg]; ADDER->D2[arg]; D1->N1; N1[+0]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[end_of_number]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; N1[+1]; BLANK->ADDER" : 
+    "D1[+0]; D2[end_of_number]; BLANK[+0]; ADDER[adder]; ADDER->N1 [arg]; ADDER->D2[arg]; D1->N1; N1[+1]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[end_of_number]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; N1[end_of_number]; BLANK->ADDER" : 
+    "D1[+0]; D2[end_of_number]; BLANK[+0]; ADDER[adder]; ADDER->N1 [arg]; ADDER->D2[arg]; D1->N1; N1[end_of_number]; BLANK->NEWBLANK->ADDER",
+    
+    "D1[+1]; D2[end_of_number]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; N1[+0]; BLANK->ADDER" : 
+    "D1[+1]; D2[end_of_number]; BLANK[+1]; ADDER[adder]; ADDER->N1 [arg]; ADDER->D2[arg]; D1->N1; N1[+0]; BLANK->NEWBLANK->ADDER",
+    "D1[+1]; D2[end_of_number]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; N1[+1]; BLANK->ADDER" : 
+    "D1[+1]; D2[end_of_number]; BLANK[+1]; ADDER[adder]; ADDER->N1 [arg]; ADDER->D2[arg]; D1->N1; N1[+1]; BLANK->NEWBLANK->ADDER",
+    "D1[+1]; D2[end_of_number]; BLANK;     ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; N1[end_of_number]; BLANK->ADDER" : 
+    "D1[+1]; D2[end_of_number]; BLANK[+1]; ADDER[adder]; ADDER->N1 [arg]; ADDER->D2[arg]; D1->N1; N1[end_of_number]; BLANK->NEWBLANK->ADDER",
+    
+    "D1[+0]; D2[end_of_number]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; N1[+0]; BLANK->ADDER" : 
+    "D1[+0]; D2[end_of_number]; BLANK[+1]; ADDER[adder] ; ADDER->N1 [arg]; ADDER->D2[arg]; D1->N1; N1[+0]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[end_of_number]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; N1[+1]; BLANK->ADDER" : 
+    "D1[+0]; D2[end_of_number]; BLANK[+1]; ADDER[adder];  ADDER->N1 [arg]; ADDER->D2[arg]; D1->N1; N1[+1]; BLANK->NEWBLANK->ADDER",
+    "D1[+0]; D2[end_of_number]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; N1[end_of_number]; BLANK->ADDER" : 
+    "D1[+0]; D2[end_of_number]; BLANK[+1]; ADDER[adder];  ADDER->N1 [arg]; ADDER->D2[arg]; D1->N1; N1[end_of_number]; BLANK->NEWBLANK->ADDER",
+    
+    "D1[+1]; D2[end_of_number]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; N1[+0]; BLANK->ADDER" : 
+    "D1[+1]; D2[end_of_number]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->D2[arg]; D1->N1; N1[+0]; BLANK->NEWBLANK->ADDER",
+    "D1[+1]; D2[end_of_number]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; N1[+1]; BLANK->ADDER" : 
+    "D1[+1]; D2[end_of_number]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->D2[arg]; D1->N1; N1[+1]; BLANK->NEWBLANK->ADDER",
+    "D1[+1]; D2[end_of_number]; BLANK;     ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; D1->N1; N1[end_of_number]; BLANK->ADDER" : 
+    "D1[+1]; D2[end_of_number]; BLANK[+0]; ADDER[adder1]; ADDER->N1 [arg]; ADDER->D2[arg]; D1->N1; N1[end_of_number]; BLANK->NEWBLANK->ADDER",
+
+    "D1[end_of_number]; D2[end_of_number]; BLANK; ADDER[adder1]; ADDER->D1 [arg]; ADDER->D2[arg]; BLANK->ADDER; ADDER->SUM[when_finished]; SUM[adding]" :
+    "D1[end_of_number]; D2[end_of_number]; BLANK[+1]; ADDER[end_of_number]; SUM[done]; BLANK->ADDER",
+
+    "D1[end_of_number]; D2[end_of_number]; BLANK; ADDER[adder]; ADDER->D1 [arg]; ADDER->D2[arg]; BLANK->ADDER; ADDER->SUM[when_finished]; SUM[adding]" :
+    "D1[end_of_number]; D2[end_of_number]; BLANK^ADDER[end_of_number]; SUM[done]",
+
+    "COMMENT[end of file]" : ""
+
+}
