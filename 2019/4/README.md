@@ -113,9 +113,9 @@ I didn't end up doing the last subtraction in Soffit.
 ```
 --------------------------------------------------------------------------------
     Grammar              Steps  Time  
-  1 construct_dp.json       322   30.2s
-  2 compute_sums.json      1777 1042.7s
-  3 prettify.json           448  587.6s
+  1 construct_dp.json       322   27.6s
+  2 compute_sums.json      1791 1099.3s
+  3 prettify.json           449  587.7s
 ```
 
 reversed plus:  0010100111 = 916 decimal
