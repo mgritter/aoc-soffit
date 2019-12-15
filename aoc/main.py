@@ -8,6 +8,11 @@ from soffit.display import drawSvg
 import soffit.application as soffit
 import time
 
+# Running graphviz can interfere with performance
+# measurements, so this flag can disabled all the calls
+# to drawSvg.
+output_graphs = True
+
 def has_edge( g, n, edge_tag ):
     for i,j,t in g.out_edges( n, 'tag' ):
         if t == edge_tag:
@@ -44,10 +49,11 @@ def execute_run_graph( g, path, verbose=True, outputdir="." ):
     if len( start ) > 1:
         raise Exception( "More than one start node." )
 
-    drawSvg( g,
-             os.path.join( outputdir, "execution-plan.svg"),
-             program="dot" )
-    
+    if output_graphs:
+        drawSvg( g,
+                 os.path.join( outputdir, "execution-plan.svg"),
+                 program="dot" )
+        
     curr = start[0]
     working_graph = None
     step_count = 1
@@ -89,15 +95,22 @@ def execute_run_graph( g, path, verbose=True, outputdir="." ):
                 #callback = make_video
             )
             a.verbose = verbose
+            a.fast_mode = True
             if verbose:
                 print( "Running grammar" )
             try:
                 a.run( 1000000 )
                 curr_step.stop( a.iteration )
-                drawSvg( a.graph,
-                         os.path.join( outputdir, "after-step-{}.svg".format( curr_step.id ) ),
-                         program="neato",
-                         dotFile=os.path.join( outputdir, "after-step-{}.dot".format( curr_step.id ) ) )
+                if len( a.graph.nodes ) > 1000:
+                    program = "sfdp"
+                else:
+                    program = "neato"
+
+                if output_graphs:
+                    drawSvg( a.graph,
+                             os.path.join( outputdir, "after-step-{}.svg".format( curr_step.id ) ),
+                             program=program,
+                             dotFile=os.path.join( outputdir, "after-step-{}.dot".format( curr_step.id ) ) )
             except KeyboardInterrupt:
                 print( "Interupted!" )
                 return a.graph
@@ -152,10 +165,14 @@ def main():
                                os.path.dirname( sys.argv[1] ),
                                outputdir = outputdir)
 
-        drawSvg( g,
-                 os.path.join( outputdir, "aoc.svg" ),
-                 program="dot",
-                 dotFile=os.path.join( outputdir, "aoc.dot" ) )
+        program = "dot"
+        if len( g.nodes ) > 1000:
+            program = "sfdp"
+        if output_graphs:
+            drawSvg( g,
+                     os.path.join( outputdir, "aoc.svg" ),
+                     program=program,
+                     dotFile=os.path.join( outputdir, "aoc.dot" ) )
 
         show_output_as_string( g )        
     except Exception as e:
