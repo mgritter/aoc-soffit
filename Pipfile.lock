@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ba03233194e56283cb6b1017204850610770b8fbe49fb7db48cdd11dbc4dcae0"
+            "sha256": "4ee616d02cf3bc76f675f4710549f7cf4f27694013801869e1da3d09eec7600e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -124,6 +124,14 @@
             ],
             "version": "==1.17.4"
         },
+        "pydot": {
+            "hashes": [
+                "sha256:67be714300c78fda5fd52f79ec994039e3f76f074948c67b5ff539b433ad354f",
+                "sha256:d49c9d4dd1913beec2a997f831543c8cbd53e535b1a739e921642fe416235f01"
+            ],
+            "index": "pypi",
+            "version": "==1.4.1"
+        },
         "pygraphviz": {
             "hashes": [
                 "sha256:50a829a305dc5a0fd1f9590748b19fece756093b581ac91e00c2c27c651d319d"
@@ -161,7 +169,7 @@
         "soffit": {
             "editable": true,
             "git": "https://github.com/mgritter/soffit",
-            "ref": "359e1045fc7169f4e550d1fd3b3fbc3527ae6c0f"
+            "ref": "e9cb4e32ab40a25e1dd879447c0e6c737cf28edc"
         }
     },
     "develop": {}

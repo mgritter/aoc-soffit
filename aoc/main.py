@@ -71,7 +71,10 @@ def execute_run_graph( g, path, verbose=True, outputdir="." ):
             if verbose:
                 print( "Grammar has", len( grammar.rules), "rules." )
             if working_graph is None:
-                working_graph = grammar.start.to_directed()
+                if grammar.start is not None:
+                    working_graph = grammar.start.to_directed()
+                else:
+                    working_graph = nx.DiGraph()
             
             i_n = has_edge( g, curr, 'input' )
             if i_n is not None:
@@ -83,6 +86,12 @@ def execute_run_graph( g, path, verbose=True, outputdir="." ):
                 elif g.nodes[i_n]['tag'] == 'text':
                     with open( sys.argv[2], "r" ) as f:
                         input.add_input_to_graph( f, working_graph )
+                elif g.nodes[i_n]['tag'] == 'dot':
+                    with open( sys.argv[2], "r" ) as f:
+                        working_graph = \
+                            input.add_dot_to_graph( f, working_graph )
+                else:
+                    raise Exception( "Unknown input type." )
 
             curr_step = StepReport( step_count, grammar_name )
             step_count += 1
@@ -94,6 +103,8 @@ def execute_run_graph( g, path, verbose=True, outputdir="." ):
                 grammar = grammar
                 #callback = make_video
             )
+            working_graph = None
+            
             a.verbose = verbose
             a.fast_mode = True
             if verbose:

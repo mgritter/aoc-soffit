@@ -1,4 +1,5 @@
 import networkx as nx
+from networkx.algorithms.operators.binary import disjoint_union
 
 def input_node_generator():
     input_node = 1
@@ -29,7 +30,46 @@ def add_input_to_graph( f, g ):
     end = next( ng )
     g.add_node( end, tag="end_of_input" )
     g.add_edge( last_char, end, tag="next_char" )
-        
+
+def add_dot_to_graph( f, g ):
+    unique_strings = {}
+    
+    g2 = nx.DiGraph( nx.drawing.nx_pydot.read_dot( f ) )
+    for n in g2.nodes:
+        if 'label' in g2.nodes[n]:
+            tag = g2.nodes[n]['label']
+            if tag[0] == '"':
+                tag = tag[1:-1]
+            if tag in unique_strings:
+                tag = unique_strings[tag]
+            else:
+                unique_strings[tag] = tag    
+            g2.nodes[n]['tag'] = tag
+            del g2.nodes[n]['label']
+        to_delete = g2.nodes[n].keys()
+        for k in list( to_delete ):
+            if k != 'tag':
+                del g2.nodes[n][k]
+
+    for e in g2.edges:
+        if 'label' in g2.edges[e]:
+            tag = g2.edges[e]['label']
+            if tag[0] == '"':
+                tag = tag[1:-1]
+            if tag in unique_strings:
+                tag = unique_strings[tag]
+            else:
+                unique_strings[tag] = tag    
+            g2.edges[e]['tag'] = tag
+            del g2.edges[e]['label']
+            
+
+    to_delete = g2.graph.keys()
+    for k in list( to_delete ):
+        del g2.graph[k]
+
+    return nx.disjoint_union( g, g2 )
+    
 def add_multiline_input_to_graph( f, g ):
     if not nx.is_directed( g ):
         raise Exception( "Multiline input graph must be directed." )
