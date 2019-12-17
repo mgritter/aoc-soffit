@@ -1,0 +1,112 @@
+{
+    "version" : "0.1",
+
+    "LAYERS[layers]" :
+    "LAYERS[layers2]; COMPARATOR[ready]; BIG[big];",
+
+    "COUNTER[big_counter]; BIG[big];" :
+    "COUNTER[too_big]; BIG[big]; BIG->COUNTER",
+
+    "COMMENT[pick up any two counters and compare them]" : "",
+
+    "CMP[ready]; COUNTER1[count_done]; COUNTER2[count_done]" :
+    "CMP[compare]; COUNTER1[counter]; COUNTER2[counter]; COUNTER1<-CMP->COUNTER2 [counter]",
+
+    "COMMENT[initial tokens equal]" : "",
+
+    "T1[+100]; T2[+100]; CMP[compare]; C1[counter]; C2[counter]; C1->T1[0]; C2->T2[0]; C1<-CMP->C2 [counter]" :
+    "T1[+100]; T2[+100]; CMP[compare]; C1[counter]; C2[counter]; C1->T1[0]; C2->T2[0]; C1<-CMP[counter_a]; CMP->C2[counter_b]; CMP->T1[a]; CMP->T2[b]",
+    
+    "T1[+10]; T2[+10]; CMP[compare]; C1[counter]; C2[counter]; C1->T1[0]; C2->T2[0]; C1<-CMP->C2 [counter]" :
+    "T1[+10]; T2[+10]; CMP[compare]; C1[counter]; C2[counter]; C1->T1[0]; C2->T2[0]; C1<-CMP[counter_a]; CMP->C2[counter_b]; CMP->T1[a]; CMP->T2[b]",
+
+    "T1[+1]; T2[+1]; CMP[compare]; C1[counter]; C2[counter]; C1->T1[0]; C2->T2[0]; C1<-CMP->C2 [counter]" :
+    "T1[+1]; T2[+1]; CMP[compare]; C1[counter]; C2[counter]; C1->T1[0]; C2->T2[0]; C1<-CMP[counter_a]; CMP->C2[counter_b]; CMP->T1[a]; CMP->T2[b]",
+
+    "COMMENT[initial tokens unequal]" : "",
+
+    "T1[+100]; T2[+10]; CMP[compare]; C1[counter]; C2[counter]; C1->T1[0]; C2->T2[0]; C1<-CMP->C2 [counter]" :
+    "T1[+100]; T2[+10]; CMP[ready]; C1[big_counter]; C2[count_done]; C1->T1[0]; C2->T2[0];",
+    "T1[+100]; T2[+1]; CMP[compare]; C1[counter]; C2[counter]; C1->T1[0]; C2->T2[0]; C1<-CMP->C2 [counter]" :
+    "T1[+100]; T2[+1]; CMP[ready]; C1[big_counter]; C2[count_done]; C1->T1[0]; C2->T2[0];",
+    "T1[+100]; T2[end]; CMP[compare]; C1[counter]; C2[counter]; C1->T1[0]; C2->T2[0]; C1<-CMP->C2 [counter]" :
+    "T1[+100]; T2[end]; CMP[ready]; C1[big_counter]; C2[count_done]; C1->T1[0]; C2->T2[0];",
+    "T1[+10]; T2[+1]; CMP[compare]; C1[counter]; C2[counter]; C1->T1[0]; C2->T2[0]; C1<-CMP->C2 [counter]" :
+    "T1[+10]; T2[+1]; CMP[ready]; C1[big_counter]; C2[count_done]; C1->T1[0]; C2->T2[0];",
+    "T1[+10]; T2[end]; CMP[compare]; C1[counter]; C2[counter]; C1->T1[0]; C2->T2[0]; C1<-CMP->C2 [counter]" :
+    "T1[+10]; T2[end]; CMP[ready]; C1[big_counter]; C2[count_done]; C1->T1[0]; C2->T2[0];",
+    "T1[+1]; T2[end]; CMP[compare]; C1[counter]; C2[counter]; C1->T1[0]; C2->T2[0]; C1<-CMP->C2 [counter]" :
+    "T1[+1]; T2[end]; CMP[ready]; C1[big_counter]; C2[count_done]; C1->T1[0]; C2->T2[0];",
+
+    "COMMENT[subsequent tokens equal]" : "",
+
+    "T1[+1]; T2[+1]; P1[+1]; P2[+1]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; P2<-CMP [b]" : 
+    "T1[+1]; T2[+1]; P1[+1]; P2[+1]; T1<-P1; T2<-P2; CMP[compare]; T1<-CMP [a]; T2<-CMP [b]",
+    "T1[+1]; T2[+1]; P1[+10]; P2[+10]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; P2<-CMP [b]" : 
+    "T1[+1]; T2[+1]; P1[+10]; P2[+10]; T1<-P1; T2<-P2; CMP[compare]; T1<-CMP [a]; T2<-CMP [b]",
+    "T1[+1]; T2[+1]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; P2<-CMP [b]" : 
+    "T1[+1]; T2[+1]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; T1<-CMP [a]; T2<-CMP [b]",
+    "T1[+10]; T2[+10]; P1[+10]; P2[+10]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; P2<-CMP [b]" : 
+    "T1[+10]; T2[+10]; P1[+10]; P2[+10]; T1<-P1; T2<-P2; CMP[compare]; T1<-CMP [a]; T2<-CMP [b]",
+    "T1[+10]; T2[+10]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; P2<-CMP [b]" : 
+    "T1[+10]; T2[+10]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; T1<-CMP [a]; T2<-CMP [b]",
+    "T1[+100]; T2[+100]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; P2<-CMP [b]" : 
+    "T1[+100]; T2[+100]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; T1<-CMP [a]; T2<-CMP [b]",
+
+    "COMMENT[subsequent tokens equal at end. we can tie break between them arbitrarily, there should be a unique answer. in fact, neither can be the smallest!]" : "",
+
+    "T1[end]; T2[end]; P1[+1]; P2[+1]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; P2<-CMP [b]; CMP->C1[counter_a]; CMP->C2[counter_b]; C1[counter]; C2[counter]" : 
+    "T1[end]; T2[end]; P1[+1]; P2[+1]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[big_counter]",
+    "T1[end]; T2[end]; P1[+10]; P2[+10]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; P2<-CMP [b]; CMP->C1[counter_a]; CMP->C2[counter_b]; C1[counter]; C2[counter]" : 
+    "T1[end]; T2[end]; P1[+10]; P2[+10]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[big_counter]",
+    "T1[end]; T2[end]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; P2<-CMP [b]; CMP->C1[counter_a]; CMP->C2[counter_b]; C1[counter]; C2[counter]" : 
+    "T1[end]; T2[end]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[big_counter]",
+
+    "COMMENT[subsequent tokens unequal]" : "",
+ 
+    "T1[+1]; T2[end]; P1[+1]; P2[+1]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; CMP->P2 [b]; CMP->C1 [counter_a]; CMP->C2 [counter_b]; C1[counter]; C2[counter]" : 
+    "T1[+1]; T2[end]; P1[+1]; P2[+1]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    "T1[+1]; T2[end]; P1[+10]; P2[+10]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; CMP->P2 [b]; CMP->C1 [counter_a]; CMP->C2 [counter_b]; C1[counter]; C2[counter]" : 
+    "T1[+1]; T2[end]; P1[+10]; P2[+10]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    "T1[+1]; T2[end]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; CMP->P2 [b]; CMP->C1 [counter_a]; CMP->C2 [counter_b]; C1[counter]; C2[counter]" : 
+    "T1[+1]; T2[end]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    
+    "T1[+10]; T2[end]; P1[+10]; P2[+10]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; CMP->P2 [b]; CMP->C1 [counter_a]; CMP->C2 [counter_b]; C1[counter]; C2[counter]" : 
+    "T1[+10]; T2[end]; P1[+10]; P2[+10]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    "T1[+10]; T2[+1]; P1[+10]; P2[+10]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; CMP->P2 [b]; CMP->C1 [counter_a]; CMP->C2 [counter_b]; C1[counter]; C2[counter]" : 
+    "T1[+10]; T2[+1]; P1[+10]; P2[+10]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    "T1[+10]; T2[end]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; CMP->P2 [b]; CMP->C1 [counter_a]; CMP->C2 [counter_b]; C1[counter]; C2[counter]" : 
+    "T1[+10]; T2[end]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    "T1[+10]; T2[+1]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; CMP->P2 [b]; CMP->C1 [counter_a]; CMP->C2 [counter_b]; C1[counter]; C2[counter]" : 
+    "T1[+10]; T2[+1]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    
+    "T1[+100]; T2[end]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; CMP->P2 [b]; CMP->C1 [counter_a]; CMP->C2 [counter_b]; C1[counter]; C2[counter]" : 
+    "T1[+100]; T2[end]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    "T1[+100]; T2[+1]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; CMP->P2 [b]; CMP->C1 [counter_a]; CMP->C2 [counter_b]; C1[counter]; C2[counter]" : 
+    "T1[+100]; T2[+1]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    "T1[+100]; T2[+10]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [a]; CMP->P2 [b]; CMP->C1 [counter_a]; CMP->C2 [counter_b]; C1[counter]; C2[counter]" : 
+    "T1[+100]; T2[+10]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    
+    "T1[+1]; T2[end]; P1[+1]; P2[+1]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [b]; CMP->P2 [a]; CMP->C1 [counter_b]; CMP->C2 [counter_a]; C1[counter]; C2[counter]" : 
+    "T1[+1]; T2[end]; P1[+1]; P2[+1]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    "T1[+1]; T2[end]; P1[+10]; P2[+10]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [b]; CMP->P2 [a]; CMP->C1 [counter_b]; CMP->C2 [counter_a]; C1[counter]; C2[counter]" : 
+    "T1[+1]; T2[end]; P1[+10]; P2[+10]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    "T1[+1]; T2[end]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [b]; CMP->P2 [a]; CMP->C1 [counter_b]; CMP->C2 [counter_a]; C1[counter]; C2[counter]" : 
+    "T1[+1]; T2[end]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    
+    "T1[+10]; T2[end]; P1[+10]; P2[+10]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [b]; CMP->P2 [a]; CMP->C1 [counter_b]; CMP->C2 [counter_a]; C1[counter]; C2[counter]" : 
+    "T1[+10]; T2[end]; P1[+10]; P2[+10]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    "T1[+10]; T2[+1]; P1[+10]; P2[+10]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [b]; CMP->P2 [a]; CMP->C1 [counter_b]; CMP->C2 [counter_a]; C1[counter]; C2[counter]" : 
+    "T1[+10]; T2[+1]; P1[+10]; P2[+10]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    "T1[+10]; T2[end]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [b]; CMP->P2 [a]; CMP->C1 [counter_b]; CMP->C2 [counter_a]; C1[counter]; C2[counter]" : 
+    "T1[+10]; T2[end]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    "T1[+10]; T2[+1]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [b]; CMP->P2 [a]; CMP->C1 [counter_b]; CMP->C2 [counter_a]; C1[counter]; C2[counter]" : 
+    "T1[+10]; T2[+1]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    
+    "T1[+100]; T2[end]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [b]; CMP->P2 [a]; CMP->C1 [counter_b]; CMP->C2 [counter_a]; C1[counter]; C2[counter]" : 
+    "T1[+100]; T2[end]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    "T1[+100]; T2[+1]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [b]; CMP->P2 [a]; CMP->C1 [counter_b]; CMP->C2 [counter_a]; C1[counter]; C2[counter]" : 
+    "T1[+100]; T2[+1]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]",
+    "T1[+100]; T2[+10]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[compare]; P1<-CMP [b]; CMP->P2 [a]; CMP->C1 [counter_b]; CMP->C2 [counter_a]; C1[counter]; C2[counter]" : 
+    "T1[+100]; T2[+10]; P1[+100]; P2[+100]; T1<-P1; T2<-P2; CMP[ready]; C1[big_counter]; C2[count_done]"
+}

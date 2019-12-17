@@ -1,0 +1,5 @@
+{
+    "version" : "0.1",
+    
+    "start" : "S[start]; S->G [grammar]; G[read_layers.json]; S->I [input]; I[text]; S->S2 [next]; S2->G2 [grammar]; G2[count_per_layer.json]; S2->S3 [next]; S3->G3 [grammar]; G3[reverse_tokens.json]; S3->S4 [next]; S4->G4 [grammar]; G4[compare_0.json]"
+}
