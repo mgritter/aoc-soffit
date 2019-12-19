@@ -1,0 +1,31 @@
+{
+    "version" : "0.1",
+    
+    "CURSOR[done]; ROW[rows]; ROW->X; X[0]; PREV->X [next]; PREV[0];" :
+    "CURSOR[done]; ROW[rows];         X[0];                 PREV[0];",
+    "CURSOR[done]; ROW[rows]; ROW->X; X[0]; PREV->X [next]; PREV[1];" :
+    "CURSOR[done]; ROW[rows];         X[0];                 PREV[1];",
+    "CURSOR[done]; ROW[rows]; ROW->X; X[0]; PREV->X [next]; PREV[2];" :
+    "CURSOR[done]; ROW[rows];         X[0];                 PREV[2];",
+    "CURSOR[done]; ROW[rows]; ROW->X; X[1]; PREV->X [next]; PREV[0];" :
+    "CURSOR[done]; ROW[rows];         X[1];                 PREV[0];",
+    "CURSOR[done]; ROW[rows]; ROW->X; X[1]; PREV->X [next]; PREV[1];" :
+    "CURSOR[done]; ROW[rows];         X[1];                 PREV[1];",
+    "CURSOR[done]; ROW[rows]; ROW->X; X[1]; PREV->X [next]; PREV[2];" :
+    "CURSOR[done]; ROW[rows];         X[1];                 PREV[2];",
+    "CURSOR[done]; ROW[rows]; ROW->X; X[2]; PREV->X [next]; PREV[0];" :
+    "CURSOR[done]; ROW[rows];         X[2];                 PREV[0];",
+    "CURSOR[done]; ROW[rows]; ROW->X; X[2]; PREV->X [next]; PREV[1];" :
+    "CURSOR[done]; ROW[rows];         X[2];                 PREV[1];",
+    "CURSOR[done]; ROW[rows]; ROW->X; X[2]; PREV->X [next]; PREV[2];" :
+    "CURSOR[done]; ROW[rows];         X[2];                 PREV[2];",
+
+    "ROW[rows]" : "",
+
+    "LAYERS[layers2]; LAYERS->X [counted]; X[2];" :
+    "LAYERS[layers2]; X[2];",
+    "LAYERS[layers2]; LAYERS->X [counted]; X[1];" :
+    "LAYERS[layers2]; X[1];",
+    "LAYERS[layers2]; LAYERS->X [counted]; X[0];" :
+    "LAYERS[layers2]; X[0];"
+}

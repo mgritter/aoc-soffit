@@ -23,3 +23,28 @@ I ended up doing this in two parts because my comparison grammar had a bug,
 so I restarted using the saved Dot file.
 
 ![part 1 output](output-part-1.svg)
+
+Possibly this would have gone faster if I had counted each layer and then discarded it?
+We don't actually need to put things in grids for part 1.
+
+## Part 2
+
+This rule turned out to be more complicated too; I couldn't find a good way
+to separate overlay and interaction, so the rules covered a lot of possibilities.
+
+```
+--------------------------------------------------------------------------------
+    Grammar              Steps  Time  
+  1 paint_layers.json     15001 42342.9s
+  2 cut-rows.json             7    0.0s
+  3 style.json              150    0.5s
+```
+
+Because the letters were white-on-black (rather than black-on-white) the resulting
+graph is hard to read.  I had to fill in all the background space in order to read it.
+
+![part 2 output](output-part-2.svg)
+
+![part 2 output with black background](output-part-2-background.svg)
+
+Of course, the latter didn't come out with the right orientation...

@@ -1,0 +1,391 @@
+{
+    "version" : "0.1",
+
+    "start" : "LAYERS->LAYER; LAYER->G02X1->G03X1->G04X1->G05X1->G06X1->G07X1->G08X1->G09X1->G10X1->G11X1->G12X1->G13X1->G14X1->G15X1->G16X1->G17X1->G18X1->G19X1->G20X1->G21X1->G22X1->G23X1->G24X1->G25X1->G01X2->G02X2->G03X2->G04X2->G05X2->G06X2->G07X2->G08X2->G09X2->G10X2->G11X2->G12X2->G13X2->G14X2->G15X2->G16X2->G17X2->G18X2->G19X2->G20X2->G21X2->G22X2->G23X2->G24X2->G25X2->G01X3->G02X3->G03X3->G04X3->G05X3->G06X3->G07X3->G08X3->G09X3->G10X3->G11X3->G12X3->G13X3->G14X3->G15X3->G16X3->G17X3->G18X3->G19X3->G20X3->G21X3->G22X3->G23X3->G24X3->G25X3->G01X4->G02X4->G03X4->G04X4->G05X4->G06X4->G07X4->G08X4->G09X4->G10X4->G11X4->G12X4->G13X4->G14X4->G15X4->G16X4->G17X4->G18X4->G19X4->G20X4->G21X4->G22X4->G23X4->G24X4->G25X4->G01X5->G02X5->G03X5->G04X5->G05X5->G06X5->G07X5->G08X5->G09X5->G10X5->G11X5->G12X5->G13X5->G14X5->G15X5->G16X5->G17X5->G18X5->G19X5->G20X5->G21X5->G22X5->G23X5->G24X5->G25X5->G01X6->G02X6->G03X6->G04X6->G05X6->G06X6->G07X6->G08X6->G09X6->G10X6->G11X6->G12X6->G13X6->G14X6->G15X6->G16X6->G17X6->G18X6->G19X6->G20X6->G21X6->G22X6->G23X6->G24X6->G25X6->LAYER [next]; LAYER->G01X2->G01X3->G01X4->G01X5->G01X6 [v]; G02X1->G02X2->G02X3->G02X4->G02X5->G02X6 [v]; G03X1->G03X2->G03X3->G03X4->G03X5->G03X6 [v]; G04X1->G04X2->G04X3->G04X4->G04X5->G04X6 [v]; G05X1->G05X2->G05X3->G05X4->G05X5->G05X6 [v]; G06X1->G06X2->G06X3->G06X4->G06X5->G06X6 [v]; G07X1->G07X2->G07X3->G07X4->G07X5->G07X6 [v]; G08X1->G08X2->G08X3->G08X4->G08X5->G08X6 [v]; G09X1->G09X2->G09X3->G09X4->G09X5->G09X6 [v]; G10X1->G10X2->G10X3->G10X4->G10X5->G10X6 [v]; G11X1->G11X2->G11X3->G11X4->G11X5->G11X6 [v]; G12X1->G12X2->G12X3->G12X4->G12X5->G12X6 [v]; G13X1->G13X2->G13X3->G13X4->G13X5->G13X6 [v]; G14X1->G14X2->G14X3->G14X4->G14X5->G14X6 [v]; G15X1->G15X2->G15X3->G15X4->G15X5->G15X6 [v]; G16X1->G16X2->G16X3->G16X4->G16X5->G16X6 [v]; G17X1->G17X2->G17X3->G17X4->G17X5->G17X6 [v]; G18X1->G18X2->G18X3->G18X4->G18X5->G18X6 [v]; G19X1->G19X2->G19X3->G19X4->G19X5->G19X6 [v]; G20X1->G20X2->G20X3->G20X4->G20X5->G20X6 [v]; G21X1->G21X2->G21X3->G21X4->G21X5->G21X6 [v]; G22X1->G22X2->G22X3->G22X4->G22X5->G22X6 [v]; G23X1->G23X2->G23X3->G23X4->G23X5->G23X6 [v]; G24X1->G24X2->G24X3->G24X4->G24X5->G24X6 [v]; G25X1->G25X2->G25X3->G25X4->G25X5->G25X6 [v]; LAYERS[layers]; ROW[rows]; ROW->G01X2; ROW->G01X3; ROW->G01X4; ROW->G01X5; ROW->G01X6;",
+
+    "INPUT[input]; INPUT->X[next_char]; X[0]; LAYERS[layers]; LAYERS->START;" :
+    "                                   X[0]; CURSOR[cursor]; CURSOR->START[write]; CURSOR->X[read];",
+    "INPUT[input]; INPUT->X[next_char]; X[1]; LAYERS[layers]; LAYERS->START;" :
+    "                                   X[1]; CURSOR[cursor]; CURSOR->START[write]; CURSOR->X[read];",
+    "INPUT[input]; INPUT->X[next_char]; X[2]; LAYERS[layers]; LAYERS->START;" :
+    "                                   X[2]; CURSOR[cursor]; CURSOR->START[write]; CURSOR->X[read];",
+
+    "COMMENT[dest is blank : copy]" : "",
+    
+    "X[0]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY;" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY;",
+    "X[0]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY;" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY;",
+    "X[0]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY;" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY;",
+    "X[0]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY;" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY;",
+    "X[0]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[0];",
+    "X[0]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[0];",
+    "X[0]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[0];",
+    "X[0]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[0];",
+    "X[0]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[1];",
+    "X[0]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[1];",
+    "X[0]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[1];",
+    "X[0]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[1];",
+    "X[0]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[2];",
+    "X[0]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[2];",
+    "X[0]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[2];",
+    "X[0]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[2];",
+
+    "X[1]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY;" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY;",
+    "X[1]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY;" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY;",
+    "X[1]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY;" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY;",
+    "X[1]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY;" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY;",
+    "X[1]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[0];",
+    "X[1]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[0];",
+    "X[1]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[0];",
+    "X[1]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[0];",
+    "X[1]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[1];",
+    "X[1]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[1];",
+    "X[1]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[1];",
+    "X[1]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[1];",
+    "X[1]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[2];",
+    "X[1]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[2];",
+    "X[1]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[2];",    
+    "X[1]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[2];",
+    
+    "X[2]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY;" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY;",
+    "X[2]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY;" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY;",
+    "X[2]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY;" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY;",
+    "X[2]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY;" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY;",
+    "X[2]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[0];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[0];",
+    "X[2]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[0];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[0];",
+    "X[2]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[0];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[0];",
+    "X[2]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[0];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[0];",
+    "X[2]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[1];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[1];",
+    "X[2]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[1];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[1];",
+    "X[2]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[1];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[1];",
+    "X[2]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[1];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[1];",
+    "X[2]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[2];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[2];",
+    "X[2]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[2];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[2];",
+    "X[2]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[2];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[2];",
+    "X[2]; Y;    CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[2];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[2];",
+
+    "COMMENT[dest is transparent : copy]" : "",
+
+    "X[0]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[0];",
+    "X[0]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[0];",
+    "X[0]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[0];",
+    "X[0]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[0];",
+    "X[0]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[1];",
+    "X[0]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[1];",
+    "X[0]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[1];",
+    "X[0]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[1];",
+    "X[0]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[2];",
+    "X[0]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[2];",
+    "X[0]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[2];",
+    "X[0]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[2];",
+
+    "X[1]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY;" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY;",
+    "X[1]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY;" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY;",
+    "X[1]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY;" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY;",
+    "X[1]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY;" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY;",
+    "X[1]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[0];",
+    "X[1]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[0];",
+    "X[1]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[0];",
+    "X[1]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[0];",
+    "X[1]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[1];",
+    "X[1]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[1];",
+    "X[1]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[1];",
+    "X[1]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[1];",
+    "X[1]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[2];",
+    "X[1]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[2];",
+    "X[1]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[2];",    
+    "X[1]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[2];",
+    
+    "X[2]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY;" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY;",
+    "X[2]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY;" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY;",
+    "X[2]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY;" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY;",
+    "X[2]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY;" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY;",
+    "X[2]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[0];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[0];",
+    "X[2]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[0];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[0];",
+    "X[2]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[0];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[0];",
+    "X[2]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[0];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[0];",
+    "X[2]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[1];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[1];",
+    "X[2]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[1];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[1];",
+    "X[2]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[1];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[1];",
+    "X[2]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[1];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[1];",
+    "X[2]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[2];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[2];",
+    "X[2]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[2];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[2];",
+    "X[2]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[2];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[2];",
+    "X[2]; Y[2]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[2];" :
+    "      Y[2]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[2];",
+
+    "COMMENT[dest is opaque : leave unchanged]" : "",    
+
+    "X[0]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[0];",
+    "X[0]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[0];",
+    "X[0]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[0];",
+    "X[0]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[0];",
+    "X[0]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[1];",
+    "X[0]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[1];",
+    "X[0]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[1];",
+    "X[0]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[1];",
+    "X[0]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[2];",
+    "X[0]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[2];",
+    "X[0]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[2];",
+    "X[0]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[2];",
+
+    "X[1]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY;" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY;",
+    "X[1]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY;" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY;",
+    "X[1]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY;" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY;",
+    "X[1]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY;" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY;",
+    "X[1]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[0];",
+    "X[1]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[0];",
+    "X[1]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[0];",
+    "X[1]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[0];",
+    "X[1]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[1];",
+    "X[1]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[1];",
+    "X[1]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[1];",
+    "X[1]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[1];",
+    "X[1]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[2];",
+    "X[1]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[2];",
+    "X[1]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[2];",    
+    "X[1]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[2];",
+    
+    "X[2]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY;" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY;",
+    "X[2]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY;" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY;",
+    "X[2]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY;" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY;",
+    "X[2]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY;" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY;",
+    "X[2]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[0];",
+    "X[2]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[0];",
+    "X[2]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[0];",
+    "X[2]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[0];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[0];",
+    "X[2]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[1];",
+    "X[2]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[1];",
+    "X[2]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[1];",
+    "X[2]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[1];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[1];",
+    "X[2]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[2];",
+    "X[2]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[2];",
+    "X[2]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[2];",
+    "X[2]; Y[0]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[2];" :
+    "      Y[0]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[2];",
+    
+    "X[0]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[0];",
+    "X[0]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[0];",
+    "X[0]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[0];",
+    "X[0]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[0];",
+    "X[0]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[1];",
+    "X[0]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[1];",
+    "X[0]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[1];",
+    "X[0]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[1];",
+    "X[0]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[2];",
+    "X[0]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[2];",
+    "X[0]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[2];",
+    "X[0]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[2];",
+
+    "X[1]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY;" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY;",
+    "X[1]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY;" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY;",
+    "X[1]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY;" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY;",
+    "X[1]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY;" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY;",
+    "X[1]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[0];",
+    "X[1]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[0];",
+    "X[1]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[0];",
+    "X[1]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[0];",
+    "X[1]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[1];",
+    "X[1]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[1];",
+    "X[1]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[1];",
+    "X[1]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[1];",
+    "X[1]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[2];",
+    "X[1]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[2];",
+    "X[1]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[2];",    
+    "X[1]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[2];",
+    
+    "X[2]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY;" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY;",
+    "X[2]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY;" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY;",
+    "X[2]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY;" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY;",
+    "X[2]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY;" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY;",
+    "X[2]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[0];",
+    "X[2]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[0];",
+    "X[2]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[0];",
+    "X[2]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[0];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[0];",
+    "X[2]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[1];",
+    "X[2]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[1];",
+    "X[2]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[1];",
+    "X[2]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[1];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[1];",
+    "X[2]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[0]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[0]; NY[2];",
+    "X[2]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[1]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[1]; NY[2];",
+    "X[2]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[2]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[2]; NY[2];",
+    "X[2]; Y[1]; CURSOR[cursor]; CURSOR->X[read];  CURSOR->Y[write];  X->NX [next_char]; Y->NY [next]; NX[end_of_input]; NY[2];" :
+    "      Y[1]; CURSOR[cursor]; CURSOR->NX[read]; CURSOR->NY[write];                    Y->NY [next]; NX[end_of_input]; NY[2];"
+
+}
