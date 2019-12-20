@@ -1,0 +1,98 @@
+{
+    "version" : "0.1",
+
+    "start" : "",
+    
+    "X[0];" :
+    "X[token]; X->U; U[letter]; U->U[0]",
+    "X[1];" :
+    "X[token]; X->U; U[letter]; U->U[1]",
+    "X[2];" :
+    "X[token]; X->U; U[letter]; U->U[2]",
+    "X[3];" :
+    "X[token]; X->U; U[letter]; U->U[3]",
+    "X[4];" :
+    "X[token]; X->U; U[letter]; U->U[4]",
+    "X[5];" :
+    "X[token]; X->U; U[letter]; U->U[5]",
+    "X[6];" :
+    "X[token]; X->U; U[letter]; U->U[6]",
+    "X[7];" :
+    "X[token]; X->U; U[letter]; U->U[7]",
+    "X[8];" :
+    "X[token]; X->U; U[letter]; U->U[8]",
+    "X[9];" :
+    "X[token]; X->U; U[letter]; U->U[9]",
+    "X[A];" :
+    "X[token]; X->U; U[letter]; U->U[A]",
+    "X[B];" :
+    "X[token]; X->U; U[letter]; U->U[B]",
+    "X[C];" :
+    "X[token]; X->U; U[letter]; U->U[C]",
+    "X[D];" :
+    "X[token]; X->U; U[letter]; U->U[D]",
+    "X[E];" :
+    "X[token]; X->U; U[letter]; U->U[E]",
+    "X[F];" :
+    "X[token]; X->U; U[letter]; U->U[F]",
+    "X[G];" :
+    "X[token]; X->U; U[letter]; U->U[G]",
+    "X[H];" :
+    "X[token]; X->U; U[letter]; U->U[H]",
+    "X[I];" :
+    "X[token]; X->U; U[letter]; U->U[I]",
+    "X[J];" :
+    "X[token]; X->U; U[letter]; U->U[J]",
+    "X[K];" :
+    "X[token]; X->U; U[letter]; U->U[K]",
+    "X[L];" :
+    "X[token]; X->U; U[letter]; U->U[L]",
+    "X[M];" :
+    "X[token]; X->U; U[letter]; U->U[M]",
+    "X[N];" :
+    "X[token]; X->U; U[letter]; U->U[N]",
+    "X[O];" :
+    "X[token]; X->U; U[letter]; U->U[O]",
+    "X[P];" :
+    "X[token]; X->U; U[letter]; U->U[P]",
+    "X[Q];" :
+    "X[token]; X->U; U[letter]; U->U[Q]",
+    "X[R];" :
+    "X[token]; X->U; U[letter]; U->U[R]",
+    "X[S];" :
+    "X[token]; X->U; U[letter]; U->U[S]",
+    "X[T];" :
+    "X[token]; X->U; U[letter]; U->U[T]",
+    "X[U];" :
+    "X[token]; X->U; U[letter]; U->U[U]",
+    "X[V];" :
+    "X[token]; X->U; U[letter]; U->U[V]",
+    "X[W];" :
+    "X[token]; X->U; U[letter]; U->U[W]",
+    "X[X];" :
+    "X[token]; X->U; U[letter]; U->U[X]",
+    "X[Y];" :
+    "X[token]; X->U; U[letter]; U->U[Y]",
+    "X[Z];" :
+    "X[token]; X->U; U[letter]; U->U[Z]",
+    
+    "COMMENT[this rule depends on DPO semantics to not fire early]" : "",
+    
+    "L1->L2->L3 [next_line]; L1[line]; L2[line]; L3[line]" :
+    "L1->L3 [next_line]; L1[line]; L3[line]",
+
+    "L1->L2->L3 [next_line]; L1[input]; L2[line]; L3[line]; L4[end_of_input]; L3->L4 [end_of_line]" :
+    "",
+
+    "COMMENT[example looks like 1:1 or 3:1, real puzzle is 3:3]" : "",
+
+    "A[token]; B[)]; C[token]; LINE[line]; LINE->A->B->C [next_char]; C->LINE [end_of_line];" :
+    "LINE[line]; X[body]; Y[body]; Y->X [orbits]; X->A [p1]; Y->B [p1]; A[token]; C[token]",
+
+    "A1[token]; A2[token]; A3[token]; B[)]; C[token]; LINE[line]; LINE->A1->A2->A3->B->C [next_char]; C->LINE [end_of_line];" :
+    "LINE[line]; X[body]; Y[body]; Y->X [orbits]; X->A1 [p1]; X->A2 [p2]; X->A3[p3]; Y->C [p1]; A1[token]; A2[token]; A3[token]; C[token]",
+    
+    "A1[token]; A2[token]; A3[token]; B[)]; C1[token]; C2[token]; C3[token]; LINE[line]; LINE->A1->A2->A3->B->C1->C2->C3 [next_char]; C3->LINE [end_of_line];" :
+    "LINE[line]; X[body]; Y[body]; Y->X [orbits]; X->A1 [p1]; X->A2 [p2]; X->A3[p3]; Y->C1 [p1]; Y->C2 [p2]; Y->C3 [p3]; A1[token]; A2[token]; A3[token]; C1[token]; C2[token]; C3[token];"
+    
+}

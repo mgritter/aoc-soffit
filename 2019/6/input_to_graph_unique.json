@@ -1,0 +1,108 @@
+{
+    "version" : "0.1",
+
+    "start" : "UNIQUE[unique]; T0[letter]; T0->UNIQUE [0]; T1[letter]; T1->UNIQUE [1]; T2[letter]; T2->UNIQUE [2]; T3[letter]; T3->UNIQUE [3]; T4[letter]; T4->UNIQUE [4]; T5[letter]; T5->UNIQUE [5]; T6[letter]; T6->UNIQUE [6]; T7[letter]; T7->UNIQUE [7]; T8[letter]; T8->UNIQUE [8]; T9[letter]; T9->UNIQUE [9]; TA[letter]; TA->UNIQUE [A]; TB[letter]; TB->UNIQUE [B]; TC[letter]; TC->UNIQUE [C]; TD[letter]; TD->UNIQUE [D]; TE[letter]; TE->UNIQUE [E]; TF[letter]; TF->UNIQUE [F]; TG[letter]; TG->UNIQUE [G]; TH[letter]; TH->UNIQUE [H]; TI[letter]; TI->UNIQUE [I]; TJ[letter]; TJ->UNIQUE [J]; TK[letter]; TK->UNIQUE [K]; TL[letter]; TL->UNIQUE [L]; TM[letter]; TM->UNIQUE [M]; TN[letter]; TN->UNIQUE [N]; TO[letter]; TO->UNIQUE [O]; TP[letter]; TP->UNIQUE [P]; TQ[letter]; TQ->UNIQUE [Q]; TR[letter]; TR->UNIQUE [R]; TS[letter]; TS->UNIQUE [S]; TT[letter]; TT->UNIQUE [T]; TU[letter]; TU->UNIQUE [U]; TV[letter]; TV->UNIQUE [V]; TW[letter]; TW->UNIQUE [W]; TX[letter]; TX->UNIQUE [X]; TY[letter]; TY->UNIQUE [Y]; TZ[letter]; TZ->UNIQUE [Z]",
+    
+    "X[0]; U[letter]; UNIQUE[unique]; U->UNIQUE[0]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[0]",
+    "X[1]; U[letter]; UNIQUE[unique]; U->UNIQUE[1]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[1]",
+    "X[2]; U[letter]; UNIQUE[unique]; U->UNIQUE[2]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[2]",
+    "X[3]; U[letter]; UNIQUE[unique]; U->UNIQUE[3]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[3]",
+    "X[4]; U[letter]; UNIQUE[unique]; U->UNIQUE[4]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[4]",
+    "X[5]; U[letter]; UNIQUE[unique]; U->UNIQUE[5]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[5]",
+    "X[6]; U[letter]; UNIQUE[unique]; U->UNIQUE[6]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[6]",
+    "X[7]; U[letter]; UNIQUE[unique]; U->UNIQUE[7]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[7]",
+    "X[8]; U[letter]; UNIQUE[unique]; U->UNIQUE[8]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[8]",
+    "X[9]; U[letter]; UNIQUE[unique]; U->UNIQUE[9]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[9]",
+    "X[A]; U[letter]; UNIQUE[unique]; U->UNIQUE[A]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[A]",
+    "X[B]; U[letter]; UNIQUE[unique]; U->UNIQUE[B]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[B]",
+    "X[C]; U[letter]; UNIQUE[unique]; U->UNIQUE[C]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[C]",
+    "X[D]; U[letter]; UNIQUE[unique]; U->UNIQUE[D]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[D]",
+    "X[E]; U[letter]; UNIQUE[unique]; U->UNIQUE[E]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[E]",
+    "X[F]; U[letter]; UNIQUE[unique]; U->UNIQUE[F]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[F]",
+    "X[G]; U[letter]; UNIQUE[unique]; U->UNIQUE[G]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[G]",
+    "X[H]; U[letter]; UNIQUE[unique]; U->UNIQUE[H]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[H]",
+    "X[I]; U[letter]; UNIQUE[unique]; U->UNIQUE[I]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[I]",
+    "X[J]; U[letter]; UNIQUE[unique]; U->UNIQUE[J]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[J]",
+    "X[K]; U[letter]; UNIQUE[unique]; U->UNIQUE[K]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[K]",
+    "X[L]; U[letter]; UNIQUE[unique]; U->UNIQUE[L]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[L]",
+    "X[M]; U[letter]; UNIQUE[unique]; U->UNIQUE[M]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[M]",
+    "X[N]; U[letter]; UNIQUE[unique]; U->UNIQUE[N]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[N]",
+    "X[O]; U[letter]; UNIQUE[unique]; U->UNIQUE[O]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[O]",
+    "X[P]; U[letter]; UNIQUE[unique]; U->UNIQUE[P]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[P]",
+    "X[Q]; U[letter]; UNIQUE[unique]; U->UNIQUE[Q]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[Q]",
+    "X[R]; U[letter]; UNIQUE[unique]; U->UNIQUE[R]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[R]",
+    "X[S]; U[letter]; UNIQUE[unique]; U->UNIQUE[S]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[S]",
+    "X[T]; U[letter]; UNIQUE[unique]; U->UNIQUE[T]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[T]",
+    "X[U]; U[letter]; UNIQUE[unique]; U->UNIQUE[U]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[U]",
+    "X[V]; U[letter]; UNIQUE[unique]; U->UNIQUE[V]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[V]",
+    "X[W]; U[letter]; UNIQUE[unique]; U->UNIQUE[W]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[W]",
+    "X[X]; U[letter]; UNIQUE[unique]; U->UNIQUE[X]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[X]",
+    "X[Y]; U[letter]; UNIQUE[unique]; U->UNIQUE[Y]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[Y]",
+    "X[Z]; U[letter]; UNIQUE[unique]; U->UNIQUE[Z]" :
+    "X[token]; X->U; U[letter]; UNIQUE[unique]; U->UNIQUE[Z]",
+
+    "COMMENT[this rule depends on DPO semantics to not fire early]" : "",
+    
+    "L1->L2->L3 [next_line]; L1[line]; L2[line]; L3[line]" :
+    "L1->L3 [next_line]; L1[line]; L3[line]",
+
+    "L1->L2->L3 [next_line]; L1[input]; L2[line]; L3[line]; L4[end_of_input]; L3->L4 [end_of_line]" :
+    "",
+
+    "COMMENT[example looks like 1:1 or 3:1, real puzzle is 3:3]" : "",
+
+    "A[token]; B[)]; C[token]; LINE[line]; LINE->A->B->C [next_char]; C->LINE [end_of_line]; A->AA; AA[letter]; C->CC; CC[letter]" :
+    "LINE[line]; X[body]; Y[body]; Y->X [orbits]; X->AA [p1]; Y->CC [p1]; AA[letter]; CC[letter]",
+
+    "A1[token]; A2[token]; A3[token]; B[)]; C[token]; LINE[line]; LINE->A1->A2->A3->B->C [next_char]; C->LINE [end_of_line]; A1->UA1; A2->UA2; A3->UA3; UA1[letter]; UA2[letter]; UA3[letter]; C->CC; CC[letter]" :
+    "LINE[line]; X[body]; Y[body]; Y->X [orbits]; X->UA1 [p1]; X->UA2 [p2]; X->UA3[p3]; Y->CC [p1]; UA1[letter]; UA2[letter]; UA3[letter]; CC[letter]",
+    
+    "COMMENT[Injective mappings mean that all of UA? and UC? must be distinct.]" : "",
+
+    "A1[token]; A2[token]; A3[token]; B[)]; C1[token]; C2[token]; C3[token]; LINE[line]; LINE->A1->A2->A3->B->C1->C2->C3 [next_char]; C3->LINE [end_of_line]; A1->UA1; A2->UA2; A3->UA3; UA1[letter]; UA2[letter]; UA3[letter]; C1->UC1; C2->UC2; C3->UC3; UC1[letter]; UC2[letter]; UC3[letter]" : 
+    "LINE[line]; X[body]; Y[body]; Y->X [orbits]; X->UA1 [p1]; X->UA2 [p2]; X->UA3[p3]; Y->UC1[p1]; Y->UC2[p2]; Y->UC3[p3]; UA1[letter]; UA2[letter]; UA3[letter]; UC1[letter]; UC2[letter]; UC3[letter]",
+
+    "COMMENT[3:3 injective matching]" : "",
+
+    "B1[body]; B1->LETTER1[p1]; B1->LETTER2[p2]; B1->LETTER3[p3]; B2[body]; B2->LETTER1 [p1]; B2->LETTER2 [p2]; B2->LETTER3 [p3]; LETTER1[letter]; LETTER2[letter]; LETTER3[letter];" :
+    "B1^B2[body]; B2->LETTER1 [p1]; B2->LETTER2 [p2]; B2->LETTER3 [p3]; LETTER1[letter]; LETTER2[letter]; LETTER3[letter];",
+    
+    "COMMENT[end of file]" : ""
+
+
+}

@@ -1,0 +1,51 @@
+{
+    "version" : "0.1",
+
+    "ROOT[root];" :
+    "ROOT[s_root]; OUTPUT[output]; OUTPUT->LINE [output]; LINE [line]; END[(end)]; LINE->END[next_char]",
+
+    "BODY[body];" :
+    "BODY[s_body]; COUNTER[counter]; COUNTER->BODY [pos]",
+
+    "COUNTER[counter]; COUNTER->BODY1[pos]; BODY1[s_body]; BODY2[s_body]; BODY1->BODY2[orbits]; END[(end)]" :
+    "COUNTER[counter]; COUNTER->BODY2[pos]; BODY1[s_body]; BODY2[s_body]; BODY1->BODY2[orbits]; END[+1]; NEWEND[(end)]; END->NEWEND [next_char]",
+    
+    "A[+1]; B[+1]; C[+1]; D[+1]; E[+1]; F[+1]; G[+1]; H[+1]; I[+1]; J[+1]; A->B->C->D->E->F->G->H->I->J [next_char]" :
+    "A^J[+10]",
+
+    "A[+10]; B[+10]; C[+10]; D[+10]; E[+10]; F[+10]; G[+10]; H[+10]; I[+10]; J[+10]; A->B->C->D->E->F->G->H->I->J [next_char]" :
+    "A^J[+100]",
+    
+    "A[+100]; B[+100]; C[+100]; D[+100]; E[+100]; F[+100]; G[+100]; H[+100]; I[+100]; J[+100]; A->B->C->D->E->F->G->H->I->J [next_char]" :
+    "A^J[+1000]",
+    
+    "A[+1000]; B[+1000]; C[+1000]; D[+1000]; E[+1000]; F[+1000]; G[+1000]; H[+1000]; I[+1000]; J[+1000]; A->B->C->D->E->F->G->H->I->J [next_char]" :
+    "A^J[+10000]",
+    
+    "A[+10000]; B[+10000]; C[+10000]; D[+10000]; E[+10000]; F[+10000]; G[+10000]; H[+10000]; I[+10000]; J[+10000]; A->B->C->D->E->F->G->H->I->J [next_char]" :
+    "A^J[+100000]",
+
+    "A[+1]; B[+10]; A->B [next_char]" : 
+    "A[+10]; B[+1]; A->B [next_char]",
+    "A[+1]; B[+100]; A->B [next_char]" : 
+    "A[+100]; B[+1]; A->B [next_char]",
+    "A[+1]; B[+1000]; A->B [next_char]" : 
+    "A[+1000]; B[+1]; A->B [next_char]",
+    "A[+1]; B[+10000]; A->B [next_char]" : 
+    "A[+10000]; B[+1]; A->B [next_char]",
+
+    "A[+10]; B[+100]; A->B [next_char]" : 
+    "A[+100]; B[+10]; A->B [next_char]",
+    "A[+10]; B[+1000]; A->B [next_char]" : 
+    "A[+1000]; B[+10]; A->B [next_char]",
+    "A[+10]; B[+10000]; A->B [next_char]" : 
+    "A[+10000]; B[+10]; A->B [next_char]",
+    
+    "A[+100]; B[+1000]; A->B [next_char]" : 
+    "A[+1000]; B[+100]; A->B [next_char]",
+    "A[+100]; B[+10000]; A->B [next_char]" : 
+    "A[+10000]; B[+100]; A->B [next_char]",
+    
+    "A[+1000]; B[+10000]; A->B [next_char]" : 
+    "A[+10000]; B[+1000]; A->B [next_char]"
+}

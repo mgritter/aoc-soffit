@@ -1,0 +1,262 @@
+{
+    "version" : "0.1",
+
+    "COMMENT[cleanup rules depend on DPO semantics to not fire early]" : "",
+    
+    "L1->L2->L3 [next_line]; L1[line]; L2[line]; L3[line]" :
+    "L1->L3 [next_line]; L1[line]; L3[line]",
+
+    "L1->L2->L3 [next_line]; L1[input]; L2[line]; L3[line]; L4[end_of_input]; L3->L4 [end_of_input]" :
+    "",
+    
+    "COMMENT[example looks like 1:1 or 3:1, real puzzle is 3:3]" : "",
+    
+    "A1[token]; A2[token]; A3[token]; B[)]; C1[token]; C2[token]; C3[token]; LINE[line]; LINE->A1->A2->A3->B->C1->C2->C3 [next_char]; C3->LINE [end_of_line];" :
+    "LINE[line]; X[body_orig]; Y[body_orig]; Y->X [orbits]; X->A1 [p1]; X->A2 [p2]; X->A3[p3]; Y->C1 [p1]; Y->C2 [p2]; Y->C3 [p3]; A1[token]; A2[token]; A3[token]; C1[token]; C2[token]; C3[token];",
+
+    "BODY[body_orig]; ROOT[root]; ROOT->NODE; NODE[node]" :
+    "BODY[body_insert_p1]; ROOT[root]; ROOT->NODE; NODE[node]; BODY->NODE [tree_pos]",
+
+    "BODY[body_insert_p1]; NODE[node]; BODY->TOKEN [p1]; TOKEN[token]; BODY->NODE [tree_pos]" :
+    "BODY[body_insert_p2]; NODE[node]; BODY->TOKEN [p1]; TOKEN[token]; BODY->NEWNODE [tree_pos]; NODE->NEWNODE [unlabeled]; NEWNODE[node]; NEWNODE->TOKEN [label]",
+
+    "BODY[body_insert_p2]; NODE[node]; BODY->TOKEN [p2]; TOKEN[token]; BODY->NODE [tree_pos]" :
+    "BODY[body_insert_p3]; NODE[node]; BODY->TOKEN [p2]; TOKEN[token]; BODY->NEWNODE [tree_pos]; NODE->NEWNODE [unlabeled]; NEWNODE[node]; NEWNODE->TOKEN [label]",
+
+    "BODY[body_insert_p3]; NODE[node]; BODY->TOKEN [p3]; TOKEN[token]; BODY->NODE [tree_pos]" :
+    "BODY[body];           NODE[node]; BODY->TOKEN [p3]; TOKEN[token];                           NODE->NEWNODE [unlabeled]; NEWNODE[node]; NEWNODE->TOKEN [label]; NEWNODE->BODY [name]",
+
+    "COMMENT[label an unlabeled tree node]" : "",
+    
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [0] " :
+    "PARENT[node]; PARENT->NODE [0];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [0] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [1] " :
+    "PARENT[node]; PARENT->NODE [1];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [1] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [2] " :
+    "PARENT[node]; PARENT->NODE [2];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [2] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [3] " :
+    "PARENT[node]; PARENT->NODE [3];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [3] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [4] " :
+    "PARENT[node]; PARENT->NODE [4];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [4] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [5] " :
+    "PARENT[node]; PARENT->NODE [5];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [5] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [6] " :
+    "PARENT[node]; PARENT->NODE [6];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [6] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [7] " :
+    "PARENT[node]; PARENT->NODE [7];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [7] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [8] " :
+    "PARENT[node]; PARENT->NODE [8];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [8] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [9] " :
+    "PARENT[node]; PARENT->NODE [9];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [9] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [A] " :
+    "PARENT[node]; PARENT->NODE [A];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [A] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [B] " :
+    "PARENT[node]; PARENT->NODE [B];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [B] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [C] " :
+    "PARENT[node]; PARENT->NODE [C];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [C] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [D] " :
+    "PARENT[node]; PARENT->NODE [D];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [D] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [E] " :
+    "PARENT[node]; PARENT->NODE [E];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [E] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [F] " :
+    "PARENT[node]; PARENT->NODE [F];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [F] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [G] " :
+    "PARENT[node]; PARENT->NODE [G];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [G] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [H] " :
+    "PARENT[node]; PARENT->NODE [H];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [H] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [I] " :
+    "PARENT[node]; PARENT->NODE [I];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [I] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [J] " :
+    "PARENT[node]; PARENT->NODE [J];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [J] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [K] " :
+    "PARENT[node]; PARENT->NODE [K];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [K] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [L] " :
+    "PARENT[node]; PARENT->NODE [L];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [L] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [M] " :
+    "PARENT[node]; PARENT->NODE [M];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [M] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [N] " :
+    "PARENT[node]; PARENT->NODE [N];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [N] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [O] " :
+    "PARENT[node]; PARENT->NODE [O];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [O] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [P] " :
+    "PARENT[node]; PARENT->NODE [P];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [P] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [Q] " :
+    "PARENT[node]; PARENT->NODE [Q];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [Q] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [R] " :
+    "PARENT[node]; PARENT->NODE [R];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [R] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [S] " :
+    "PARENT[node]; PARENT->NODE [S];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [S] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [T] " :
+    "PARENT[node]; PARENT->NODE [T];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [T] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [U] " :
+    "PARENT[node]; PARENT->NODE [U];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [U] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [V] " :
+    "PARENT[node]; PARENT->NODE [V];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [V] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [W] " :
+    "PARENT[node]; PARENT->NODE [W];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [W] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [X] " :
+    "PARENT[node]; PARENT->NODE [X];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [X] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [Y] " :
+    "PARENT[node]; PARENT->NODE [Y];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [Y] ",
+    "PARENT[node]; PARENT->NODE [unlabeled]; NODE[node]; NODE->TOKEN [label]; TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [Z] " :
+    "PARENT[node]; PARENT->NODE [Z];         NODE[node];                      TOKEN[token]; TOKEN->LETTER; LETTER[letter]; LETTER->LETTER [Z] ",
+
+    "COMMENT[merge two children with the same label!]" : "",
+
+    "PARENT[node]; PARENT->NODE1 [0]; NODE1[node]; PARENT->NODE2[0]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [0]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [1]; NODE1[node]; PARENT->NODE2[1]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [1]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [2]; NODE1[node]; PARENT->NODE2[2]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [2]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [3]; NODE1[node]; PARENT->NODE2[3]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [3]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [4]; NODE1[node]; PARENT->NODE2[4]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [4]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [5]; NODE1[node]; PARENT->NODE2[5]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [5]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [6]; NODE1[node]; PARENT->NODE2[6]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [6]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [7]; NODE1[node]; PARENT->NODE2[7]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [7]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [8]; NODE1[node]; PARENT->NODE2[8]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [8]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [9]; NODE1[node]; PARENT->NODE2[9]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [9]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [A]; NODE1[node]; PARENT->NODE2[A]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [A]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [B]; NODE1[node]; PARENT->NODE2[B]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [B]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [C]; NODE1[node]; PARENT->NODE2[C]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [C]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [D]; NODE1[node]; PARENT->NODE2[D]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [D]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [E]; NODE1[node]; PARENT->NODE2[E]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [E]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [F]; NODE1[node]; PARENT->NODE2[F]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [F]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [G]; NODE1[node]; PARENT->NODE2[G]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [G]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [H]; NODE1[node]; PARENT->NODE2[H]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [H]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [I]; NODE1[node]; PARENT->NODE2[I]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [I]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [J]; NODE1[node]; PARENT->NODE2[J]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [J]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [K]; NODE1[node]; PARENT->NODE2[K]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [K]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [L]; NODE1[node]; PARENT->NODE2[L]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [L]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [M]; NODE1[node]; PARENT->NODE2[M]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [M]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [N]; NODE1[node]; PARENT->NODE2[N]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [N]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [O]; NODE1[node]; PARENT->NODE2[O]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [O]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [P]; NODE1[node]; PARENT->NODE2[P]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [P]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [Q]; NODE1[node]; PARENT->NODE2[Q]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [Q]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [R]; NODE1[node]; PARENT->NODE2[R]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [R]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [S]; NODE1[node]; PARENT->NODE2[S]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [S]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [T]; NODE1[node]; PARENT->NODE2[T]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [T]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [U]; NODE1[node]; PARENT->NODE2[U]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [U]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [V]; NODE1[node]; PARENT->NODE2[V]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [V]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [W]; NODE1[node]; PARENT->NODE2[W]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [W]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [X]; NODE1[node]; PARENT->NODE2[X]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [X]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [Y]; NODE1[node]; PARENT->NODE2[Y]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [Y]; NODE1^NODE2[node];",
+    "PARENT[node]; PARENT->NODE1 [Z]; NODE1[node]; PARENT->NODE2[Z]; NODE2[node];" :
+    "PARENT[node]; PARENT->NODE1 [Z]; NODE1^NODE2[node];",
+
+    "COMMENT[merge two bodies with the same name]" : "",
+
+    "PARENT[node]; BODY1 [body]; BODY2 [body]; BODY1<-PARENT->BODY2 [name]; BODY1->A [p1]; BODY1->B [p2]; BODY1->C [p3]; BODY2->D [p1]; BODY2->E [p2]; BODY2->F [p3]; A[token]; B[token]; C[token]; D[token]; E[token]; F[token]" :
+    "PARENT[node]; BODY1^BODY2 [body]; PARENT->BODY1 [name];                BODY1->A [p1]; BODY1->B [p2]; BODY1->C [p3];                                              A^D[token]; B^E[token]; C^F[token];",
+    
+    "COMMENT[cleanup doubled letters from merge]" : "",
+    
+    "X[token]; X->L1; L1[letter]; L1->L1[0]; X->L2; L2[letter]; L2->L2[0]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[0];",
+    "X[token]; X->L1; L1[letter]; L1->L1[1]; X->L2; L2[letter]; L2->L2[1]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[1];",
+    "X[token]; X->L1; L1[letter]; L1->L1[2]; X->L2; L2[letter]; L2->L2[2]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[2];",
+    "X[token]; X->L1; L1[letter]; L1->L1[3]; X->L2; L2[letter]; L2->L2[3]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[3];",
+    "X[token]; X->L1; L1[letter]; L1->L1[4]; X->L2; L2[letter]; L2->L2[4]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[4];",
+    "X[token]; X->L1; L1[letter]; L1->L1[5]; X->L2; L2[letter]; L2->L2[5]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[5];",
+    "X[token]; X->L1; L1[letter]; L1->L1[6]; X->L2; L2[letter]; L2->L2[6]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[6];",
+    "X[token]; X->L1; L1[letter]; L1->L1[7]; X->L2; L2[letter]; L2->L2[7]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[7];",
+    "X[token]; X->L1; L1[letter]; L1->L1[8]; X->L2; L2[letter]; L2->L2[8]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[8];",
+    "X[token]; X->L1; L1[letter]; L1->L1[9]; X->L2; L2[letter]; L2->L2[9]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[9];",
+    "X[token]; X->L1; L1[letter]; L1->L1[A]; X->L2; L2[letter]; L2->L2[A]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[A];",
+    "X[token]; X->L1; L1[letter]; L1->L1[B]; X->L2; L2[letter]; L2->L2[B]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[B];",
+    "X[token]; X->L1; L1[letter]; L1->L1[C]; X->L2; L2[letter]; L2->L2[C]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[C];",
+    "X[token]; X->L1; L1[letter]; L1->L1[D]; X->L2; L2[letter]; L2->L2[D]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[D];",
+    "X[token]; X->L1; L1[letter]; L1->L1[E]; X->L2; L2[letter]; L2->L2[E]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[E];",
+    "X[token]; X->L1; L1[letter]; L1->L1[F]; X->L2; L2[letter]; L2->L2[F]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[F];",
+    "X[token]; X->L1; L1[letter]; L1->L1[G]; X->L2; L2[letter]; L2->L2[G]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[G];",
+    "X[token]; X->L1; L1[letter]; L1->L1[H]; X->L2; L2[letter]; L2->L2[H]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[H];",
+    "X[token]; X->L1; L1[letter]; L1->L1[I]; X->L2; L2[letter]; L2->L2[I]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[I];",
+    "X[token]; X->L1; L1[letter]; L1->L1[J]; X->L2; L2[letter]; L2->L2[J]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[J];",
+    "X[token]; X->L1; L1[letter]; L1->L1[K]; X->L2; L2[letter]; L2->L2[K]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[K];",
+    "X[token]; X->L1; L1[letter]; L1->L1[L]; X->L2; L2[letter]; L2->L2[L]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[L];",
+    "X[token]; X->L1; L1[letter]; L1->L1[M]; X->L2; L2[letter]; L2->L2[M]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[M];",
+    "X[token]; X->L1; L1[letter]; L1->L1[N]; X->L2; L2[letter]; L2->L2[N]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[N];",
+    "X[token]; X->L1; L1[letter]; L1->L1[O]; X->L2; L2[letter]; L2->L2[O]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[O];",
+    "X[token]; X->L1; L1[letter]; L1->L1[P]; X->L2; L2[letter]; L2->L2[P]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[P];",
+    "X[token]; X->L1; L1[letter]; L1->L1[Q]; X->L2; L2[letter]; L2->L2[Q]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[Q];",
+    "X[token]; X->L1; L1[letter]; L1->L1[R]; X->L2; L2[letter]; L2->L2[R]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[R];",
+    "X[token]; X->L1; L1[letter]; L1->L1[S]; X->L2; L2[letter]; L2->L2[S]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[S];",
+    "X[token]; X->L1; L1[letter]; L1->L1[T]; X->L2; L2[letter]; L2->L2[T]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[T];",
+    "X[token]; X->L1; L1[letter]; L1->L1[U]; X->L2; L2[letter]; L2->L2[U]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[U];",
+    "X[token]; X->L1; L1[letter]; L1->L1[V]; X->L2; L2[letter]; L2->L2[V]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[V];",
+    "X[token]; X->L1; L1[letter]; L1->L1[W]; X->L2; L2[letter]; L2->L2[W]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[W];",
+    "X[token]; X->L1; L1[letter]; L1->L1[X]; X->L2; L2[letter]; L2->L2[X]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[X];",
+    "X[token]; X->L1; L1[letter]; L1->L1[Y]; X->L2; L2[letter]; L2->L2[Y]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[Y];",
+    "X[token]; X->L1; L1[letter]; L1->L1[Z]; X->L2; L2[letter]; L2->L2[Z]" :
+    "X[token]; X->L1; L1^L2[letter]; L1->L1[Z];",
+
+    "COMMENT[end of rules]" : ""
+
+
+}
